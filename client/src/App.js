@@ -4,10 +4,11 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
 // import { StoreProvider } from "./utils/GlobalState";
+import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
 
 const client = new ApolloClient({
 	request: (operation) => {
-		// we'll need the logic for setting id_token -- related to auth, both in client and server
 		const token = localStorage.getItem("id_token");
 		operation.setContext({
 			headers: {
@@ -22,13 +23,14 @@ function App() {
 	return (
 		<ApolloProvider client={client}>
 			<Router>
-				<div>
-					It's working
+				<>
 					{/* <StoreProvider> */}
-					{/* <Nav /> */}
-					<Switch>{/* <Route exact path="/" component={Home} /> */}</Switch>
+					<Navbar />
+					<Switch>
+						<Route exact path="/" component={Login} />
+					</Switch>
 					{/* </StoreProvider> */}
-				</div>
+				</>
 			</Router>
 		</ApolloProvider>
 	);

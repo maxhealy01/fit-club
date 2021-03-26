@@ -1,0 +1,22 @@
+{
+	"name": "project_3",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"watch": "nodemon",
+		"start": "node server.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"apollo-server-express": "^2.22.0",
+		"bcrypt": "^5.0.1",
+		"express": "^4.17.1",
+		"graphql": "^15.5.0",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.12.2",
+		"nodemon": "^2.0.7"
+	}
+}

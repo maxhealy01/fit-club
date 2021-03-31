@@ -12,9 +12,9 @@ const AppNavbar = () => {
 	return (
 		<>
 			<header className="header">
-        <div className="header-top">
+            <div className="header-top">
             <div className="fit-title">
-                <h1><a href="#">FIT CLUB</a></h1>
+                <img src= {require ("../assets/images/logo2.png").default} />
             </div>
             <div className="navbar">
                 <ul>
@@ -33,7 +33,7 @@ const AppNavbar = () => {
                 </div>
             </div>
         </div>
-    </header>
+        </header>
     <div className="subheader">
     </div>
 		</>
@@ -41,3 +41,5 @@ const AppNavbar = () => {
 };
 
 export default AppNavbar;
+
+

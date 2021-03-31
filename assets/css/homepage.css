@@ -186,7 +186,7 @@ header .header-top .account button:focus {
 .cover-page .coverpage-wrapper {
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to left, rgba(245, 246, 252, 0.329), rgba(214, 40, 40, 0.3));
+  background-image: linear-gradient(to left, rgba(0, 48, 73, 0.4), rgba(245, 246, 252, 0.3), rgba(0, 48, 73, 0.4));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -232,7 +232,7 @@ header .header-top .account button:focus {
 }
 
 .cover-page .coverpage-wrapper .wrapper #formContent form .sign-input {
-  background-color: #f6f6f6;
+  background-color: rgba(246, 246, 246, 0.8);
   border: none;
   color: #0d0d0d;
   padding: 15px 32px;
@@ -248,11 +248,11 @@ header .header-top .account button:focus {
 }
 
 .cover-page .coverpage-wrapper .wrapper #formContent form .sign-input:focus {
-  border-bottom: 2px solid #5fbae9;
+  border-bottom: 2px solid #d62828;
 }
 
 .cover-page .coverpage-wrapper .wrapper #formContent form .login-btn {
-  background-color: #003049;
+  background-color: #a52020;
   width: 85%;
   border: none;
   font-size: 16px;
@@ -268,7 +268,7 @@ header .header-top .account button:focus {
 }
 
 .cover-page .coverpage-wrapper .wrapper #formContent form .login-btn:hover {
-  background-color: #016aa3;
+  background-color: #d62828;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 

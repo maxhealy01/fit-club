@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAaA,OAAO,CAAC,+EAAI;AAZZ,AAAA,CAAC,CAAA;EACG,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU;EACtB,WAAW,EAAE,kBAAkB;CAClC;;AAED,AAAA,IAAI,CAAA;EACA,gBAAgB,EAAE,OAAO;CAE5B;;AAMD,AAAA,MAAM,CAAA;EACF,KAAK,EAAE,OAAc;EACrB,KAAK,EAAE,OAAgB;EACvB,KAAK,EAAE,OAAgB;EACvB,KAAK,EAAE,OAAiB;EACxB,KAAK,EAAE,OAAkB;CAC5B",
     "sources": [
-        "../../front-end/sass/main.scss"
+        "../scss/app.scss"
     ],
     "names": [],
-    "file": "main.css"
+    "file": "app.css"
 }

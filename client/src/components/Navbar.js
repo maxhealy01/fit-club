@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import SignUpForm from "../pages/Signup";
 import LoginForm from "../pages/Login";
-
+import '../assets/scss/navbar.scss';
 import Auth from "../utils/auth";
 
 const AppNavbar = () => {
@@ -12,64 +11,31 @@ const AppNavbar = () => {
 
 	return (
 		<>
-			<Navbar bg="dark" variant="dark" expand="lg">
-				<Container fluid>
-					<Navbar.Brand as={Link} to="/">
-						Project 3
-					</Navbar.Brand>
-					<Navbar.Toggle aria-controls="navbar" />
-					<Navbar.Collapse id="navbar">
-						<Nav className="ml-auto">
-							<Nav.Link as={Link} to="/">
-								Do what thou wilst.
-							</Nav.Link>
-							{/* if user is logged in show saved books and logout */}
-							{Auth.loggedIn() ? (
-								<>
-									<Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-								</>
-							) : (
-								<Nav.Link onClick={() => setShowModal(true)}>
-									Login/Sign Up
-								</Nav.Link>
-							)}
-						</Nav>
-					</Navbar.Collapse>
-				</Container>
-			</Navbar>
-			{/* set modal data up */}
-			<Modal
-				size="lg"
-				show={showModal}
-				onHide={() => setShowModal(false)}
-				aria-labelledby="signup-modal"
-			>
-				{/* tab container to do either signup or login component */}
-				<Tab.Container defaultActiveKey="login">
-					<Modal.Header closeButton>
-						<Modal.Title id="signup-modal">
-							<Nav variant="pills">
-								<Nav.Item>
-									<Nav.Link eventKey="login">Login</Nav.Link>
-								</Nav.Item>
-								<Nav.Item>
-									<Nav.Link eventKey="signup">Sign Up</Nav.Link>
-								</Nav.Item>
-							</Nav>
-						</Modal.Title>
-					</Modal.Header>
-					<Modal.Body>
-						<Tab.Content>
-							<Tab.Pane eventKey="login">
-								<LoginForm handleModalClose={() => setShowModal(false)} />
-							</Tab.Pane>
-							<Tab.Pane eventKey="signup">
-								<SignUpForm handleModalClose={() => setShowModal(false)} />
-							</Tab.Pane>
-						</Tab.Content>
-					</Modal.Body>
-				</Tab.Container>
-			</Modal>
+			<header className="header">
+        <div className="header-top">
+            <div className="fit-title">
+                <h1><a href="#">FIT CLUB</a></h1>
+            </div>
+            <div className="navbar">
+                <ul>
+                    <li><a href="#">Class</a></li>
+                    <li><a href="#">Activity</a></li>
+                    <li><a href="#">Trainers</a></li>
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#">Info</a></li>
+                </ul>
+            </div>
+            <div className="account">
+                <div className="userInfo-btn">
+                    <a href="#"><i className="fas fa-user"></i>
+                    Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div className="subheader">
+    </div>
 		</>
 	);
 };

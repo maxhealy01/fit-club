@@ -1,6 +1,10 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
+const Goal = require("./Goal");
+const Activity = require("./Activity");
+const Meetup = require("./Meetup");
+
 const userSchema = new Schema(
 	{
 		username: {
@@ -18,11 +22,33 @@ const userSchema = new Schema(
 			type: String,
 			required: true,
 		},
+		city: {
+			type: String,
+			trim: true,
+		},
+		friends: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "User",
+			},
+		],
+		goals: [Goal.schema],
+		meetups: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Meetup",
+			},
+		],
+		activities: [Activity.schema],
+		isTrainer: {
+			type: Boolean,
+		},
 	},
 	// set this to use virtual below
 	{
 		toJSON: {
 			virtuals: true,
+			getters: true,
 		},
 	}
 );
@@ -41,6 +67,10 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
 	return bcrypt.compare(password, this.password);
 };
+
+userSchema.virtual("friendCount").get(function () {
+	return this.friends.length;
+});
 
 const User = model("User", userSchema);
 

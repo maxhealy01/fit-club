@@ -5,7 +5,8 @@ import ApolloClient from "apollo-boost";
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
 // import { StoreProvider } from "./utils/GlobalState";
 import Navbar from "./components/Navbar";
-import Login from "./pages/Login";
+import CoverPage from "./pages/CoverPage";
+// import Login from "./pages/Login";
 
 // import socket.io provider
 import { SocketProvider } from "./utils/SocketProvider"
@@ -33,7 +34,8 @@ function App() {
 					{/* <StoreProvider> */}
 					<Navbar />
 					<Switch>
-						<Route exact path="/" component={Login} />
+					<CoverPage />
+
 					</Switch>
 
 					{id ? 
@@ -43,6 +45,7 @@ function App() {
 						</div>
 					</SocketProvider> : ""
 					}
+
 					{/* </StoreProvider> */}
 				</>
 			</Router>

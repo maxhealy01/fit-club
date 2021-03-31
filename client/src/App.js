@@ -7,6 +7,12 @@ import ApolloClient from "apollo-boost";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 
+// import socket.io provider
+import { SocketProvider } from "./utils/SocketProvider"
+// create test id for chat server, eventually snag username from storeProvider
+const id = "testificate"
+
+
 const client = new ApolloClient({
 	request: (operation) => {
 		const token = localStorage.getItem("id_token");
@@ -29,6 +35,14 @@ function App() {
 					<Switch>
 						<Route exact path="/" component={Login} />
 					</Switch>
+
+					{id ? 
+					<SocketProvider id={id}>
+						<div>
+							<p>This will be the chat. we can put this provider inside a page once we decide where to put it</p>
+						</div>
+					</SocketProvider> : ""
+					}
 					{/* </StoreProvider> */}
 				</>
 			</Router>

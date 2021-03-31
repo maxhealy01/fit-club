@@ -30,7 +30,6 @@ const meetupSchema = new Schema(
 		activity: {
 			type: Schema.Types.ObjectId,
 			ref: "Activity",
-			required: true,
 		},
 		participants: [User.schema],
 		// If NO trainer, then this is treated as a meet-up.

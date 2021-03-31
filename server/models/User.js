@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const Goal = require("./Goal");
 const Activity = require("./Activity");
-const Class = require("./Class");
+const Meetup = require("./Meetup");
 
 const userSchema = new Schema(
 	{
@@ -33,10 +33,10 @@ const userSchema = new Schema(
 			},
 		],
 		goals: [Goal.schema],
-		classes: [
+		meetups: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: "Class",
+				ref: "Meetup",
 			},
 		],
 		activities: [Activity.schema],

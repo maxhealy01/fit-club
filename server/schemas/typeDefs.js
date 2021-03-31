@@ -63,6 +63,16 @@ const typeDefs = gql`
 		login(email: String!, password: String!): Auth
 		addUser(username: String!, email: String!, password: String!): Auth
 		updateUser(username: String, email: String, password: String): User
+		createActivity(name: String!, type: String!): Activity
+		postMeetup(
+			name: String!
+			location: String!
+			time: String!
+			duration: String!
+			equipment: String
+			activity: ID
+			trainer: ID
+		): Class
 	}
 `;
 

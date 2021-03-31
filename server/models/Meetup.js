@@ -1,14 +1,14 @@
 const { Schema, model } = require("mongoose");
 const User = require("./User");
 
-const classSchema = new Schema(
+const meetupSchema = new Schema(
 	{
 		name: {
 			type: String,
 			required: true,
 			trim: true,
 		},
-		// For classes, this might be a digital location
+		// For Meetupes, this might be a digital location
 		// For meetups, probably a physical location
 		location: {
 			type: String,
@@ -48,10 +48,10 @@ const classSchema = new Schema(
 	}
 );
 
-classSchema.virtual("classCount").get(function () {
+meetupSchema.virtual("meetupCount").get(function () {
 	return this.participants.length;
 });
 
-const Class = model("Class", classSchema);
+const Meetup = model("Meetup", meetupSchema);
 
-module.exports = Class;
+module.exports = Meetup;

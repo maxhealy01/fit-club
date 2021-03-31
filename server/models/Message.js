@@ -1,7 +1,7 @@
 //sent_id, received_id, message
 const { Schema, model } = require("mongoose");
 
-const messageSchema = newSchema({
+const messageSchema = new Schema({
 	message: {
 		type: String,
 		required: true,
@@ -19,6 +19,6 @@ const messageSchema = newSchema({
 	},
 });
 
-const Message = mongoose.model("Message", messageSchema);
+const Message = model("Message", messageSchema);
 
 module.exports = Message;

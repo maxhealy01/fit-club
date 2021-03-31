@@ -32,8 +32,13 @@ const userSchema = new Schema(
 				ref: "User",
 			},
 		],
-		goals: [Goal.Schema],
-		classes: [Class.schema],
+		goals: [Goal.schema],
+		classes: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Class",
+			},
+		],
 		activities: [Activity.schema],
 		isTrainer: {
 			type: Boolean,

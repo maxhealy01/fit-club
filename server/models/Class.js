@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const User = require("./User");
 
-const classSchema = newSchema(
+const classSchema = new Schema(
 	{
 		name: {
 			type: String,
@@ -16,7 +16,7 @@ const classSchema = newSchema(
 			required: true,
 		},
 		time: {
-			type: Date,
+			type: String,
 			required: true,
 		},
 		duration: {
@@ -52,6 +52,6 @@ classSchema.virtual("classCount").get(function () {
 	return this.participants.length;
 });
 
-const Class = mongoose.model("Class", classSchema);
+const Class = model("Class", classSchema);
 
 module.exports = Class;

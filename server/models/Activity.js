@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const activitySchema = newSchema({
+const activitySchema = new Schema({
 	name: {
 		type: String,
 		required: true,
@@ -13,6 +13,6 @@ const activitySchema = newSchema({
 	},
 });
 
-const Activity = mongoose.model("Activity", activitySchema);
+const Activity = model("Activity", activitySchema);
 
 module.exports = Activity;

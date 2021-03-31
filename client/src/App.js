@@ -5,6 +5,7 @@ import ApolloClient from "apollo-boost";
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
 // import { StoreProvider } from "./utils/GlobalState";
 import Navbar from "./components/Navbar";
+import ChatBox from "./components/ChatBox";
 import CoverPage from "./pages/CoverPage";
 // import Login from "./pages/Login";
 
@@ -27,6 +28,7 @@ function App() {
 				<>
 					{/* <StoreProvider> */}
 					<Navbar />
+					<ChatBox />
 					<CoverPage />
 
 					{/* </StoreProvider> */}

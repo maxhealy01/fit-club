@@ -14,17 +14,13 @@ header{
         align-items: center;
 
         .fit-title{
-            width: 15%;
+            // width: 15%;
             margin: 0 0 0 auto;
 
-            h1{
-                font-size: 22px;
-                letter-spacing: 1.5px;
-                font-family: 'Libre Baskerville', serif;
-                a{
-                    text-decoration: none;
-                    color: #d62828;
-                }
+            img{
+                width: 150px;
+                height: 60px;
+  
             }
         } 
 

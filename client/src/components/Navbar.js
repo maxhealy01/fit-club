@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+
 import '../assets/scss/navbar.scss';
 
-const AppNavbar = (props) => {
-	const tabs = ['Class', 'Trainers', 'My Profile', 'Info'];
-
+const AppNavbar = () => {
 	return (
 		<>
 			<header className="header">
@@ -18,14 +17,14 @@ const AppNavbar = (props) => {
                         <Link to={"/"}>Home</Link>
                     </li>
                     <li>
-                        <Link to={"/class"}>Class</Link>
+                        <Link to={"/Classes"}>Class</Link>
                     </li>
                     <li>
                         <Link to={"/Activity"}>Activity</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to={"/Trainers"}>Trainers</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to={"/MyProfile"}>My Profile</Link>
                     </li>
@@ -33,11 +32,11 @@ const AppNavbar = (props) => {
                         <Link to={"/Info"}>Info</Link>
                     </li>
                 </ul>
-                {/* <Switch>
+                <Switch>
                     <Route path="/class">
                         <class />
                     </Route>
-                    <Route path="/Activity">
+                    {/* <Route path="/Activity">
                         <Activity />
                     </Route>
                     <Route path="/Trainers">
@@ -48,8 +47,8 @@ const AppNavbar = (props) => {
                     </Route>
                     <Route path="/Info">
                         <Info />
-                    </Route>
-                </Switch> */}
+                    </Route> */}
+                </Switch>
             </div>
         </div>
         </header>

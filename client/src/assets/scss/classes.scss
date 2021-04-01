@@ -1,0 +1,67 @@
+// Variables
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Styles
+
+.class-page{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    .class-item{
+        width: 60%;
+        height: 30vh;
+        margin: 5vh auto;
+        // background-color: rgb(121, 121, 252);
+        @include flexCenter;
+        border-bottom: 1px solid rgb(148, 148, 148);
+
+        .class-photo{
+            width: 25%;
+            height: 100%;
+            margin: 0 auto 0 0;
+            background-image: url('../images/class1.jpg');
+            background-size: cover;
+            background-position: center;
+            ;
+        }
+
+        .class-description{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 75%;
+            height: 100%;
+            margin: 0 0 0 auto;
+
+
+            .class-name{
+                padding-left: 20px;
+                width: 100%;
+                height: 45%;
+                margin: 0 0 auto 0;
+
+                
+                ul{
+
+                    li{
+                        list-style: none;
+                    }
+                }
+            }
+            .class-detail{
+                padding-left: 20px;
+                width: 80%;
+                height: 55%;
+                margin: auto auto 0 0;
+
+            }
+        }
+    }
+
+}

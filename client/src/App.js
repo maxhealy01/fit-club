@@ -6,9 +6,12 @@ import ApolloClient from "apollo-boost";
 // import { StoreProvider } from "./utils/GlobalState";
 
 // Components/ pages
+import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import ChatBox from "./components/ChatBox";
 import CoverPage from "./pages/CoverPage";
+import Classes from "./pages/Classes";
+import Trainers from "./pages/Trainers";
 import Signup from "./pages/Signup";
 
 const client = new ApolloClient({
@@ -24,24 +27,36 @@ const client = new ApolloClient({
 });
 
 function App() {
+
+	const pages = ['home', 'Classes', 'Activity', 'Trainers', 'MyProfile', 'Info'];
+
+	const navLinks = pages.map(page => {
+		return (
+		  <a href={'/' + page}>
+			{page}
+		  </a>
+		)
+	  });
+
 	return (
 		<ApolloProvider client={client}>
 			<Router>
-				<Navbar />
+				<Navbar>{navLinks}</Navbar>
 				<div>
 					<Switch>
-						{/* <Route exact path="/" component={Home} /> */}
-						{/* <Route exact path="/Classes" component={Classes} /> */}
+						<Route exact path="/" component={Home} />
+						<Route exact path="/Classes" component={Classes} />
+						{/* <Route exact path="/Activity" component={Activity} /> */}
+						{/* <Route exact path="/Trainers" component={Trainers} /> */}
 						{/* <Route exact path="/MyProfile" component={MyProfile} /> */}
-						{/* <Route exact path="/MyProfile" component={MyProfile} /> */}
-						{/* <Route exact path="/signup" component={Signup} /> */}
-						
-						{/* <Route exact path="/profile" component={Profile} /> */}
+						{/* <Route exact path="/Info" component={Info} /> */}
+	
+
 					</Switch>
 				</div>
-					<Route exact path="/ChatBox" component={ChatBox} />
 					<CoverPage />
-					<Signup />
+					{/* <Signup /> */}
+					{/* <ChatBox /> */}
 			</Router>
 		</ApolloProvider>
 	);

@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SignUpForm from "../pages/Signup";
-import LoginForm from "../pages/Login";
 import '../assets/scss/navbar.scss';
-import Auth from "../utils/auth";
 
-const AppNavbar = () => {
-	// set modal display state
-	const [showModal, setShowModal] = useState(false);
+const AppNavbar = (props) => {
+	const tabs = ['Class', 'Trainers', 'My Profile', 'Info'];
 
 	return (
 		<>
@@ -18,19 +14,42 @@ const AppNavbar = () => {
             </div>
             <div className="navbar">
                 <ul>
-                    <li><a href="#">Class</a></li>
-                    <li><a href="#">Activity</a></li>
-                    <li><a href="#">Trainers</a></li>
-                    <li><a href="#">My Profile</a></li>
-                    <li><a href="#">Info</a></li>
+                    <li>
+                        <Link to={"/"}>Home</Link>
+                    </li>
+                    <li>
+                        <Link to={"/class"}>Class</Link>
+                    </li>
+                    <li>
+                        <Link to={"/Activity"}>Activity</Link>
+                    </li>
+                    <li>
+                        <Link to={"/Trainers"}>Trainers</Link>
+                    </li>
+                    <li>
+                        <Link to={"/MyProfile"}>My Profile</Link>
+                    </li>
+                    <li>
+                        <Link to={"/Info"}>Info</Link>
+                    </li>
                 </ul>
-            </div>
-            <div className="account">
-                <div className="userInfo-btn">
-                    <a href="#"><i className="fas fa-user"></i>
-                    Account
-                    </a>
-                </div>
+                {/* <Switch>
+                    <Route path="/class">
+                        <class />
+                    </Route>
+                    <Route path="/Activity">
+                        <Activity />
+                    </Route>
+                    <Route path="/Trainers">
+                        <Trainers />
+                    </Route>
+                    <Route path="/MyProfile">
+                        <MyProfile />
+                    </Route>
+                    <Route path="/Info">
+                        <Info />
+                    </Route>
+                </Switch> */}
             </div>
         </div>
         </header>

@@ -21,3 +21,18 @@ export const ADD_USER = gql`
 		}
 	}
 `;
+
+export const ADD_CONVERSATION = gql`
+	mutation addConversation($recipients: [ID], $text: String!) {
+		addConversation(recipients: $recipients, text: $text) {
+			token
+			user{
+				_id
+				conversations {
+					recipients
+					message
+				}
+			}
+		}
+	}
+`

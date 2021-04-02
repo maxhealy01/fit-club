@@ -3,23 +3,23 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
 	type Activity {
 		_id: ID
-		name: String!
-		type: String!
+		name: String
+		type: String
 	}
 	type Goal {
 		_id: ID
-		name: String!
-		metric: String!
+		name: String
+		metric: String
 	}
-	type Class {
+	type Meetup {
 		_id: ID
-		name: String!
+		name: String
 		location: String
-		time: String!
-		duration: String!
+		time: String
+		duration: String
 		equipment: String
-		activity: Activity!
-		participants: [User]!
+		activity: Activity
+		participants: [User]
 		trainer: User
 	}
 	type User {
@@ -29,25 +29,27 @@ const typeDefs = gql`
 		city: String
 		friends: [User]
 		goals: [Goal]
-		classes: [Class]
+		meetups: [Meetup]
 		activities: [Activity]
+		testimonials: [Testimonial]
 	}
 	type Testimonial {
-		postedBy: User!
-		text: String!
+		_id: ID
+		postedBy: User
+		text: String
 	}
 	type Workout {
-		name: String!
+		name: String
 		source: String
-		duration: String!
+		duration: String
 		equipment: String
 		activity: Activity
-		postedBy: User!
+		postedBy: User
 	}
 	type Message {
-		message: String!
-		sentBy: User!
-		receivedBy: User!
+		message: String
+		recipients: [User]
+
 	}
 	type Auth {
 		token: ID
@@ -57,12 +59,28 @@ const typeDefs = gql`
 	type Query {
 		user: User
 		me: User
+		activities: [Activity]
+		meetups: [Meetup]
+		testimonials: [Testimonial]
+		users: [User]
 	}
 
 	type Mutation {
 		login(email: String!, password: String!): Auth
 		addUser(username: String!, email: String!, password: String!): Auth
 		updateUser(username: String, email: String, password: String): User
+		createActivity(name: String!, type: String!): Activity
+		postMeetup(
+			name: String!
+			location: String!
+			time: String!
+			duration: String!
+			equipment: String
+			activity: ID
+			trainer: ID
+		): Meetup
+		postTestimonial(text: String!): Testimonial
+		createConversation(recipients: [ID], text: String!): User
 	}
 `;
 

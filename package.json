@@ -12,6 +12,8 @@
 		"if-env": "^1.0.4",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^5.12.2",
+		"node": "^15.12.0",
+		"node-sass": "^5.0.0",
 		"nodemon": "^2.0.7",
 		"sass": "^1.32.8"
 	},

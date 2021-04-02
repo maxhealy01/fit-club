@@ -4,7 +4,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
-// import { StoreProvider } from "./utils/GlobalState";
+import { StoreProvider } from "./utils/GlobalState";
 
 // pages
 import Home from "./pages/Home";
@@ -51,23 +51,25 @@ function App() {
 
 	return (
 		<ApolloProvider client={client}>
-			<Router>
-				<Navbar>{navLinks}</Navbar>
-				<div>
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route exact path="/Classes" component={Classes} />
-						<Route exact path="/Profile" component={Profile} />
-						<Route exact path="/Workout" component={Workout} />
-						<Route exact path="/Signup" component={Signup} />
-						
+      <StoreProvider>
+        <Router>
+          <Navbar>{navLinks}</Navbar>
+          <div>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/Classes" component={Classes} />
+              <Route exact path="/Profile" component={Profile} />
+              <Route exact path="/Workout" component={Workout} />
+              <Route exact path="/Signup" component={Signup} />
+              
 
-					</Switch>
-				</div>
-					{/* <CoverPage /> */}
-					{/* <Signup /> */}
-					{/* <ChatBox /> */}
-			</Router>
+            </Switch>
+          </div>
+            {/* <CoverPage /> */}
+            {/* <Signup /> */}
+            {/* <ChatBox /> */}
+        </Router>
+      </StoreProvider>
 		</ApolloProvider>
 	);
 }

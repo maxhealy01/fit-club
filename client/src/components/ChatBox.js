@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import "../assets/scss/chatbox.scss";
 import { useConversations } from "../utils/ConversationsProvider";
 
-const AppChatBox = () => {
+const ChatBox = () => {
   const [text, setText] = useState("");
   const setRef = useCallback((node) => {
     if (node) {
@@ -10,6 +10,16 @@ const AppChatBox = () => {
     }
   }, []);
   const { sendMessage, selectedConversation } = useConversations();
+
+  function handleSubmit(e) {
+    e.preventDefault()
+
+    sendMessage(
+      selectedConversation.recipients.map(r => r.id),
+      text
+    )
+    setText('')
+  }
 
 	return (
 		<>
@@ -34,5 +44,5 @@ const AppChatBox = () => {
 	);
 };
 
-export default AppChatBox;
+export default ChatBox;
 

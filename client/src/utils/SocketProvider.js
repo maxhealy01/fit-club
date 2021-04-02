@@ -7,7 +7,7 @@ export function useSocket() {
   return useContext(SocketContext)
 }
 
-export function SocketProvider({ id, childern }) {
+export function SocketProvider({ id, ...props }) {
   const [socket, setSocket] = useState();
 
   useEffect(() => {
@@ -23,8 +23,6 @@ export function SocketProvider({ id, childern }) {
   }, [id])
 
   return (
-    <SocketContext.Provider value={socket}>
-      {childern}
-    </SocketContext.Provider>
+    <SocketContext.Provider value={socket} {...props} />
   )
 }

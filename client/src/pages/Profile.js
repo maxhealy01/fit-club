@@ -1,10 +1,23 @@
-import React from 'react'
-import '../assets/scss/Profile.scss'
+import React from "react";
+import "../assets/scss/Profile.scss";
 
-function Profile () {
-    return(
-        <div>Profile</div>
-    )
+import ChatDashboard from "../components/ChatDashboard";
+import { ConversationsProvider } from "../utils/ConversationsProvider";
+
+import { SocketProvider } from "../utils/SocketProvider";
+
+const id = "testificate"
+
+function Profile() {
+  return (
+    <>
+      <SocketProvider id={id}>
+        <ConversationsProvider id={id}>
+          <ChatDashboard id={id} />
+        </ConversationsProvider>
+      </SocketProvider>
+    </>
+  );
 }
 
 export default Profile;

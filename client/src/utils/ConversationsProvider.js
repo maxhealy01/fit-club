@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useCallback } from 'react'
 import { useStoreContext } from './GlobalState';
-// import useLocalStorage from '../hooks/useLocalStorage';
+import { useMutation } from "@apollo/react-hooks";
 import { useSocket } from './SocketProvider';
 
 const ConversationsContext = React.createContext()
@@ -9,10 +9,13 @@ export function useConversations() {
   return useContext(ConversationsContext)
 }
 
-export function ConversationsProvider({ id, children }) {
-  const [conversations, setConversations] = useStoreContext()
+export function ConversationsProvider({ id, ...props }) {
+  const [state] = useStoreContext()
   const [selectedConversationIndex, setSelectedConversationIndex] = useState(0)
-  // const { contacts } = useContacts()
+  const { conversations } = state
+  
+  const setConversations = useMutation(ADD_CONVERSATION);
+
   const socket = useSocket()
 
   function createConversation(recipients) {
@@ -95,9 +98,7 @@ export function ConversationsProvider({ id, children }) {
   }
 
   return (
-    <ConversationsContext.Provider value={value}>
-      {children}
-    </ConversationsContext.Provider>
+    <ConversationsContext.Provider value={value}{...props} />
   )
 }
 

@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap");
+.homepage-top {
+  width: 100%;
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.homepage-top .home-header {
+  width: 100%;
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/homepage-header.jpg");
+}
+
+.homepage-top .home-header .header-grad {
+  width: 100%;
+  height: 80vh;
+  background-image: linear-gradient(to bottom, rgba(29, 41, 110, 0), rgba(0, 0, 0, 0.397));
+}
+
+.homepage-top .home-header .header-grad .welcoming-txt {
+  padding-top: 0;
+  padding-bottom: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  width: 60%;
+  margin: auto;
+}
+
+.homepage-top .home-header .header-grad .welcoming-txt h1 {
+  color: #fff;
+  font-size: 62px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: 'Hammersmith One', sans-serif;
+}
+
+.homepage-top .home-header .header-grad .welcoming-txt p {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 22px;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+.homepage-top .home-header .header-grad .welcoming-txt .btn {
+  margin-top: 3.6rem;
+}
+
+.homepage-top .home-header .header-grad .welcoming-txt .btn .linkToCourse {
+  text-decoration: none;
+  letter-spacing: -.01em;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 2rem;
+  line-height: 1.3333333333;
+  padding: 1rem 4rem;
+  color: #003049;
+  background-color: #fcbf49;
+}
+
+.homepage-top .home-header .header-grad .welcoming-txt .btn .linkToCourse:hover {
+  background-color: #f77f00;
+}
+
+.homepage-top .homepage-test .testimonial {
+  width: 60%;
+  min-height: 200px;
+  margin: -6rem auto 0 auto;
+  background-color: #e2e2e2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 60px;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px white, 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.homepage-top .homepage-test .testimonial i {
+  color: rgba(102, 102, 102, 0.671);
+}
+
+.homepage-top .homepage-test .testimonial blockquote {
+  font-style: italic;
+  color: #383838;
+}
+
+.homepage-top .Goal-Section {
+  width: 100%;
+  height: 60vh;
+}
+
+.homepage-top .Goal-Section .Goal-box {
+  width: 60%;
+  margin: 10vh auto 0;
+}
+
+.homepage-top .talk-to-trainer {
+  width: 100%;
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/talking.jpg");
+}
+/*# sourceMappingURL=Home.css.map */

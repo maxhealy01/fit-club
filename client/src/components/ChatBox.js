@@ -15,7 +15,7 @@ const ChatBox = () => {
     e.preventDefault()
 
     sendMessage(
-      selectedConversation.recipients.map(r => r.id),
+      selectedConversation.recipients.map(r => r._id),
       text
     )
     setText('')

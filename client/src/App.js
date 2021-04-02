@@ -5,8 +5,7 @@ import ApolloClient from "apollo-boost";
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
 // import { StoreProvider } from "./utils/GlobalState";
 import Navbar from "./components/Navbar";
-import CoverPage from "./pages/CoverPage";
-// import Login from "./pages/Login";
+import Login from "./pages/Login";
 
 const client = new ApolloClient({
 	request: (operation) => {
@@ -27,8 +26,9 @@ function App() {
 				<>
 					{/* <StoreProvider> */}
 					<Navbar />
-					<CoverPage />
-
+					<Switch>
+						<Route exact path="/" component={Login} />
+					</Switch>
 					{/* </StoreProvider> */}
 				</>
 			</Router>

@@ -1,39 +1,70 @@
-# Fit Club
+# Getting Started with Create React App
 
-# User Story
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-AS A person that part takes in physical fitness activities
+## Available Scripts
 
-I WANT to join a virtual fitness communitiy 
+In the project directory, you can run:
 
-SO THAT I can track my progress, find a trainer, or join activities with other members
+### `npm start`
 
-# Acceptance Criteria
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-GIVEN I sign up for the app
-WHEN I click the sign up button
-THEN I'm asked to input the activities I prefer, and if I'm looking for a trainer, goal setting, and/or
-find activities in my area
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-WHEN I submit my sign up form 
-THEN I see my profile with a goal dashboard that displays my progress, a news feed that displays activities 
-in my local area, and look at testimonies from other members
+### `npm test`
 
-WHEN I see my profile page
-THEN I can upload a picture and find friends in my area
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-WHEN I go through all the pages
-THEN I can choose a trainer to chat with
+### `npm run build`
 
-WHEN I click on activities in my area 
-THEN I can sign up for the activitiy/class or create an activity for people to view
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-WHEN I click on the testimony page
-THEN I can add my own testimony to the page and view other people's testimonies
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-# Future Development
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
--- add picture to the profile page and other stats that allows the user to document progress (like a workout journal)
--- find zoom meetings or virtual workouts hosted by trainers that align with my workout goals or prefrences 
--- read articles that can help me with my current workout plan
--- search for classes by trainer or member
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

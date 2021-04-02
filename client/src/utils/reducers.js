@@ -1,8 +1,6 @@
 import { useReducer } from "react";
 
-import {
-  UPDATE_CONVERSATIONS
-} from "./actions"
+import { UPDATE_CONVERSATIONS } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -10,10 +8,14 @@ export const reducer = (state, action) => {
       return {
         ...state,
         conversations: [...action.products],
-      }
+      };
     default:
       return {
-        state
-      }
+        state,
+      };
   }
+};
+
+export function useFitnessReducer(initialState) {
+  return useReducer(reducer, initialState);
 }

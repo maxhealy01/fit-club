@@ -32,6 +32,7 @@ const typeDefs = gql`
 		meetups: [Meetup]
 		activities: [Activity]
 		testimonials: [Testimonial]
+		messages: [Message]
 	}
 	type Testimonial {
 		_id: ID

@@ -5,6 +5,7 @@ const Goal = require("./Goal");
 const Activity = require("./Activity");
 <<<<<<< HEAD
 const Meetup = require("./Meetup");
+const Testimonial = require("./Testimonial");
 
 const userSchema = new Schema(
 	{
@@ -41,6 +42,7 @@ const userSchema = new Schema(
 			},
 		],
 		activities: [Activity.schema],
+		testimonials: [Testimonial.schema],
 		isTrainer: {
 			type: Boolean,
 		},

@@ -24,6 +24,18 @@ const resolvers = {
 			}
 			throw new AuthenticationError("Not logged in");
 		},
+		activities: async () => {
+			return await Activity.find();
+		},
+		meetups: async () => {
+			return await Meetup.find();
+		},
+		testimonials: async () => {
+			return await Testimonial.find();
+		},
+		users: async () => {
+			return await User.find();
+		},
 	},
 	Mutation: {
 		login: async (parent, { email, password }) => {
@@ -53,16 +65,35 @@ const resolvers = {
 			return activity;
 		},
 		postMeetup: async (parent, args) => {
-			const meetup = await Meetup;
+			const meetup = await Meetup.create(args);
 
 			return meetup;
 		},
+		postTestimonial: async (parent, { text }, context) => {
+			if (context.user) {
+				const testimonial = await Testimonial.create({
+					postedBy: context.user,
+					text,
+				});
+
+				await User.findByIdAndUpdate(
+					{ _id: context.user._id },
+					{
+						$push: {
+							testimonials: {
+								text,
+								postedBy: context.user.username,
+							},
+						},
+					},
+					{ new: true }
+				);
+
+				return testimonial;
+			}
+			throw new AuthenticationError("You need to be logged in!");
+		},
 	},
 };
-// addUser: async (parent, args) => {
-// 	const user = await User.create(args);
-// 	const token = signToken(user);
 
-// 	return { token, user };
-// },
 module.exports = resolvers;

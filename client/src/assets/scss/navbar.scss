@@ -14,8 +14,9 @@ header{
         align-items: center;
 
         .fit-title{
-            // width: 15%;
-            margin: 0 0 0 auto;
+            width: 30%;
+            margin: auto;
+            text-align: center;
 
             img{
                 width: 150px;
@@ -26,7 +27,7 @@ header{
 
         .navbar{
             width: 70%;
-            // margin: 0 auto 0 0;
+            margin: auto;
 
             ul{
                 display: flex;
@@ -36,7 +37,7 @@ header{
                 li{
                     list-style: none;
                     text-transform: uppercase;
-                    padding: 15px;
+                    padding: 20px;
 
                     a{
                         font-weight: 600;

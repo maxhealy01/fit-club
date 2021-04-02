@@ -2,7 +2,11 @@ const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 const {
 	Activity,
+<<<<<<< HEAD
 	Meetup,
+=======
+	FitnessClass,
+>>>>>>> yunik-branch
 	Goal,
 	Message,
 	Testimonial,

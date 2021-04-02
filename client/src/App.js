@@ -4,12 +4,19 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
-import { StoreProvider } from "./utils/GlobalState";
+// import { StoreProvider } from "./utils/GlobalState";
 
-import Navbar from "./components/Navbar";
+// pages
+import Home from "./pages/Home";
+import Classes from "./pages/Classes";
+import Signup from "./pages/Signup";
+import Workout from "./pages/Workout";
+import Profile from "./pages/Profile";
+
+// components
 import ChatBox from "./components/ChatBox";
+import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
-// import Login from "./pages/Login";
 
 // import socket.io provider
 import { SocketProvider } from "./utils/SocketProvider";
@@ -29,17 +36,40 @@ const client = new ApolloClient({
 });
 
 function App() {
-  return (
-    <ApolloProvider client={client}>
-      {/* <Router> */}
-        <>
-          <StoreProvider>
 
-          </StoreProvider>
-        </>
-      {/* </Router> */}
-    </ApolloProvider>
-  );
+	const pages = ['home', 'Classes', 'Workout', 'Profile'];
+
+	const navLinks = pages.map(page => {
+		return (
+		  <a href={'/' + page}>
+			{page}
+		  </a>
+		)
+	  });
+
+
+
+	return (
+		<ApolloProvider client={client}>
+			<Router>
+				<Navbar>{navLinks}</Navbar>
+				<div>
+					<Switch>
+						<Route exact path="/" component={Home} />
+						<Route exact path="/Classes" component={Classes} />
+						<Route exact path="/Profile" component={Profile} />
+						<Route exact path="/Workout" component={Workout} />
+						<Route exact path="/Signup" component={Signup} />
+						
+
+					</Switch>
+				</div>
+					{/* <CoverPage /> */}
+					{/* <Signup /> */}
+					{/* <ChatBox /> */}
+			</Router>
+		</ApolloProvider>
+	);
 }
 
 export default App;

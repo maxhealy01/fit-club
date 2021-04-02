@@ -20,16 +20,10 @@ const AppNavbar = () => {
                         <Link to={"/Classes"}>Class</Link>
                     </li>
                     <li>
-                        <Link to={"/Activity"}>Activity</Link>
-                    </li>
-                    {/* <li>
-                        <Link to={"/Trainers"}>Trainers</Link>
-                    </li> */}
-                    <li>
-                        <Link to={"/MyProfile"}>My Profile</Link>
+                        <Link to={"/Workout"}>Workout</Link>
                     </li>
                     <li>
-                        <Link to={"/Info"}>Info</Link>
+                        <Link to={"/Profile"}>Profile</Link>
                     </li>
                 </ul>
                 <Switch>

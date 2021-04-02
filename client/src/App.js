@@ -5,13 +5,17 @@ import ApolloClient from "apollo-boost";
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
 // import { StoreProvider } from "./utils/GlobalState";
 
-// Components/ pages
+// pages
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
-import ChatBox from "./components/ChatBox";
-import CoverPage from "./pages/CoverPage";
 import Classes from "./pages/Classes";
 import Signup from "./pages/Signup";
+import Workout from "./pages/Workout";
+import Profile from "./pages/Profile";
+
+// components
+import ChatBox from "./components/ChatBox";
+import Navbar from "./components/Navbar";
+import CoverPage from "./pages/CoverPage";
 
 const client = new ApolloClient({
 	request: (operation) => {
@@ -27,7 +31,7 @@ const client = new ApolloClient({
 
 function App() {
 
-	const pages = ['home', 'Classes', 'Activity', 'Trainers', 'MyProfile', 'Info'];
+	const pages = ['home', 'Classes', 'Workout', 'Profile'];
 
 	const navLinks = pages.map(page => {
 		return (
@@ -37,6 +41,8 @@ function App() {
 		)
 	  });
 
+
+
 	return (
 		<ApolloProvider client={client}>
 			<Router>
@@ -45,15 +51,14 @@ function App() {
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/Classes" component={Classes} />
-						{/* <Route exact path="/Activity" component={Activity} /> */}
-						{/* <Route exact path="/MyProfile" component={MyProfile} /> */}
-						{/* <Route exact path="/Info" component={Info} /> */}
+						<Route exact path="/Profile" component={Profile} />
+						<Route exact path="/Workout" component={Workout} />
 						<Route exact path="/Signup" component={Signup} />
-	
+						
 
 					</Switch>
 				</div>
-					<CoverPage />
+					{/* <CoverPage /> */}
 					{/* <Signup /> */}
 					{/* <ChatBox /> */}
 			</Router>

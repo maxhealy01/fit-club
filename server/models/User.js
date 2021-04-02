@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const Goal = require("./Goal");
 const Activity = require("./Activity");
-const Class = require("./Class");
+const FitnessClass = require("./FitnessClass");
 
 const userSchema = new Schema(
 	{
@@ -32,8 +32,8 @@ const userSchema = new Schema(
 				ref: "User",
 			},
 		],
-		goals: [Goal.Schema],
-		classes: [Class.schema],
+		goals: [Goal.schema],
+		classes: [FitnessClass.schema],
 		activities: [Activity.schema],
 		isTrainer: {
 			type: Boolean,

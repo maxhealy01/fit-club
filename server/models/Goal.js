@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const goalSchema = newSchema({
+const goalSchema = new Schema({
 	name: {
 		type: String,
 		required: true,
@@ -12,6 +12,6 @@ const goalSchema = newSchema({
 	},
 });
 
-const Goal = mongoose.model("Goal", goalSchema);
+const Goal = model("Goal", goalSchema);
 
 module.exports = Goal;

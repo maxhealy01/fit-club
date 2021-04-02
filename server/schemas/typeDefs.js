@@ -15,7 +15,7 @@ const typeDefs = gql`
 		_id: ID
 		name: String!
 		location: String
-		time: Date!
+		time: String!
 		duration: String!
 		equipment: String
 		activity: Activity!

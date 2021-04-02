@@ -13,7 +13,11 @@ const app = express();
 // create server for app and socket.io to communicate on
 const chatServer = require("http").createServer(app);
 // import socket.io
-const io = require("socket.io")(chatServer)
+const io = require("socket.io")(chatServer, {
+	cors: {
+		origin: PORT,
+	},
+});
 
 const server = new ApolloServer({
 	typeDefs,

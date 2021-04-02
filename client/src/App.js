@@ -2,8 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
+
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
-// import { StoreProvider } from "./utils/GlobalState";
+import { StoreProvider } from "./utils/GlobalState";
+
 import Navbar from "./components/Navbar";
 import ChatBox from "./components/ChatBox";
 import CoverPage from "./pages/CoverPage";
@@ -29,31 +31,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
+      {/* <Router> */}
         <>
-          {/* <StoreProvider> */}
-          <Navbar />
-          <Switch>
-            <ChatBox />
-            <CoverPage />
-          </Switch>
+          <StoreProvider>
 
-          {id ? (
-            <SocketProvider id={id}>
-              <div>
-                <p>
-                  This will be the chat. we can put this provider inside a page
-                  once we decide where to put it
-                </p>
-              </div>
-            </SocketProvider>
-          ) : (
-            ""
-          )}
-
-          {/* </StoreProvider> */}
+          </StoreProvider>
         </>
-      </Router>
+      {/* </Router> */}
     </ApolloProvider>
   );
 }

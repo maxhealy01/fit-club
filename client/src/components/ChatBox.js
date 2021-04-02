@@ -28,7 +28,10 @@ const AppChatBox = () => {
           <h1>USER NAME HERE</h1>
           <h2>USER ID HERE</h2>
           <figure className="avatar">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" />
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg"
+              alt="profile"
+            />
           </figure>
         </div>
         <div className="messages">
@@ -57,7 +60,11 @@ const AppChatBox = () => {
             className="message-input"
             placeholder="Type message..."
           ></textarea>
-          <button type="submit" className="message-submit">
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className="message-submit"
+          >
             Send
           </button>
         </div>

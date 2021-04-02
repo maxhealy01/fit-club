@@ -11,7 +11,6 @@ import Navbar from "./components/Navbar";
 import ChatBox from "./components/ChatBox";
 import CoverPage from "./pages/CoverPage";
 import Classes from "./pages/Classes";
-import Trainers from "./pages/Trainers";
 import Signup from "./pages/Signup";
 
 const client = new ApolloClient({
@@ -47,9 +46,9 @@ function App() {
 						<Route exact path="/" component={Home} />
 						<Route exact path="/Classes" component={Classes} />
 						{/* <Route exact path="/Activity" component={Activity} /> */}
-						{/* <Route exact path="/Trainers" component={Trainers} /> */}
 						{/* <Route exact path="/MyProfile" component={MyProfile} /> */}
 						{/* <Route exact path="/Info" component={Info} /> */}
+						<Route exact path="/Signup" component={Signup} />
 	
 
 					</Switch>

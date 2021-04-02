@@ -1,7 +1,7 @@
 import React from "react";
 import '../assets/scss/coverpage.scss'
 import { Link, Switch } from "react-router-dom";
-import SignUp from "./Signup";
+// import SignUp from "./Signup";
 
 // import LoginForm from "./Login";
 
@@ -30,7 +30,6 @@ const CoverPage = () => {
                     <p>Don't have an account?</p>
                     <Link 
                       className="underlineHover" 
-                      path="/Signup" 
                       to={"/Signup"}>Sign up</Link>
            
                   </div>

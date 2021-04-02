@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../front-end/sass/frontpage.scss"
+    ],
+    "names": [],
+    "file": "frontpage.css"
+}

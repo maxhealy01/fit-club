@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect, useCallback } from 'react'
 import { useStoreContext } from './GlobalState';
+
 import { useMutation } from "@apollo/react-hooks";
+import {ADD_CONVERSATION} from "./mutations"
+
 import { useSocket } from './SocketProvider';
 
 const ConversationsContext = React.createContext()
@@ -65,33 +68,33 @@ export function ConversationsProvider({ id, ...props }) {
     addMessageToConversation({ recipients, text, sender: id })
   }
 
-  const formattedConversations = conversations.map((conversation, index) => {
-    const recipients = conversation.recipients.map(recipient => {
-      // const contact = contacts.find(contact => {
-      //   return contact.id === recipient
-      // })
-      // (contact && contact.name) || 
-      const name = recipient
-      return { id: recipient, name }
-    })
+  // const formattedConversations = conversations.map((conversation, index) => {
+  //   const recipients = conversation.recipients.map(recipient => {
+  //     // const contact = contacts.find(contact => {
+  //     //   return contact.id === recipient
+  //     // })
+  //     // (contact && contact.name) || 
+  //     const name = recipient
+  //     return { id: recipient, name }
+  //   })
 
-    const messages = conversation.messages.map(message => {
-      // const contact = contacts.find(contact => {
-      //   return contact.id === message.sender
-      // })
-      // (contact && contact.name) ||
-      const name = message.sender
-      const fromMe = id === message.sender
-      return { ...message, senderName: name, fromMe }
-    })
+  //   const messages = conversation.messages.map(message => {
+  //     // const contact = contacts.find(contact => {
+  //     //   return contact.id === message.sender
+  //     // })
+  //     // (contact && contact.name) ||
+  //     const name = message.sender
+  //     const fromMe = id === message.sender
+  //     return { ...message, senderName: name, fromMe }
+  //   })
     
-    const selected = index === selectedConversationIndex
-    return { ...conversation, messages, recipients, selected }
-  })
+  //   const selected = index === selectedConversationIndex
+  //   return { ...conversation, messages, recipients, selected }
+  // })
 
   const value = {
-    conversations: formattedConversations,
-    selectedConversation: formattedConversations[selectedConversationIndex],
+    conversations,
+    selectedConversation: [selectedConversationIndex],
     sendMessage,
     selectConversationIndex: setSelectedConversationIndex,
     createConversation

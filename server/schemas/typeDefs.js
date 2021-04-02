@@ -48,8 +48,8 @@ const typeDefs = gql`
 	}
 	type Message {
 		message: String
-		sentBy: User
-		receivedBy: User
+		recipients: [User]
+
 	}
 	type Auth {
 		token: ID
@@ -80,6 +80,7 @@ const typeDefs = gql`
 			trainer: ID
 		): Meetup
 		postTestimonial(text: String!): Testimonial
+		createConversation(recipients: [ID], text: String!): User
 	}
 `;
 

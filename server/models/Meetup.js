@@ -31,7 +31,10 @@ const meetupSchema = new Schema(
 			type: Schema.Types.ObjectId,
 			ref: "Activity",
 		},
-		participants: [User.schema],
+		participants: {
+			type: Schema.Types.ObjectId,
+			ref: "User",
+		},
 		// If NO trainer, then this is treated as a meet-up.
 		// That is, it's just a bunch of users meeting up.
 		trainer: {

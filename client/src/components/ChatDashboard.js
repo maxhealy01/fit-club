@@ -8,7 +8,6 @@ export default function ChatDashboard({ id }) {
 
   return (
     <div>
-      chat dashboard
       <ChatContacts id={id} />
       {selectedConversation && <ChatBox />}
     </div>

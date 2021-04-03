@@ -32,6 +32,7 @@ const typeDefs = gql`
 		meetups: [Meetup]
 		activities: [Activity]
 		testimonials: [Testimonial]
+		messages: [Message]
 	}
 	type Testimonial {
 		_id: ID
@@ -63,11 +64,13 @@ const typeDefs = gql`
 		meetups: [Meetup]
 		testimonials: [Testimonial]
 		users: [User]
+		trainers: [User]
 	}
 
 	type Mutation {
 		login(email: String!, password: String!): Auth
 		addUser(username: String!, email: String!, password: String!): Auth
+		addTrainer(username: String!, email: String!, password: String!): Auth
 		updateUser(username: String, email: String, password: String): User
 		createActivity(name: String!, type: String!): Activity
 		postMeetup(

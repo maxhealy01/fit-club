@@ -7,3 +7,7 @@ export const QUERY_ME = gql`
   }
 }
 `
+
+// export const trainers = gql`
+
+// `

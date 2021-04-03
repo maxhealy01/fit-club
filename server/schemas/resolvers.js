@@ -32,6 +32,12 @@ const resolvers = {
     users: async () => {
       return await User.find();
     },
+    trainers: async (parent, args, context) => {
+      // if (context.user) {
+      return await User.find({ isTrainer: true });
+      
+      // }
+    },
   },
   Mutation: {
     login: async (parent, { email, password }) => {
@@ -55,6 +61,16 @@ const resolvers = {
 
       return { token, user };
     },
+
+    addTrainer: async (parent, args) => {
+      trainer = {...args, isTrainer: true }
+      const user = await User.create(trainer);
+
+      const token = signToken(user);
+
+      return { token, user };
+    },
+
     createActivity: async (parent, args) => {
       const activity = await Activity.create(args);
 
@@ -89,13 +105,8 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    createConversation: async (recipients, text) => {
+    createConversation: async (recipients, text, context) => {
       if (context.user) {
-        const message = await Message.create({
-          recipients,
-          text,
-        });
-
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           {

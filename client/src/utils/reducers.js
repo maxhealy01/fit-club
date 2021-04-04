@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-import { UPDATE_CONVERSATIONS } from "./actions";
+import { UPDATE_CONVERSATIONS, UPDATE_CONTACTS } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -8,6 +8,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         conversations: [...action.products],
+      };
+    case UPDATE_CONTACTS:
+      return {
+        ...state,
+        contacts: [...action.contacts],
       };
     default:
       return {

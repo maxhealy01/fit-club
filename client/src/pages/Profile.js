@@ -17,7 +17,8 @@ function Profile() {
   const id = "60677866568ec9a131f045ed";
   return (
     <>
-      {/* {!loading &&  */}
+    profile
+      {/* {!loading && 
       <SocketProvider id={id}>
         <ContactsProvider>
           <ConversationsProvider id={id}>
@@ -25,7 +26,7 @@ function Profile() {
           </ConversationsProvider>
         </ContactsProvider>
       </SocketProvider>
-      {/* } */}
+      } */}
     </>
   );
 }

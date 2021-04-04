@@ -1,13 +1,18 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export const QUERY_ME = gql`
-{
-  me {
-    _id
+  {
+    me {
+      _id
+    }
   }
-}
-`
+`;
 
-// export const trainers = gql`
-
-// `
+export const QUERY_TRAINERS = gql`
+  {
+    trainers {
+      _id
+      username
+    }
+  }
+`;

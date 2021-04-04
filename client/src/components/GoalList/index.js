@@ -1,117 +1,74 @@
 import React, { useState } from 'react';
-import { LineChart, YAxis, XAxis, CartesianGrid, Line, ReferenceLine } from 'recharts';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { LineChart, YAxis, XAxis, CartesianGrid, Line, ReferenceLine, Tooltip, ResponsiveContainer } from 'recharts';
 
-
-const GoalTracker = () => {
+const GoalList = ({ goals, username }) => {
     const [startDate, setStartDate] = useState(new Date());
-    const [goalDate, setGoalDate] = useState(new Date());
+    // const [endDate, setEndDate] = useState(new Date());
 
-    const goalType = 'Weight Loss'
+    if (!goals.length) {
+        return <h3>No Goals Yet</h3>;
+    }
 
+    //adds start and end dates to the progressData array. Attempts to remove duplicates from the final array, but this is not working yet, as the startData object is duplicated every time this runs. Come back to this later.
+    const allData = goals.map(goal => {
+        let startData = {...goal.startData};
+        let endData = {...goal.endData};
+        delete endData.value;
 
-        // const handleFormSubmit = async event => {
-        //     event.preventDefault();
+        goal.progressData.unshift(startData);
+        goal.progressData.push(endData);
+        const uniqueData = new Set(goal.progressData);
 
-        //     try {
-        //       // add thought to database
-        //       await addThought({
-        //         variables: { thoughtText }
-        //       });
+        return uniqueData
+    });
 
-        //       // clear form value
-        //       setText('');
-        //       setCharacterCount(0);
-        //     } catch (e) {
-        //       console.error(e);
-        //     }
-        //   };
-
-    const startData =
-        {
-            date: '4/3/2021',
-            value: 200
-        }
-
-    const goalData =
-        {
-            date: '7/3/2021',
-            goal_value: 120
-        }
-
-    const inputData = [
-        {
-            date: '4/26/2021',
-            value: 180
-        },
-        {
-            date: '5/15/2021',
-            value: 162
-        },
-        {
-            date: '6/1/2021',
-            value: 170
-        },
-        {
-            date: '6/21/2021',
-            value: 157
-        }
-      ];
-
-      inputData.push(goalData);
-      inputData.unshift(startData);
-      console.log(inputData);
+    console.log(allData);
 
   return (
     <div>
-        <h1>
-            Goal Tracker
+        <h1 style={{margin: 50}}>
+            Your Goals
         </h1>
+      {goals &&
+        goals.map(goal => (
+          <div key={goal._id} style={{margin: 50, border:"5px solid black"}}>
+            <h2>
+              Health Goal: {goal.goalType}
+            </h2>
+            <div>
+              <p>Starting at: {goal.startData.value} lbs on {goal.startData.date}</p>
+              <p>Goal: {goal.endData.value} lbs on {goal.endData.date}</p>
+            </div>
 
-        <div class="form">
-            <h4>Create A New Goal</h4>
+                    {/* {goal.progressData.unshift(goal.startData)}
+                    {goal.progressData.push(goal.endData)} */}
 
-            <label for="start-date">Start Date</label>
-            <DatePicker id="start-date" selected={startDate} onChange={date => setStartDate(date)} />
+                <LineChart width={400} height={250} data={goal.progressData}>
+                    <ReferenceLine y={goal.endData.value} stroke="red" strokeWidth="3px" label={`${goal.goalType} Goal: ${goal.endData.value}`}/>
 
-            <label for="start-value">Starting Value</label>
-            <input type="number" min="0" id="start-value" placeholder="Value" style={{margin: 20}} />
+                    <XAxis dataKey="date"/>
+                    <YAxis />
+                    <Tooltip />
+                    <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
+                    <Line type="monotone" dataKey="value" stroke="#8884d8" />
 
-            <label for="goal-date">Goal Date</label>
-            <DatePicker id="goal-date" selected={goalDate} onChange={date => setGoalDate(date)} />
+                </LineChart>
 
-            <label for="goal-value">Goal Value</label>
-            <input type="number" min="0" id="goal-value" placeholder="Value" style={{margin: 20}} />
+            <div className="form">
+                <h4>Add Goal Progress Information</h4>
 
+                <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
 
-
-            <button id="add-btn"><i class="fa fa-plus buttons"></i> Submit</button>
-            <p class="error"></p>
-        </div>
-
-
-        <div class="form">
-            <h4>Add Goal Progress Information</h4>
-
-            <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-
-            <input type="number" min="0" id="t-amount" placeholder="Value" style={{margin: 20}} />
-            <button id="add-btn"><i class="fa fa-plus buttons"></i> Submit</button>
-            <p class="error"></p>
-        </div>
-        <p>
-            Health Goal: {goalType}
-        </p>
-        <LineChart width={500} height={300} data={inputData}>
-            <XAxis dataKey="date"/>
-            <YAxis/>
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
-            <Line type="monotone" dataKey="value" stroke="#8884d8" />
-            <ReferenceLine y={goalData.goal_value} stroke="red" label="Health Goal" />
-        </LineChart>
+                <input type="number" min="0" id="t-amount" placeholder="Value" style={{margin: 20}} />
+                <button id="add-btn"><i className="fa fa-plus buttons"></i> Submit</button>
+                <p className="error"></p>
+            </div>
+          </div>
+        ))}
     </div>
   );
 };
 
-export default GoalTracker;
+export default GoalList;

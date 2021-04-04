@@ -12,7 +12,9 @@
 		"if-env": "^1.0.4",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^5.12.2",
-		"nodemon": "^2.0.7"
+		"node-sass": "^5.0.0",
+		"nodemon": "^2.0.7",
+		"socket.io": "^4.0.1"
 	},
 	"devDependencies": {},
 	"scripts": {

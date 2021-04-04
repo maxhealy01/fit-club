@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../assets/scss/Home.scss';
+import Footer from "../components/Footer";
 
 function Homepage(){
 
     return(
         <div className="homepage-top">
-            
             <div className="home-header First-Section">
                 <div className="header-grad">
                    <div className="welcoming-txt">
@@ -40,9 +40,22 @@ function Homepage(){
                     Import Goal Component Here!
                 </div>
             </div>
-        
+   
             <div className="talk-to-trainer">
-                
+                <div className="bck-grad">
+                    <div className="talk-box">
+                        <h1>is simply dummy text</h1>
+                        <h1>is simply dummy text</h1>
+                        <h1>The right trainer for you is waiting for you.</h1>
+                    </div>
+                    <div className="talk-btn">
+                    <Link 
+                        className="talkTo"
+                        to="#">
+                            Talk to Trainer
+                    </Link>
+                    </div>
+                </div>
             </div>
         </div>
     )

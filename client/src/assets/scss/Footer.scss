@@ -1,0 +1,38 @@
+.footer{
+  position: absolute;
+  width: 100%;
+
+    .footer-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 40px;
+        color: #fff;
+        background: #111;
+       
+        .footer-content{
+            width: 50%
+    
+            h3{
+                font-size: 1.8rem;
+                font-weight: 400;
+                text-transform: capitalize;
+                line-height: 3rem;
+            }
+    
+            p{
+                max-width: 500px;
+                margin: 10px auto;
+                line-height: 28px;
+                font-size: 14px;
+            }
+        }
+
+        .creator{
+            width: 50%
+        }
+    }
+
+    
+}

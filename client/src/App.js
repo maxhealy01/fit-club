@@ -2,13 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-// In order for the {StoreProvider} to be accessible, we need a big old reducer function first
-// import { StoreProvider } from "./utils/GlobalState";
+import axios from "axios";
 
 // pages
 import Home from "./pages/Home";
 import Classes from "./pages/Classes";
-import Signup from "./pages/Signup";
 import Workout from "./pages/Workout";
 import Profile from "./pages/Profile";
 
@@ -16,6 +14,8 @@ import Profile from "./pages/Profile";
 import ChatBox from "./components/ChatBox";
 import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
+import Footer from "./components/Footer";
+
 
 const client = new ApolloClient({
 	request: (operation) => {
@@ -52,15 +52,23 @@ function App() {
 						<Route exact path="/" component={Home} />
 						<Route exact path="/Classes" component={Classes} />
 						<Route exact path="/Profile" component={Profile} />
-						<Route exact path="/Workout" component={Workout} />
-						<Route exact path="/Signup" component={Signup} />
-						
-
+						<Route exact path="/Workout" component={Workout} />			
 					</Switch>
+					
 				</div>
-					{/* <CoverPage /> */}
-					{/* <Signup /> */}
-					{/* <ChatBox /> */}
+				{/* <Footer className="footer-comp"/> */}
+				{/* <div>
+					{loggedIn ? 'Home' : 'CoverPage'}	
+				</div>
+				<div>
+					{loggedIn ? 'ChatBox' : 'CoverPage'}	
+				</div>
+				<div>
+					{loggedIn ? 'Footer' : 'CoverPage'}	
+				</div> */}
+				{/* <CoverPage /> */}
+				{/* <ChatBox /> */}
+
 			</Router>
 		</ApolloProvider>
 	);

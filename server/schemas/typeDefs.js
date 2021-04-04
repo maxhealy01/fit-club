@@ -11,15 +11,16 @@ const typeDefs = gql`
 		name: String!
 		metric: String!
 	}
-	type Class {
+	type Meetup {
 		_id: ID
-		name: String!
+		name: String
 		location: String
 		time: String!
-		duration: String!
+		duration: String
 		equipment: String
-		activity: Activity!
-		participants: [User]!
+		activity: Activity
+		participants: [User]
+		postedBy: User
 		trainer: User
 	}
 	type User {
@@ -29,14 +30,18 @@ const typeDefs = gql`
 		city: String
 		friends: [User]
 		goals: [Goal]
-		classes: [Class]
+		meetups: [Meetup]
 		activities: [Activity]
+		testimonials: [Testimonial]
+		isTrainer: Boolean
 	}
 	type Testimonial {
-		postedBy: User!
-		text: String!
+		_id: ID
+		text: String
+		postedBy: ID
 	}
 	type Workout {
+		_id: ID
 		name: String!
 		source: String
 		duration: String!
@@ -55,8 +60,13 @@ const typeDefs = gql`
 	}
 
 	type Query {
-		user: User
 		me: User
+		users: [User]
+		user(username: String): User
+		activities: [Activity]
+		meetups(activity: ID): [Meetup]
+		testimonials: [Testimonial]
+		workouts: [Workout]
 	}
 
 	type Mutation {
@@ -72,7 +82,17 @@ const typeDefs = gql`
 			equipment: String
 			activity: ID
 			trainer: ID
-		): Class
+		): Meetup
+		postTestimonial(text: String!): Testimonial
+		postWorkout(
+			name: String!
+			source: String
+			duration: String
+			equipment: String
+			activity: ID
+		): Workout
+		# The following mutations don't create new objects, but instead add existing objects to the User object
+		addFriend(friendId: ID!): User
 	}
 `;
 

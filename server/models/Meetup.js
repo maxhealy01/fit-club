@@ -8,7 +8,7 @@ const meetupSchema = new Schema(
 			required: true,
 			trim: true,
 		},
-		// For Meetupes, this might be a digital location
+		// For classes, this might be a digital location
 		// For meetups, probably a physical location
 		location: {
 			type: String,
@@ -33,6 +33,11 @@ const meetupSchema = new Schema(
 			required: true,
 		},
 		participants: [User.schema],
+		postedBy: {
+			type: Schema.Types.ObjectId,
+			ref: "User",
+			required: true,
+		},
 		// If NO trainer, then this is treated as a meet-up.
 		// That is, it's just a bunch of users meeting up.
 		trainer: {

@@ -16,12 +16,10 @@
 		"mongoose": "^5.12.2",
 		"node-sass": "^5.0.0",
 		"nodemon": "^2.0.7",
-<<<<<<< HEAD
-		"socket.io": "^4.0.1"
-=======
 		"react-native": "^0.64.0",
-		"react-native-web": "^0.15.5"
->>>>>>> 3a36cd0b59c4375d83531e2eb628a65a7bed93b1
+		"react-native-web": "^0.15.5",
+		"recharts": "^2.0.9",
+		"socket.io": "^4.0.1"
 	},
 	"devDependencies": {},
 	"scripts": {

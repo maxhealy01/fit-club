@@ -2,13 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-<<<<<<< HEAD
 
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
 import { StoreProvider } from "./utils/GlobalState";
-=======
 import axios from "axios";
->>>>>>> 3a36cd0b59c4375d83531e2eb628a65a7bed93b1
 
 // pages
 import Home from "./pages/Home";
@@ -60,27 +57,6 @@ function App() {
 
 	return (
 		<ApolloProvider client={client}>
-<<<<<<< HEAD
-      <StoreProvider>
-        <Router>
-          <Navbar>{navLinks}</Navbar>
-          <div>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/Classes" component={Classes} />
-              <Route exact path="/Profile" component={Profile} />
-              <Route exact path="/Workout" component={Workout} />
-              <Route exact path="/Signup" component={Signup} />
-
-
-            </Switch>
-          </div>
-            {/* <CoverPage /> */}
-            {/* <Signup /> */}
-            {/* <ChatBox /> */}
-        </Router>
-      </StoreProvider>
-=======
 			<Router>
 				<Navbar>{navLinks}</Navbar>
 				<div>
@@ -88,28 +64,27 @@ function App() {
 						{/* <Route exact path="/" component={Home} /> */}
 						<Route exact path="/Classes" component={Classes} />
 						<Route exact path="/Profile" component={Profile} />
-						<Route exact path="/Workout" component={Workout} />	
+						<Route exact path="/Workout" component={Workout} />
 						<Route exact path="/Register" component={SignupForm} />
 						<Route exact path="/CoverPage" component={CoverPage} />
-						{/* <Route 
-						exact path="/" 
+						{/* <Route
+						exact path="/"
 						component={!loggedIn ? 'CoverPage' : 'Home'} /> */}
-						{/* <Route 
-						exact path="/" 
+						{/* <Route
+						exact path="/"
 						component={!loggedIn ? 'CoverPage' : 'ChatBox'} /> */}
-						{/* <Route 
-						exact path="/" 
-						component={!loggedIn ? 'CoverPage' : 'Footer'} /> */}		
+						{/* <Route
+						exact path="/"
+						component={!loggedIn ? 'CoverPage' : 'Footer'} /> */}
 					</Switch>
-					
+
 				</div>
 
-				
+
 				{/* <CoverPage /> */}
 				{/* <ChatBox /> */}
 
 			</Router>
->>>>>>> 3a36cd0b59c4375d83531e2eb628a65a7bed93b1
 		</ApolloProvider>
 	);
 }

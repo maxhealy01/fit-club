@@ -1,45 +1,61 @@
 import React from "react";
 import '../assets/scss/coverpage.scss';
 import { Link } from "react-router-dom";
-import axios from "axios";
-import SignUp from "../pages/Signup";
+import SignUp from "../pages/Register";
 
-const LoginForm = () => {
-	// set modal display state
-	// const [showModal, setShowModal] = useState(false);
-  function constructor(props){
-    this.state = {
-      email:"",
-      password:"",
-      loginErrors:""
-    };
+class LoginForm extends React.Component{
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+  handleChange =(e) => {
+    const {name, value} = e.target
+    this.setState({ [name]:value })
   }
 
-	return (
-            <div className="wrapper ">
-                <div id="formContent">
-                  <h2 className="active"> Sign In </h2>
+  handleSubmit =(e) =>{
+    e.preventDefault()
+    this.props.isLogin(true)
+  }
 
-                  <form>
-                    <input type="text" className="sign-input" id="login" name="login" placeholder="login" />
-                    <input type="password" className="sign-input" id="password" name="login" placeholder="password" />
-                    <input type="submit" className="login-btn" value="Log In" />
-                  </form>
-              
-                  <div id="formFooter">
-                    <p>Don't have an account?</p>
-                    <Link 
-                      className="underlineHover" 
-                      to={"/SignUp"}>Sign up</Link>
-           
-                  </div>
+  render() {
+    return(
+      <div className="wrapper ">
+        <div id="formContent">
+          <h2 className="active"> Sign In </h2>
 
-                </div>
-              </div>
-	);
-};
+          <form>
+            <input 
+              type="email" 
+              className="sign-input" 
+              name="login" 
+              placeholder="login" 
+              required onChange={this.handleChange}
+            />
+            <input 
+              type="password" 
+              className="sign-input"
+              name="login" 
+              placeholder="password" 
+              required onChange={this.handleChange}
+            />
+            <input 
+              type="submit" 
+              className="login-btn" 
+              value="Log In" 
+              onSubmit={this.handleSubmit}
+            />
+          </form>
+      
+          <div id="formFooter">
+            <p>Don't have an account?</p>
+            <Link 
+              className="underlineHover" 
+              to={"/SignUp"}>Sign up</Link>
+    
+          </div>
+
+        </div>
+      </div>
+    )
+  }
+}
 
 export default LoginForm;

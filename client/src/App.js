@@ -9,12 +9,14 @@ import Home from "./pages/Home";
 import Classes from "./pages/Classes";
 import Workout from "./pages/Workout";
 import Profile from "./pages/Profile";
+import SignupForm from "./pages/Register";
 
 // components
 import ChatBox from "./components/ChatBox";
 import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
 import Footer from "./components/Footer";
+
 
 
 const client = new ApolloClient({
@@ -28,6 +30,8 @@ const client = new ApolloClient({
 	},
 	uri: "/graphql",
 });
+
+
 
 function App() {
 
@@ -49,23 +53,26 @@ function App() {
 				<Navbar>{navLinks}</Navbar>
 				<div>
 					<Switch>
-						<Route exact path="/" component={Home} />
+						{/* <Route exact path="/" component={Home} /> */}
 						<Route exact path="/Classes" component={Classes} />
 						<Route exact path="/Profile" component={Profile} />
-						<Route exact path="/Workout" component={Workout} />			
+						<Route exact path="/Workout" component={Workout} />	
+						<Route exact path="/Register" component={SignupForm} />
+						<Route exact path="/CoverPage" component={CoverPage} />
+						{/* <Route 
+						exact path="/" 
+						component={!loggedIn ? 'CoverPage' : 'Home'} /> */}
+						{/* <Route 
+						exact path="/" 
+						component={!loggedIn ? 'CoverPage' : 'ChatBox'} /> */}
+						{/* <Route 
+						exact path="/" 
+						component={!loggedIn ? 'CoverPage' : 'Footer'} /> */}		
 					</Switch>
 					
 				</div>
-				{/* <Footer className="footer-comp"/> */}
-				{/* <div>
-					{loggedIn ? 'Home' : 'CoverPage'}	
-				</div>
-				<div>
-					{loggedIn ? 'ChatBox' : 'CoverPage'}	
-				</div>
-				<div>
-					{loggedIn ? 'Footer' : 'CoverPage'}	
-				</div> */}
+
+				
 				{/* <CoverPage /> */}
 				{/* <ChatBox /> */}
 

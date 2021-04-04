@@ -1,8 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
-<<<<<<< HEAD
-const { User } = require("../models");
-=======
 const {
   Activity,
   Meetup,
@@ -12,7 +9,6 @@ const {
   User,
   Workout,
 } = require("../models");
->>>>>>> 5b8958be4ccc415055d8a1f8a72737b9e3e87ff1
 
 const resolvers = {
   Query: {
@@ -57,11 +53,6 @@ const resolvers = {
       const user = await User.create(args);
       const token = signToken(user);
 
-<<<<<<< HEAD
-			return { token, user };
-		},
-	},
-=======
       return { token, user };
     },
     createActivity: async (parent, args) => {
@@ -120,7 +111,6 @@ const resolvers = {
       }
     },
   },
->>>>>>> 5b8958be4ccc415055d8a1f8a72737b9e3e87ff1
 };
 
 module.exports = resolvers;

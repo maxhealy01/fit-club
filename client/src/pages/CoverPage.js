@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import '../assets/scss/coverpage.scss'
 import { Link, Switch } from "react-router-dom";
@@ -42,3 +43,23 @@ const CoverPage = () => {
 };
 
 export default CoverPage;
+=======
+import React from "react";
+import '../assets/scss/coverpage.scss'
+
+import LoginForm from "../components/LoginForm";
+
+
+const CoverPage = () => {
+
+	return (
+        <div className="cover-page">
+        <div className="coverpage-wrapper">
+          <LoginForm />          
+        </div>
+    </div>
+	);
+};
+
+export default CoverPage;
+>>>>>>> 3a36cd0b59c4375d83531e2eb628a65a7bed93b1

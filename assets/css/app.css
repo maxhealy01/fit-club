@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #e2e2e2;
+}
+
+.color {
+  color: #003049;
+  color: #d62828;
+  color: #f77f00;
+  color: #fcbf49;
+  color: #eae2b7;
+}
+/*# sourceMappingURL=app.css.map */

@@ -66,8 +66,8 @@ const typeDefs = gql`
 		user(username: String): User
 		activities: [Activity]
 		meetups(activity: ID): [Meetup]
-		testimonials: [Testimonial]
-		workouts: [Workout]
+		testimonials(postedBy: ID): [Testimonial]
+		workouts(activity: ID): [Workout]
 	}
 
 	type Mutation {

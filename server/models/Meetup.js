@@ -32,10 +32,12 @@ const meetupSchema = new Schema(
 			ref: "Activity",
 			required: true,
 		},
-		participants: {
-			type: Schema.Types.ObjectId,
-			ref: "User",
-		},
+		participants: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "User",
+			},
+		],
 		postedBy: {
 			type: Schema.Types.ObjectId,
 			ref: "User",

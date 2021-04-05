@@ -39,15 +39,18 @@ const resolvers = {
 		activities: async () => {
 			return Activity.find();
 		},
-		meetups: async (parent, { id }) => {
-			const params = id ? { id } : {};
+		// The following three queries are set up to take optional parameters, filtering by activity or user.
+		meetups: async (parent, { activity }) => {
+			const params = activity ? { activity } : {};
 			return Meetup.find(params);
 		},
-		testimonials: async () => {
-			return Testimonial.find();
+		testimonials: async (parent, { postedBy }) => {
+			const params = postedBy ? { postedBy } : {};
+			return Testimonial.find(params);
 		},
-		workouts: async () => {
-			return Workout.find();
+		workouts: async (parent, { activity }) => {
+			const params = activity ? { activity } : {};
+			return Workout.find(params);
 		},
 	},
 	Mutation: {
@@ -79,7 +82,7 @@ const resolvers = {
 		},
 		// not yet working
 		postMeetup: async (parent, args, context) => {
-			console.log(args);
+			console.log(args, context.user._id);
 			if (context.user) {
 				const meetup = await Meetup.create({
 					...args,

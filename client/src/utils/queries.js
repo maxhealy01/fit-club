@@ -8,17 +8,27 @@ export const QUERY_ME = gql`
   }
 `;
 
-export const QUERY_GOALS = gql`
-  {
-    me {
-      goals {
-        _id
-        name
-        metric
-      }
-    }
-  }
-`
+
+////////////////////////////////////////////
+// query goals with mikes data structure  //
+////////////////////////////////////////////
+// export const QUERY_GOALS = gql`
+//   {
+//     me {
+//       goals {
+//         goalType
+//         measurement
+//         startDate
+//         endDate
+//         endValue
+//         progressData {
+//           date
+//           value
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export const QUERY_TRAINERS = gql`
   {

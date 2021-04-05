@@ -8,6 +8,18 @@ export const QUERY_ME = gql`
   }
 `;
 
+export const QUERY_GOALS = gql`
+  {
+    me {
+      goals {
+        _id
+        name
+        metric
+      }
+    }
+  }
+`
+
 export const QUERY_TRAINERS = gql`
   {
     trainers {

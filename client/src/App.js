@@ -17,6 +17,7 @@ import Profile from "./pages/Profile";
 import ChatBox from "./components/ChatBox";
 import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
+import Login from "./components/Login";
 
 // import socket.io provider
 import { SocketProvider } from "./utils/SocketProvider";
@@ -61,6 +62,7 @@ function App() {
               <Route exact path="/Profile" component={Profile} />
               <Route exact path="/Workout" component={Workout} />
               <Route exact path="/Signup" component={Signup} />
+              <Route exact patch="/Login" component={Login} />
               
 
             </Switch>

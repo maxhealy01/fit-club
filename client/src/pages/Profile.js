@@ -1,7 +1,8 @@
 import React from "react";
 import "../assets/scss/Profile.scss";
 
-import GoalList from '../components/GoalList'
+import GoalList from '../components/GoalList';
+import GoalForm from '../components/GoalForm'
 
 // import ChatDashboard from "../components/ChatDashboard";
 // import { ConversationsProvider } from "../utils/ConversationsProvider";
@@ -17,23 +18,31 @@ function Profile() {
   // hardcoded _id from database
   // const id = "60677866568ec9a131f045ed";
 
+  //Use this data to test goal components with a user who has multiple goals
   const user = {
     username: 'FitClubber',
     goals: [
       {
+        _id: 12345677,
+        goalType: 'Running',
+        measurement: 'miles',
+        startDate: '4/3/2021',
+        endDate: '6/20/2021',
+        endValue: 2,
+        progressData: [
+          {
+            date: '6/10/2021',
+            value: 1.5
+        }
+        ]
+      },
+      {
         _id: 12345678,
         goalType: 'Weight Loss',
-        startData:
-            {
-                date: '4/3/2021',
-                value: 200
-            },
-
-        endData:
-            {
-                date: '7/3/2021',
-                value: 170
-            },
+        measurement: 'lbs',
+        startDate: '4/3/2021',
+        endDate: '6/20/2021',
+        endValue: 175,
 
         progressData: [
           {
@@ -57,17 +66,10 @@ function Profile() {
       {
         _id: 12345679,
         goalType: 'Weight Training',
-        startData:
-            {
-                date: '4/3/2021',
-                value: 50
-            },
-
-        endData:
-            {
-                date: '7/3/2021',
-                value: 75
-            },
+        measurement: 'lbs',
+        startDate: '4/3/2021',
+        endDate: '6/28/2021',
+        endValue: 80,
 
         progressData: [
             {
@@ -91,6 +93,7 @@ function Profile() {
     ]
   }
 
+  //Use this data to test goal components with a user who has no goals
   // const user = {
   //     username: 'FitClubber',
   //     goals: []
@@ -98,7 +101,12 @@ function Profile() {
 
   return (
     <>
-    <GoalList goals={user.goals} username={user.username} />
+    <GoalForm goals={user.goals} />
+    <GoalList
+      goals={user.goals}
+      username={user.username}
+    />
+
      {/* {!loading &&  */}
       {/* <SocketProvider id={id}>
         <ConversationsProvider id={id}>

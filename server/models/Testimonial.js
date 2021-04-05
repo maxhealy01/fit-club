@@ -1,13 +1,13 @@
 const { Schema, model } = require("mongoose");
 
 const testimonialSchema = new Schema({
+	text: {
+		type: String,
+		required: true,
+	},
 	postedBy: {
 		type: Schema.Types.ObjectId,
 		ref: "User",
-		required: true,
-	},
-	text: {
-		type: String,
 		required: true,
 	},
 });

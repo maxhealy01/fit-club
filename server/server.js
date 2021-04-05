@@ -15,7 +15,7 @@ const chatServer = require("http").createServer(app);
 // import socket.io
 const io = require("socket.io")(chatServer, {
 	cors: {
-		origin: PORT,
+		origin: 5000,
 	},
 });
 

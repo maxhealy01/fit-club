@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from "react";
-import "../assets/scss/chatbox.scss";
 import { useConversations } from "../utils/ConversationsProvider";
 
-const ChatBox = () => {
+export default function OpenConversation() {
   const [text, setText] = useState("");
   const setRef = useCallback((node) => {
     if (node) {
@@ -12,37 +11,60 @@ const ChatBox = () => {
   const { sendMessage, selectedConversation } = useConversations();
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     sendMessage(
-      selectedConversation.recipients.map(r => r._id),
+      selectedConversation.recipients.map((r) => r.id),
       text
-    )
-    setText('')
+    );
+    setText("");
   }
 
-	return (
-		<>
-    <div className="chat">
-      <div className="chat-box">
-        <div className="chat-title">
-            <h1>USER NAME HERE</h1>
-            <h2>USER ID HERE</h2>
-            <figure className="avatar">
-            <img src="#" /></figure>
-        </div>
-        <div className="messages">
-            <div className="messages-content"></div>
-        </div>
-        <div className="message-box">
-            <textarea type="text" className="message-input" placeholder="Type message..."></textarea>
-            <button type="submit" onClick={handleSubmit} className="message-submit">Send</button>
+  return (
+    <div className="d-flex flex-column flex-grow-1">
+      <div className="flex-grow-1 overflow-auto">
+        <div className="d-flex flex-column align-items-start justify-content-end px-3">
+          {selectedConversation.messages.map((message, index) => {
+            const lastMessage =
+              selectedConversation.messages.length - 1 === index;
+            return (
+              <div
+                ref={lastMessage ? setRef : null}
+                key={index}
+                className={`my-1 d-flex flex-column ${
+                  message.fromMe
+                    ? "align-self-end align-items-end"
+                    : "align-items-start"
+                }`}
+              >
+                <div
+                  className={`rounded px-2 py-1 ${
+                    message.fromMe ? "bg-primary text-white" : "border"
+                  }`}
+                >
+                  {message.text}
+                </div>
+                <div
+                  className={`text-muted small ${
+                    message.fromMe ? "text-right" : ""
+                  }`}
+                >
+                  {message.fromMe ? "You" : message.senderName}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
+      <form onSubmit={handleSubmit}>
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          style={{ height: "75px", resize: "none" }}
+        />
+
+        <button type="submit">Send</button>
+      </form>
     </div>
-		</>
-	);
-};
-
-export default ChatBox;
-
+  );
+}

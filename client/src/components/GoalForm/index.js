@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import '../../assets/scss/GoalForm.scss';
+
 
 
 const GoalForm = () => {
@@ -8,8 +10,8 @@ const GoalForm = () => {
     const [endDate, setEndDate] = useState(new Date());
 
   return (
-    <div>
-        <div class="form" style={{margin: 50, border:"5px solid black"}}>
+    <div className="goal-form">
+        <div className="form">
             <h2>Create A New Goal</h2>
 
             <label for="goal-type">Select Goal Type</label>
@@ -28,7 +30,7 @@ const GoalForm = () => {
             <label for="goal-value">Goal Value</label>
             <input type="number" min="0" id="goal-value" placeholder="Value" style={{margin: 20}} />
 
-            <button id="add-btn"><i class="fa fa-plus buttons"></i> Submit</button>
+            <button id="add-btn">Submit</button>
             <p class="error"></p>
         </div>
     </div>

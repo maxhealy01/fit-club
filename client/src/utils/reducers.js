@@ -1,24 +1,31 @@
 import { useReducer } from "react";
 
-import {
-  UPDATE_SOMETHING
-} from "./actions";
+import { UPDATE_CONVERSATIONS, UPDATE_CONTACTS, UPDATE_GOALS } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    // if action type value is the value of `UPDATE_PRODUCTS`, return a new state object with an updated products array
-    case UPDATE_SOMETHING:
+    case UPDATE_GOALS: 
       return {
         ...state,
-        products: [...action.products],
+        goals: [...action.goals],
       };
-    
-    // if none of these actions, do not update state
+    case UPDATE_CONVERSATIONS:
+      return {
+        ...state,
+        conversations: [...action.products],
+      };
+    case UPDATE_CONTACTS:
+      return {
+        ...state,
+        contacts: [...action.contacts],
+      };
     default:
-      return state;
+      return {
+        state,
+      };
   }
 };
 
-export function useProductReducer(initialState) {
+export function useFitnessReducer(initialState) {
   return useReducer(reducer, initialState);
 }

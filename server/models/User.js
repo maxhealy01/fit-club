@@ -4,55 +4,57 @@ const bcrypt = require("bcrypt");
 const Goal = require("./Goal");
 const Activity = require("./Activity");
 const Meetup = require("./Meetup");
+const Testimonial = require("./Testimonial");
 const Message = require("./Message");
 
 const userSchema = new Schema(
-  {
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, "Must use a valid email address"],
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    city: {
-      type: String,
-      trim: true,
-    },
-    friends: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
-    goals: [Goal.schema],
-    classes: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "FitnessClass",
-      },
-    ],
+	{
+		username: {
+			type: String,
+			required: true,
+			unique: true,
+		},
+		email: {
+			type: String,
+			required: true,
+			unique: true,
+			match: [/.+@.+\..+/, "Must use a valid email address"],
+		},
+		password: {
+			type: String,
+			required: true,
+		},
+		city: {
+			type: String,
+			trim: true,
+		},
+		friends: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "User",
+			},
+		],
+		goals: [Goal.schema],
+		meetups: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Meetup",
+			},
+		],
+		activities: [Activity.schema],
+		testimonials: [Testimonial.schema],
+		isTrainer: {
+			type: Boolean,
+		},
     messages: [Message.schema],
-    activities: [Activity.schema],
-    isTrainer: {
-      type: Boolean,
-    },
-  },
-  // set this to use virtual below
-  {
-    toJSON: {
-      virtuals: true,
-      getters: true,
-    },
-  }
+	},
+	// set this to use virtual below
+	{
+		toJSON: {
+			virtuals: true,
+			getters: true,
+		},
+	}
 );
 
 // hash user password

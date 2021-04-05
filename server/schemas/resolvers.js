@@ -101,71 +101,71 @@ const resolvers = {
         );
       }
     },
-  },
-  createActivity: async (parent, args) => {
-    const activity = await Activity.create(args);
+    createActivity: async (parent, args) => {
+      const activity = await Activity.create(args);
 
-    return activity;
-  },
-  postMeetup: async (parent, args, context) => {
-    console.log(args);
-    if (context.user) {
-      const meetup = await Meetup.create({
-        ...args,
-        postedBy: context.user._id,
-      });
-      await User.findByIdAndUpdate(
-        { _id: context.user._id },
-        { $push: { meetups: meetup } },
-        { new: true }
-      );
+      return activity;
+    },
+    postMeetup: async (parent, args, context) => {
+      console.log(args);
+      if (context.user) {
+        const meetup = await Meetup.create({
+          ...args,
+          postedBy: context.user._id,
+        });
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { meetups: meetup } },
+          { new: true }
+        );
 
-      return meetup;
-    }
+        return meetup;
+      }
 
-    throw new AuthenticationError("You need to be logged in!");
-  },
-  postTestimonial: async (parent, args, context) => {
-    if (context.user) {
-      const testimonial = await Testimonial.create({
-        postedBy: context.user._id,
-        ...args,
-      });
-      await User.findByIdAndUpdate(
-        { _id: context.user._id },
-        { $push: { testimonials: testimonial } },
-        { new: true }
-      );
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    postTestimonial: async (parent, args, context) => {
+      if (context.user) {
+        const testimonial = await Testimonial.create({
+          postedBy: context.user._id,
+          ...args,
+        });
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { testimonials: testimonial } },
+          { new: true }
+        );
 
-      return testimonial;
-    }
+        return testimonial;
+      }
 
-    throw new AuthenticationError("You need to be logged in!");
-  },
-  postWorkout: async (parent, args, context) => {
-    if (context.user) {
-      const workout = await Workout.create({
-        postedBy: context.user._id,
-        ...args,
-      });
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    postWorkout: async (parent, args, context) => {
+      if (context.user) {
+        const workout = await Workout.create({
+          postedBy: context.user._id,
+          ...args,
+        });
 
-      return workout;
-    }
+        return workout;
+      }
 
-    throw new AuthenticationError("You need to be logged in!");
-  },
-  addFriend: async (parent, { friendId }, context) => {
-    if (context.user) {
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: context.user._id },
-        { $addToSet: { friends: friendId } },
-        { new: true }
-      ).populate("friends");
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addFriend: async (parent, { friendId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { friends: friendId } },
+          { new: true }
+        ).populate("friends");
 
-      return updatedUser;
-    }
+        return updatedUser;
+      }
 
-    throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 

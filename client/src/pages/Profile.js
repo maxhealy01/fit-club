@@ -11,22 +11,21 @@ import { QUERY_ME } from "../utils/queries";
 import { ContactsProvider } from "../utils/ContactsProvider";
 
 function Profile() {
-  // const {loading, data} = useQuery(QUERY_ME);
-  // const { id } = data
+  const {loading, data} = useQuery(QUERY_ME);
+  const { _id } = data?.me || {};
   // hardcoded _id from database
-  const id = "60677866568ec9a131f045ed";
   return (
     <>
     profile
-      {/* {!loading && 
-      <SocketProvider id={id}>
+      {!loading && 
+      <SocketProvider id={_id}>
         <ContactsProvider>
-          <ConversationsProvider id={id}>
-            <ChatDashboard id={id} />
+          <ConversationsProvider id={_id}>
+            <ChatDashboard id={_id} />
           </ConversationsProvider>
         </ContactsProvider>
       </SocketProvider>
-      } */}
+      }
     </>
   );
 }

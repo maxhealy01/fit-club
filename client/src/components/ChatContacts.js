@@ -10,29 +10,28 @@ import { useStoreContext } from "../utils/GlobalState";
 export default function ChatContacts() {
   // const { contacts } = useContacts();
   const { loading, data: contactsData } = useQuery(QUERY_TRAINERS);
-  let contacts = [{name: "casey", id: "123456"}]
+
 
   const [state, dispatch] = useStoreContext();
 
-  console.log(contactsData)
-  // const { contacts } = state;
-
+  const { contacts } = state;
 
   useEffect(() => {
     if (contactsData) {
       dispatch({
         type: UPDATE_CONTACTS,
-        contacts: contactsData.contacts
+        contacts: contactsData.trainers
       });
     }
   }, [contactsData])
   return (
-    <ul>
+    <>
+      Talk to our certified trainers:
       {loading ? <div>Loading...</div> : contacts.map(contact => (
-        <li key={contact.id}>
-          {contact.name}
+        <li key={contact._id}>
+          {contact.username}
         </li>
       ))}
-    </ul>
+    </>
   )
 }

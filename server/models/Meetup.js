@@ -2,6 +2,7 @@ const { Schema, model } = require("mongoose");
 const User = require("./User");
 
 const meetupSchema = new Schema(
+
 	{
 		name: {
 			type: String,
@@ -56,10 +57,11 @@ const meetupSchema = new Schema(
 			getters: true,
 		},
 	}
+
 );
 
 meetupSchema.virtual("meetupCount").get(function () {
-	return this.participants.length;
+  return this.participants.length;
 });
 
 const Meetup = model("Meetup", meetupSchema);

@@ -1,39 +1,51 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import SignUpForm from "../pages/Signup";
-import LoginForm from "../pages/Login";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+
 import '../assets/scss/navbar.scss';
-import Auth from "../utils/auth";
 
 const AppNavbar = () => {
-	// set modal display state
-	const [showModal, setShowModal] = useState(false);
-
 	return (
 		<>
 			<header className="header">
-        <div className="header-top">
+            <div className="header-top">
             <div className="fit-title">
-                <h1><a href="#">FIT CLUB</a></h1>
+                <img src= {require ("../assets/images/logo2.png").default} />
             </div>
             <div className="navbar">
                 <ul>
-                    <li><a href="#">Class</a></li>
-                    <li><a href="#">Activity</a></li>
-                    <li><a href="#">Trainers</a></li>
-                    <li><a href="#">My Profile</a></li>
-                    <li><a href="#">Info</a></li>
+                    <li>
+                        <Link to={"/"}>Home</Link>
+                    </li>
+                    <li>
+                        <Link to={"/Classes"}>Class</Link>
+                    </li>
+                    <li>
+                        <Link to={"/Workout"}>Workout</Link>
+                    </li>
+                    <li>
+                        <Link to={"/Profile"}>Profile</Link>
+                    </li>
                 </ul>
-            </div>
-            <div className="account">
-                <div className="userInfo-btn">
-                    <a href="#"><i className="fas fa-user"></i>
-                    Account
-                    </a>
-                </div>
+                <Switch>
+                    <Route path="/class">
+                        <class />
+                    </Route>
+                    {/* <Route path="/Activity">
+                        <Activity />
+                    </Route>
+                    <Route path="/Trainers">
+                        <Trainers />
+                    </Route>
+                    <Route path="/MyProfile">
+                        <MyProfile />
+                    </Route>
+                    <Route path="/Info">
+                        <Info />
+                    </Route> */}
+                </Switch>
             </div>
         </div>
-    </header>
+        </header>
     <div className="subheader">
     </div>
 		</>
@@ -41,3 +53,5 @@ const AppNavbar = () => {
 };
 
 export default AppNavbar;
+
+

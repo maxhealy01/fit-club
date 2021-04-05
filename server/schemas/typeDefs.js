@@ -3,8 +3,8 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
 	type Activity {
 		_id: ID
-		name: String!
-		type: String!
+		name: String
+		type: String
 	}
 	type Goal {
 		_id: ID
@@ -34,6 +34,7 @@ const typeDefs = gql`
 		meetups: [Meetup]
 		activities: [Activity]
 		testimonials: [Testimonial]
+		messages: [Message]
 		isTrainer: Boolean
 	}
 	type Testimonial {
@@ -45,15 +46,15 @@ const typeDefs = gql`
 		_id: ID
 		name: String!
 		source: String
-		duration: String!
+		duration: String
 		equipment: String
 		activity: Activity
-		postedBy: User!
+		postedBy: User
 	}
 	type Message {
-		message: String!
-		sentBy: User!
-		receivedBy: User!
+		message: String
+		recipients: [User]
+
 	}
 	type Auth {
 		token: ID
@@ -62,6 +63,7 @@ const typeDefs = gql`
 
 	type Query {
 		me: User
+		trainers: [User]
 		users: [User]
 		user(username: String): User
 		activities: [Activity]
@@ -73,6 +75,7 @@ const typeDefs = gql`
 	type Mutation {
 		login(email: String!, password: String!): Auth
 		addUser(username: String!, email: String!, password: String!): Auth
+		addTrainer(username: String!, email: String!, password: String!): Auth
 		updateUser(username: String, email: String, password: String): User
 		createActivity(name: String!, type: String!): Activity
 		postMeetup(
@@ -97,6 +100,7 @@ const typeDefs = gql`
 		addMeetup(meetupId: ID!): User
 		addActivity(activityId: ID!): User
 		addGoal(personalGoal: String!, name: String!): User
+		createConversation(recipients: [ID], text: String!): User
 	}
 `;
 

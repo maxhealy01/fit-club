@@ -33,15 +33,30 @@ const userSchema = new Schema(
 				ref: "User",
 			},
 		],
-		goals: [Goal.schema],
+		goals: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Goal",
+			},
+		],
 		meetups: [
 			{
 				type: Schema.Types.ObjectId,
 				ref: "Meetup",
 			},
 		],
-		activities: [Activity.schema],
-		testimonials: [Testimonial.schema],
+		activities: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Activity",
+			},
+		],
+		testimonials: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Testimonial",
+			},
+		],
 		isTrainer: {
 			type: Boolean,
 		},

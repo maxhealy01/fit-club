@@ -77,6 +77,7 @@ const resolvers = {
 
 			return activity;
 		},
+		// not yet working
 		postMeetup: async (parent, args, context) => {
 			console.log(args);
 			if (context.user) {
@@ -86,7 +87,7 @@ const resolvers = {
 				});
 				await User.findByIdAndUpdate(
 					{ _id: context.user._id },
-					{ $push: { meetups: meetup } },
+					{ $addToSet: { meetups: meetup } },
 					{ new: true }
 				);
 
@@ -135,6 +136,47 @@ const resolvers = {
 				return updatedUser;
 			}
 
+			throw new AuthenticationError("You need to be logged in!");
+		},
+		// Not yet working
+		addMeetup: async (parent, { meetupId }, context) => {
+			if (context.user) {
+				const updatedUser = await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $addToSet: { meetups: meetupId } },
+					{ new: true }
+				).populate("meetups");
+
+				return updatedUser;
+			}
+
+			throw new AuthenticationError("You need to be logged in!");
+		},
+		addActivity: async (parent, { activityId }, context) => {
+			if (context.user) {
+				const updatedUser = await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $addToSet: { activities: activityId } },
+					{ new: true }
+				);
+
+				return updatedUser;
+			}
+
+			throw new AuthenticationError("You need to be logged in!");
+		},
+		addGoal: async (parent, args, context) => {
+			if (context.user) {
+				const goal = await Goal.create(args);
+
+				const updatedUser = await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $addToSet: { goals: goal._id } },
+					{ new: true }
+				).populate("goals");
+
+				return updatedUser;
+			}
 			throw new AuthenticationError("You need to be logged in!");
 		},
 	},

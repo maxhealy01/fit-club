@@ -8,8 +8,9 @@ const typeDefs = gql`
 	}
 	type Goal {
 		_id: ID
+		personalGoal: String!
 		name: String!
-		metric: String!
+		metric: [String]
 	}
 	type Meetup {
 		_id: ID
@@ -93,6 +94,9 @@ const typeDefs = gql`
 		): Workout
 		# The following mutations don't create new objects, but instead add existing objects to the User object
 		addFriend(friendId: ID!): User
+		addMeetup(meetupId: ID!): User
+		addActivity(activityId: ID!): User
+		addGoal(personalGoal: String!, name: String!): User
 	}
 `;
 

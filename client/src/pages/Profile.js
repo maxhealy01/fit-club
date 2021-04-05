@@ -65,7 +65,7 @@ function Profile() {
       },
       {
         _id: 12345679,
-        goalType: 'Weight Training',
+        goalType: 'Strength Training',
         measurement: 'lbs',
         startDate: '4/3/2021',
         endDate: '6/28/2021',

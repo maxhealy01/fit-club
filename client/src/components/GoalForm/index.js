@@ -12,6 +12,13 @@ const GoalForm = () => {
         <div class="form" style={{margin: 50, border:"5px solid black"}}>
             <h2>Create A New Goal</h2>
 
+            <label for="goal-type">Select Goal Type</label>
+            <select name = "goal-type" id="goal-type">
+                <option value = "Strength Training" selected>Strength Training</option>
+                <option value = "Weight Loss">Weight Loss</option>
+                <option value = "Running">Running</option>
+            </select>
+
             <label for="start-date">Start Date</label>
             <DatePicker id="start-date" selected={currentStartDate} onChange={date => setStartDate(date)} />
 

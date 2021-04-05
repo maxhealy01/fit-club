@@ -1,8 +1,25 @@
-import React from 'react';
-import '../assets/scss/chatbox.scss';
+import React, { useState, useCallback } from "react";
+import "../assets/scss/chatbox.scss";
+import { useConversations } from "../utils/ConversationsProvider";
 
+const ChatBox = () => {
+  const [text, setText] = useState("");
+  const setRef = useCallback((node) => {
+    if (node) {
+      node.scrollIntoView({ smooth: true });
+    }
+  }, []);
+  const { sendMessage, selectedConversation } = useConversations();
 
-const AppChatBox = () => {
+  function handleSubmit(e) {
+    e.preventDefault()
+
+    sendMessage(
+      selectedConversation.recipients.map(r => r._id),
+      text
+    )
+    setText('')
+  }
 
 	return (
 		<>
@@ -19,7 +36,7 @@ const AppChatBox = () => {
         </div>
         <div className="message-box">
             <textarea type="text" className="message-input" placeholder="Type message..."></textarea>
-            <button type="submit" className="message-submit">Send</button>
+            <button type="submit" onClick={handleSubmit} className="message-submit">Send</button>
         </div>
       </div>
     </div>
@@ -27,5 +44,5 @@ const AppChatBox = () => {
 	);
 };
 
-export default AppChatBox;
+export default ChatBox;
 

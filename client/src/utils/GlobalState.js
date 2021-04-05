@@ -1,13 +1,13 @@
 import React, { createContext, useContext } from "react";
-// import { useProductReducer } from "./reducers";
+import { useFitnessReducer } from "./reducers";
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
 
 const StoreProvider = ({ value = [], ...props }) => {
-	// const [state, dispatch] = useProductReducer({
-	// 	info: [],
-	// });
+	const [state, dispatch] = useFitnessReducer({
+		conversations: ["helloWorld"]
+	});
 
 	return <Provider value={[state, dispatch]} {...props} />;
 };

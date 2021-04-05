@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const testimonialSchema = new Schema({
-	poster: {
+	postedBy: {
 		type: Schema.Types.ObjectId,
 		ref: "User",
 		required: true,

@@ -9,7 +9,7 @@ const CoverPage = () => {
 	return (
         <div className="cover-page">
         <div className="coverpage-wrapper">
-          <LoginForm />          
+          <LoginForm />
         </div>
     </div>
 	);

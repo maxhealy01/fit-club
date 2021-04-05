@@ -16,7 +16,7 @@ function Homepage(){
                         </p>
                         <div className="btn">
                             <Link 
-                            to="#"
+                            to="/Classes"
                             className="linkToCourse">
                                 Find a Course
                             </Link>

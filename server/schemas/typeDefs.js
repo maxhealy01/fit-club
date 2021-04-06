@@ -115,7 +115,7 @@ const typeDefs = gql`
 		addFriend(friendId: ID!): User
 		addMeetup(meetupId: ID!): User
 		addActivity(activityId: ID!): User
-		addGoal(personalGoal: String!, name: String!): User
+		addGoal(goalType: String!, startDate: String!, endDate: String!, endValue: String!, name: String!, userID: ID!): User
 		createConversation(recipients: [ID], text: String!): User
 	}
 `;

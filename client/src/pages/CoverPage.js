@@ -1,6 +1,7 @@
 import React from "react";
 import '../assets/scss/coverpage.scss'
 import { Link, Switch } from "react-router-dom";
+
 // import SignUp from "./Signup";
 
 // import LoginForm from "./Login";

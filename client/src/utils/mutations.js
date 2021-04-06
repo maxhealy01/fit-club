@@ -6,6 +6,7 @@ export const LOGIN = gql`
       token
       user {
         _id
+        username
       }
     }
   }
@@ -36,3 +37,22 @@ export const ADD_CONVERSATION = gql`
     }
   }
 `;
+
+////////////////////////////////////////////
+// create goal with mike's data structure //
+////////////////////////////////////////////
+// export const ADD_GOAL = gql`
+//   mutation addGoal($goalType: String!, measurement: String!, startDate: String!, endDate: String!, endValue: Int!, progressData: [Object]!) {
+//     addGoal(goalType: $goalType, measurement: $measurement, startDate: $startDate, endDate: $endDate, endValue: $endValue, progressData: $progressData) {
+//       user {
+//         goals {
+//           goalType
+//           measurement
+//           startDate
+//           endDate
+//           endValue
+//         }
+//       }
+//     }
+//   }
+// `

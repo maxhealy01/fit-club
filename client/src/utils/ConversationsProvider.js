@@ -1,9 +1,6 @@
 import React, { useContext, useState, useEffect, useCallback } from 'react'
-import { useStoreContext } from './GlobalState';
-
-import { useMutation } from "@apollo/react-hooks";
-import {ADD_CONVERSATION} from "./mutations"
-
+import useLocalStorage from '../hooks/useLocalStorage';
+import { useContacts } from './ContactsProvider';
 import { useSocket } from './SocketProvider';
 
 const ConversationsContext = React.createContext()
@@ -12,13 +9,10 @@ export function useConversations() {
   return useContext(ConversationsContext)
 }
 
-export function ConversationsProvider({ id, ...props }) {
-  const [state] = useStoreContext()
+export function ConversationsProvider({ id, children }) {
+  const [conversations, setConversations] = useLocalStorage('conversations', [])
   const [selectedConversationIndex, setSelectedConversationIndex] = useState(0)
-  const { conversations } = state
-  
-  const setConversations = useMutation(ADD_CONVERSATION);
-
+  const { contacts } = useContacts()
   const socket = useSocket()
 
   function createConversation(recipients) {
@@ -68,40 +62,40 @@ export function ConversationsProvider({ id, ...props }) {
     addMessageToConversation({ recipients, text, sender: id })
   }
 
-  // const formattedConversations = conversations.map((conversation, index) => {
-  //   const recipients = conversation.recipients.map(recipient => {
-  //     // const contact = contacts.find(contact => {
-  //     //   return contact.id === recipient
-  //     // })
-  //     // (contact && contact.name) || 
-  //     const name = recipient
-  //     return { id: recipient, name }
-  //   })
+  const formattedConversations = conversations.map((conversation, index) => {
+    const recipients = conversation.recipients.map(recipient => {
+      const contact = contacts.find(contact => {
+        return contact.id === recipient
+      })
+      const name = (contact && contact.name) || recipient
+      return { id: recipient, name }
+    })
 
-  //   const messages = conversation.messages.map(message => {
-  //     // const contact = contacts.find(contact => {
-  //     //   return contact.id === message.sender
-  //     // })
-  //     // (contact && contact.name) ||
-  //     const name = message.sender
-  //     const fromMe = id === message.sender
-  //     return { ...message, senderName: name, fromMe }
-  //   })
+    const messages = conversation.messages.map(message => {
+      const contact = contacts.find(contact => {
+        return contact.id === message.sender
+      })
+      const name = (contact && contact.name) || message.sender
+      const fromMe = id === message.sender
+      return { ...message, senderName: name, fromMe }
+    })
     
-  //   const selected = index === selectedConversationIndex
-  //   return { ...conversation, messages, recipients, selected }
-  // })
+    const selected = index === selectedConversationIndex
+    return { ...conversation, messages, recipients, selected }
+  })
 
   const value = {
-    conversations,
-    selectedConversation: [selectedConversationIndex],
+    conversations: formattedConversations,
+    selectedConversation: formattedConversations[selectedConversationIndex],
     sendMessage,
     selectConversationIndex: setSelectedConversationIndex,
     createConversation
   }
 
   return (
-    <ConversationsContext.Provider value={value}{...props} />
+    <ConversationsContext.Provider value={value}>
+      {children}
+    </ConversationsContext.Provider>
   )
 }
 

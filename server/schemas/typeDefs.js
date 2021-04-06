@@ -8,18 +8,20 @@ const typeDefs = gql`
 	}
 	type Goal {
 		_id: ID
-		name: String
-		metric: String
+		personalGoal: String!
+		name: String!
+		metric: [String]
 	}
 	type Meetup {
 		_id: ID
 		name: String
 		location: String
-		time: String
+		time: String!
 		duration: String
 		equipment: String
 		activity: Activity
 		participants: [User]
+		postedBy: User
 		trainer: User
 	}
 	type User {
@@ -32,14 +34,17 @@ const typeDefs = gql`
 		meetups: [Meetup]
 		activities: [Activity]
 		testimonials: [Testimonial]
+		messages: [Message]
+		isTrainer: Boolean
 	}
 	type Testimonial {
 		_id: ID
-		postedBy: User
 		text: String
+		postedBy: ID
 	}
 	type Workout {
-		name: String
+		_id: ID
+		name: String!
 		source: String
 		duration: String
 		equipment: String
@@ -49,7 +54,6 @@ const typeDefs = gql`
 	type Message {
 		message: String
 		recipients: [User]
-
 	}
 	type Auth {
 		token: ID
@@ -57,17 +61,20 @@ const typeDefs = gql`
 	}
 
 	type Query {
-		user: User
 		me: User
-		activities: [Activity]
-		meetups: [Meetup]
-		testimonials: [Testimonial]
+		trainers: [User]
 		users: [User]
+		user(username: String): User
+		activities: [Activity]
+		meetups(activity: ID): [Meetup]
+		testimonials(postedBy: ID): [Testimonial]
+		workouts(activity: ID): [Workout]
 	}
 
 	type Mutation {
 		login(email: String!, password: String!): Auth
 		addUser(username: String!, email: String!, password: String!): Auth
+		addTrainer(username: String!, email: String!, password: String!): Auth
 		updateUser(username: String, email: String, password: String): User
 		createActivity(name: String!, type: String!): Activity
 		postMeetup(
@@ -80,6 +87,18 @@ const typeDefs = gql`
 			trainer: ID
 		): Meetup
 		postTestimonial(text: String!): Testimonial
+		postWorkout(
+			name: String!
+			source: String
+			duration: String
+			equipment: String
+			activity: ID
+		): Workout
+		# The following mutations don't create new objects, but instead add existing objects to the User object
+		addFriend(friendId: ID!): User
+		addMeetup(meetupId: ID!): User
+		addActivity(activityId: ID!): User
+		addGoal(personalGoal: String!, name: String!): User
 		createConversation(recipients: [ID], text: String!): User
 	}
 `;

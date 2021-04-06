@@ -18,9 +18,7 @@ import SignupForm from "./pages/Register";
 import ChatBox from "./components/ChatBox";
 import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
-import Footer from "./components/Footer";
-
-
+import Login from "./components/Login";
 
 // import socket.io provider
 import { SocketProvider } from "./utils/SocketProvider";
@@ -36,7 +34,7 @@ const client = new ApolloClient({
       },
     });
   },
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 
@@ -57,34 +55,26 @@ function App() {
 
 	return (
 		<ApolloProvider client={client}>
-			<Router>
-				<Navbar>{navLinks}</Navbar>
-				<div>
-					<Switch>
-						{/* <Route exact path="/" component={Home} /> */}
-						<Route exact path="/Classes" component={Classes} />
-						<Route exact path="/Profile" component={Profile} />
-						<Route exact path="/Workout" component={Workout} />
-						<Route exact path="/Register" component={SignupForm} />
-						<Route exact path="/CoverPage" component={CoverPage} />
-						{/* <Route
-						exact path="/"
-						component={!loggedIn ? 'CoverPage' : 'Home'} /> */}
-						{/* <Route
-						exact path="/"
-						component={!loggedIn ? 'CoverPage' : 'ChatBox'} /> */}
-						{/* <Route
-						exact path="/"
-						component={!loggedIn ? 'CoverPage' : 'Footer'} /> */}
-					</Switch>
-
-				</div>
+      <StoreProvider>
+        <Router>
+          <Navbar>{navLinks}</Navbar>
+          <div>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/Classes" component={Classes} />
+              <Route exact path="/Profile" component={Profile} />
+              <Route exact path="/Workout" component={Workout} />
+              <Route exact path="/Signup" component={Signup} />
+              <Route exact patch="/Login" component={Login} />
 
 
-				{/* <CoverPage /> */}
-				{/* <ChatBox /> */}
-
-			</Router>
+            </Switch>
+          </div>
+            {/* <CoverPage /> */}
+            {/* <Signup /> */}
+            {/* <ChatBox /> */}
+        </Router>
+      </StoreProvider>
 		</ApolloProvider>
 	);
 }

@@ -39,15 +39,18 @@ const resolvers = {
 		activities: async () => {
 			return Activity.find();
 		},
-		meetups: async (parent, { id }) => {
-			const params = id ? { id } : {};
+		// The following three queries are set up to take optional parameters, filtering by activity or user.
+		meetups: async (parent, { activity }) => {
+			const params = activity ? { activity } : {};
 			return Meetup.find(params);
 		},
-		testimonials: async () => {
-			return Testimonial.find();
+		testimonials: async (parent, { postedBy }) => {
+			const params = postedBy ? { postedBy } : {};
+			return Testimonial.find(params);
 		},
-		workouts: async () => {
-			return Workout.find();
+		workouts: async (parent, { activity }) => {
+			const params = activity ? { activity } : {};
+			return Workout.find(params);
 		},
 		trainers: async (parent, args, context) => {
 			// if (context.user) {
@@ -106,6 +109,7 @@ const resolvers = {
 
 			return activity;
 		},
+		// not yet working
 		postMeetup: async (parent, args, context) => {
 			console.log(args);
 			if (context.user) {
@@ -164,6 +168,47 @@ const resolvers = {
 				return updatedUser;
 			}
 
+			throw new AuthenticationError("You need to be logged in!");
+		},
+		// Not yet working
+		addMeetup: async (parent, { meetupId }, context) => {
+			if (context.user) {
+				const updatedUser = await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $addToSet: { meetups: meetupId } },
+					{ new: true }
+				).populate("meetups");
+
+				return updatedUser;
+			}
+
+			throw new AuthenticationError("You need to be logged in!");
+		},
+		addActivity: async (parent, { activityId }, context) => {
+			if (context.user) {
+				const updatedUser = await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $addToSet: { activities: activityId } },
+					{ new: true }
+				);
+
+				return updatedUser;
+			}
+
+			throw new AuthenticationError("You need to be logged in!");
+		},
+		addGoal: async (parent, args, context) => {
+			if (context.user) {
+				const goal = await Goal.create(args);
+
+				const updatedUser = await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ $addToSet: { goals: goal._id } },
+					{ new: true }
+				).populate("goals");
+
+				return updatedUser;
+			}
 			throw new AuthenticationError("You need to be logged in!");
 		},
 	},

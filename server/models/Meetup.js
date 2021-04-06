@@ -1,5 +1,5 @@
-const { Schema, model } = require("mongoose");
-const User = require("./User");
+const { Schema, model } = require('mongoose');
+const User = require('./User');
 
 const meetupSchema = new Schema(
 	{
@@ -29,25 +29,25 @@ const meetupSchema = new Schema(
 		},
 		activity: {
 			type: Schema.Types.ObjectId,
-			ref: "Activity",
+			ref: 'Activity',
 			required: true,
 		},
 		participants: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: "User",
+				ref: 'User',
 			},
 		],
 		postedBy: {
 			type: Schema.Types.ObjectId,
-			ref: "User",
+			ref: 'User',
 			required: true,
 		},
 		// If NO trainer, then this is treated as a meet-up.
 		// That is, it's just a bunch of users meeting up.
 		trainer: {
 			type: Schema.Types.ObjectId,
-			ref: "Trainer",
+			ref: 'Trainer',
 		},
 	},
 	{
@@ -58,10 +58,10 @@ const meetupSchema = new Schema(
 	}
 );
 
-meetupSchema.virtual("meetupCount").get(function () {
+meetupSchema.virtual('meetupCount').get(function () {
 	return this.participants.length;
 });
 
-const Meetup = model("Meetup", meetupSchema);
+const Meetup = model('Meetup', meetupSchema);
 
 module.exports = Meetup;

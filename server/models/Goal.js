@@ -1,40 +1,44 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model } = require('mongoose');
+const progressDataSchema = require('./ProgressData');
+
+const Activity = require('./Activity');
+const Meetup = require('./Meetup');
+const Testimonial = require('./Testimonial');
+const Message = require('./Message');
 
 const goalSchema = new Schema(
 	{
-	username: {
-		type: String,
-		required: true
+		username: {
+			type: String,
+			required: true
+		},
+		goalType: {
+			type: String,
+			required: true
+		},
+		startDate: {
+			type: Date,
+			required: true
+		},
+		endDate: {
+			type: Date,
+			required: true
+		},
+		endValue: {
+			type: Number,
+			required: true
+		},
+		progressData: [progressDataSchema]
 	},
-	// This will be a personal goal selected by the user from a drop-down list.
-	goalType: {
-		type: String,
-		required: true
-
-	},
-	// User will select a start date from a date picker tool
-	startDate: {
-		type: Date,
-		required: true
-	},
-	// User will select an end date from a date picker tool
-	endDate: {
-		type: Date,
-		required: true
-	},
-	// User will input an end value to reflect their goal
-	endValue: {
-		type: Number,
-		required: true
-	},
-	progressData: [
-		{
-			type: Schema.Types.ObjectId,
-			ref: "ProgressData"
+	// set this to use virtual below
+	{
+		toJSON: {
+			getters: true,
 		}
-	]
-});
+	}
+);
 
-const Goal = model("Goal", goalSchema);
+
+const Goal = model('Goal', goalSchema);
 
 module.exports = Goal;

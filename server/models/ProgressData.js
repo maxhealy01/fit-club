@@ -1,16 +1,21 @@
-const { Schema, model } = require("mongoose");
+const { Schema } = require("mongoose");
 
-const progressDataSchema = new Schema({
-	date: {
-		type: Date,
-		required: true
+const progressDataSchema = new Schema(
+	{
+		date: {
+			type: Date,
+			required: true
 
+		},
+		value: {
+			type: Number
+		}
 	},
-	value: {
-		type: Number
+	{
+		toJSON: {
+		getters: true
+		}
 	}
-});
+);
 
-const ProgressData = model("ProgressData", progressDataSchema);
-
-module.exports = ProgressData;
+module.exports = progressDataSchema;

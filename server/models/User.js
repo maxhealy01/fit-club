@@ -1,11 +1,11 @@
-const { Schema, model } = require("mongoose");
-const bcrypt = require("bcrypt");
+const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
-const Goal = require("./Goal");
-const Activity = require("./Activity");
-const Meetup = require("./Meetup");
-const Testimonial = require("./Testimonial");
-const Message = require("./Message");
+const Goal = require('./Goal');
+const Activity = require('./Activity');
+const Meetup = require('./Meetup');
+const Testimonial = require('./Testimonial');
+const Message = require('./Message');
 
 const userSchema = new Schema(
 	{
@@ -31,31 +31,31 @@ const userSchema = new Schema(
 		friends: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: "User",
+				ref: 'User'
 			},
 		],
 		goals: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: "Goal",
-			},
+				ref: 'Goal'
+			}
 		],
 		meetups: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: "Meetup",
+				ref: 'Meetup'
 			},
 		],
 		activities: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: "Activity",
+				ref: 'Activity'
 			},
 		],
 		testimonials: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: "Testimonial",
+				ref: 'Testimonial'
 			},
 		],
 		isTrainer: {
@@ -73,8 +73,8 @@ const userSchema = new Schema(
 );
 
 // hash user password
-userSchema.pre("save", async function (next) {
-	if (this.isNew || this.isModified("password")) {
+userSchema.pre('save', async function (next) {
+	if (this.isNew || this.isModified('password')) {
 		const saltRounds = 10;
 		this.password = await bcrypt.hash(this.password, saltRounds);
 	}
@@ -87,10 +87,10 @@ userSchema.methods.isCorrectPassword = async function (password) {
 	return bcrypt.compare(password, this.password);
 };
 
-userSchema.virtual("friendCount").get(function () {
+userSchema.virtual('friendCount').get(function () {
 	return this.friends.length;
 });
 
-const User = model("User", userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

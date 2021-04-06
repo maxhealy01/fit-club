@@ -23,12 +23,14 @@ db.once('open', async () => {
   // create friends
   for (let i = 0; i < 100; i += 1) {
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+
     const { _id: userId } = createdUsers.ops[randomUserIndex];
 
     let friendId = userId;
 
     while (friendId === userId) {
       const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+
       friendId = createdUsers.ops[randomUserIndex];
     }
 
@@ -36,26 +38,28 @@ db.once('open', async () => {
   }
 
   // create goals
-  let createdGoals = [];
-  for (let i = 0; i < 100; i += 1) {
-    const goalType = "Weight Loss";
-    const startDate = "4/4/2021";
-    const endDate = "7/7/2021";
-    const endValue = 100;
-    const progressData = [{"date": "5/5/2021"}]
+  // let createdGoals = [];
 
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { username, _id: userId } = createdUsers.ops[randomUserIndex];
+  // for (let i = 0; i < 100; i += 1) {
+  //   const goalType = "Weight Loss";
+  //   const startDate = "4/4/2021";
+  //   const endDate = "7/7/2021";
+  //   const endValue = 100;
+  //   const progressData = [{date: "5/5/2021"}];
 
-    const createdGoal = await Goal.create({ startDate, endDate, endValue, username, progressData });
+  //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
 
-    const updatedUser = await User.updateOne(
-      { _id: userId },
-      { $push: { goals: createdGoal._id } }
-    );
+  //   const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    createdGoals.push(createdGoal);
-  }
+  //   const createdGoal = await Goal.create({ username, goalType, startDate, endDate, endValue, progressData });
+
+  //   const updatedUser = await User.updateOne(
+  //     { _id: userId },
+  //     { $push: { goals: createdGoal._id } }
+  //   );
+
+  //   createdGoals.push(createdGoal);
+  // }
 
 
   console.log('all done!');

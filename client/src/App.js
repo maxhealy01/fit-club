@@ -7,6 +7,11 @@ import ApolloClient from "apollo-boost";
 import { StoreProvider } from "./utils/GlobalState";
 import axios from "axios";
 
+// App Styles (Do Not Delete This!!)
+import './assets/scss/app.scss';
+
+
+
 // pages
 import Home from "./pages/Home";
 import Classes from "./pages/Classes";
@@ -66,7 +71,6 @@ function App() {
 						<Route exact path="/Profile" component={Profile} />
 						<Route exact path="/Workout" component={Workout} />
 						<Route exact path="/Register" component={SignupForm} />
-						<Route exact path="/CoverPage" component={CoverPage} />
 						{/* <Route
 						exact path="/"
 						component={!loggedIn ? 'CoverPage' : 'Home'} /> */}

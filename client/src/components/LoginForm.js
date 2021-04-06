@@ -48,7 +48,7 @@ class LoginForm extends React.Component{
             <p>Don't have an account?</p>
             <Link 
               className="underlineHover" 
-              to={"/SignUp"}>Sign up</Link>
+              to={"/Register"}>Sign up</Link>
     
           </div>
 

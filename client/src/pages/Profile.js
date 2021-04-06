@@ -101,6 +101,8 @@ function Profile() {
 
   return (
     <>
+    <div className="profile-header">
+    </div>
     <GoalForm goals={user.goals} />
     <GoalList
       goals={user.goals}

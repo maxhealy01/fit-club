@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker.css";
 import { LineChart, YAxis, XAxis, CartesianGrid, Line, ReferenceLine, Tooltip, ResponsiveContainer } from 'recharts';
+import '../../assets/scss/GoalList.scss';
+
 
 const GoalList = ({ goals, username }) => {
     const [progressDate, setProgressDate] = useState(new Date());
@@ -32,43 +34,84 @@ const GoalList = ({ goals, username }) => {
 
 
   return (
-    <div>
-        <h1 style={{margin: 50}}>
-            Your Goals
-        </h1>
-      {goals &&
+    <div className="list-container">
+
+      <div className="goal-title">
+        <div className="title-bg">
+          <h1>
+                Your Goals
+          </h1>
+        </div>
+      </div>
+      <div className="goal-wrapper">
+        <div className="graph-wrapper">
+        {goals &&
         goals.map(goal => (
-          <div key={goal._id} style={{margin: 50, border:"5px solid black"}}>
-            <h2>
-              Health Goal: {goal.goalType}
-            </h2>
+          <div className="graph" key={goal._id}>
 
-            <div>
-              <p>Start Date: {goal.startDate}</p>
-              <p>Goal: {goal.endValue} {goal.measurement} on {goal.endDate}</p>
+            <div className="target-goal">
+                <h1>
+                    {goal.goalType}
+                </h1>
+                <div className="goal-date">
+                    <p>Start Date: {goal.startDate}</p>
+                    <p>Goal: {goal.endValue} {goal.measurement} on {goal.endDate}</p>
+                </div>
             </div>
 
-              <LineChart width={400} height={250} data={goal.progressData}>
-                  <ReferenceLine y={goal.endValue} stroke="red" strokeWidth="3px" label={`${goal.goalType} Goal: ${goal.endValue}`}/>
 
-                  <XAxis dataKey="date"/>
-                  <YAxis />
-                  <Tooltip />
-                  <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
-                  <Line type="monotone" dataKey="value" stroke="#8884d8" />
-              </LineChart>
-
+            <div className="form-txt">
+                <p>Add Goal Progress Information</p>
+            </div>
             <div className="form">
-                <h4>Add Goal Progress Information</h4>
+                <div className="dv-txt">
+                  <p>Date</p>
+                  <DatePicker clasName="DatePicker"
+                  selected={progressDate}
+                  onChange={date => setProgressDate(date)} />
+                </div>
 
-                <DatePicker selected={progressDate} onChange={date => setProgressDate(date)} />
-                <input type="number" min="0" id="t-amount" placeholder="Value" style={{margin: 20}} />
-                <button id="add-btn"><i className="fa fa-plus buttons"></i> Submit</button>
-                <p className="error"></p>
+                <div className="dv-txt">
+                  <p>Value</p>
+                  <input
+                  type="number"
+                  min="0"
+                  id="t-amount"
+                  placeholder="Value"/>
+                </div>
+
+                <button id="add-btn">Submit</button>
             </div>
+
+          <div className="LineChart-wrapper">
+            <LineChart
+            className="LineChart"
+            width={1000} height={350}
+            data={goal.progressData}>
+                <ReferenceLine
+                y={goal.endValue}
+                stroke="red"
+                strokeWidth="3px"
+                label={`${goal.goalType}
+                Goal: ${goal.endValue}`}/>
+
+                <XAxis dataKey="date"/>
+                <YAxis />
+                <Tooltip />
+                <CartesianGrid
+                stroke="#eee"
+                strokeDasharray="5 5"/>
+                <Line
+                type="monotone"
+                dataKey="value"
+                stroke="#8884d8" />
+            </LineChart>
+          </div>
 
           </div>
         ))}
+        </div>
+      </div>
     </div>
   );
 };

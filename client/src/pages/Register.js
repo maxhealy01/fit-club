@@ -1,10 +1,28 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import '../assets/scss/Register.scss';
-
+import Auth from "../utils/auth";
 
 function SignupForm() {
 
+    React.state = {
+        username: '',
+        email: '',
+        passworld: ''
+      }
+
+onChange = (e) => {
+    this.setState({
+        [e.target.name]: e.target.value
+    })
+}
+
+onSubmit = async () => {
+    const response = await this.props.mutate({
+        variables: this.state,
+    })
+    console.log(response);
+}
 
 	return (
 
@@ -19,6 +37,7 @@ function SignupForm() {
                         className="firstname" 
                         name="firstname" 
                         placeholder="First Name" 
+                        onChange={e => this.onChange(e)}
                         />
                         
                         <input 
@@ -26,22 +45,26 @@ function SignupForm() {
                         className="lastname" 
                         name="lastname" 
                         placeholder="Last Name" 
-                        />
+                        onChange={e => this.onChange(e)}/>
+                        
 
                         <input 
                         type="email" 
                         className="email"
                         name="email" 
-                        placeholder="Email Address" />
+                        placeholder="Email Address" 
+                        onChange={e => this.onChange(e)}/>
 
                         <input 
                         type="password" 
                         className="password"
                         name="password" 
-                        placeholder="Password" />
+                        placeholder="Password"
+                        onChange={e => this.onChange(e)} />
 
                         <input 
-                        type="submit" 
+                        onClick={() => this.onSubmit()} 
+                        type="primary"
                         className="submit-btn" 
                         value="submit" 
                         />

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import '../../assets/scss/GoalForm.scss';
+
 
 
 const GoalForm = () => {
@@ -8,28 +10,54 @@ const GoalForm = () => {
     const [endDate, setEndDate] = useState(new Date());
 
   return (
-    <div>
-        <div class="form" style={{margin: 50, border:"5px solid black"}}>
+    <div className="goal-form">
+      <div className="mypic"><div></div></div>
+
+        <div className="form">
             <h2>Create A New Goal</h2>
 
-            <label for="goal-type">Select Goal Type</label>
-            <select name = "goal-type" id="goal-type">
-                <option value = "Strength Training" selected>Strength Training</option>
-                <option value = "Weight Loss">Weight Loss</option>
-                <option value = "Running">Running</option>
-            </select>
+            
 
-            <label for="start-date">Start Date</label>
-            <DatePicker id="start-date" selected={currentStartDate} onChange={date => setStartDate(date)} />
+          <div className="options">
+              <div className="select opt">
+                <p>Select Goal Type</p>
+                <div className="select">
+                  <select name = "goal-type" id="goal-type"> 
+                      <option value = "Strength Training" selected>
+                        Strength Training
+                      </option>
+                      <option value = "Weight Loss">Weight Loss</option>
+                      <option value = "Running">Running</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div className="start-date opt">
+                <p for="start-date">Start Date</p>
+                <div className="select">
+                  <DatePicker className="DatePicker" id="start-date" selected={currentStartDate} 
+                  onChange={date => setStartDate(date)} />
+                </div>
+              </div>
+              <div className="goal-date opt">
+                <p for="goal-date">Goal Date</p>
+                <div className="select">
+                  <DatePicker className="DatePicker" id="goal-date" selected={endDate} 
+                  onChange={date => setEndDate(date)} />
+                </div>
+              </div>
+            
+              <div className="goal-value opt">
+                <p for="goal-value">Goal Value</p>
+                <div className="select">
+                  <input type="number" id="goal-value" placeholder="Value"/>
+                </div>
+                
+              </div>
+              
 
-            <label for="goal-date">Goal Date</label>
-            <DatePicker id="goal-date" selected={endDate} onChange={date => setEndDate(date)} />
-
-            <label for="goal-value">Goal Value</label>
-            <input type="number" min="0" id="goal-value" placeholder="Value" style={{margin: 20}} />
-
-            <button id="add-btn"><i class="fa fa-plus buttons"></i> Submit</button>
-            <p class="error"></p>
+              <button id="add-btn">Submit</button>
+            </div>
         </div>
     </div>
   );

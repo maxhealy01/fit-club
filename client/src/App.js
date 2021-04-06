@@ -7,6 +7,11 @@ import ApolloClient from "apollo-boost";
 import { StoreProvider } from "./utils/GlobalState";
 import axios from "axios";
 
+// App Styles (Do Not Delete This!!)
+import './assets/scss/app.scss';
+
+
+
 // pages
 import Home from "./pages/Home";
 import Classes from "./pages/Classes";
@@ -18,7 +23,9 @@ import SignupForm from "./pages/Register";
 import ChatBox from "./components/ChatBox";
 import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
-import Login from "./components/Login";
+import Footer from "./components/Footer";
+
+
 
 // import socket.io provider
 import { SocketProvider } from "./utils/SocketProvider";
@@ -55,26 +62,33 @@ function App() {
 
 	return (
 		<ApolloProvider client={client}>
-      <StoreProvider>
-        <Router>
-          <Navbar>{navLinks}</Navbar>
-          <div>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/Classes" component={Classes} />
-              <Route exact path="/Profile" component={Profile} />
-              <Route exact path="/Workout" component={Workout} />
-              <Route exact path="/Signup" component={SignupForm} />
-              <Route exact patch="/Login" component={Login} />
+			<Router>
+				<Navbar>{navLinks}</Navbar>
+				<div>
+					<Switch>
+						{/* <Route exact path="/" component={Home} /> */}
+						<Route exact path="/Classes" component={Classes} />
+						<Route exact path="/Profile" component={Profile} />
+						<Route exact path="/Workout" component={Workout} />
+						<Route exact path="/Register" component={SignupForm} />
+						{/* <Route
+						exact path="/"
+						component={!loggedIn ? 'CoverPage' : 'Home'} /> */}
+						{/* <Route
+						exact path="/"
+						component={!loggedIn ? 'CoverPage' : 'ChatBox'} /> */}
+						{/* <Route
+						exact path="/"
+						component={!loggedIn ? 'CoverPage' : 'Footer'} /> */}
+					</Switch>
+
+				</div>
 
 
-            </Switch>
-          </div>
-            {/* <CoverPage /> */}
-            {/* <Signup /> */}
-            {/* <ChatBox /> */}
-        </Router>
-      </StoreProvider>
+				<CoverPage />
+				{/* <ChatBox /> */}
+
+			</Router>
 		</ApolloProvider>
 	);
 }

@@ -88,11 +88,11 @@ const resolvers = {
 					...args,
 					postedBy: context.user._id,
 				});
-				await User.findByIdAndUpdate(
-					{ _id: context.user._id },
-					{ $addToSet: { meetups: meetup } },
-					{ new: true }
-				);
+				// await User.findByIdAndUpdate(
+				// 	{ _id: context.user._id },
+				// 	{ $addToSet: { meetups: meetup } },
+				// 	{ new: true }
+				// );
 
 				return meetup;
 			}
@@ -184,10 +184,5 @@ const resolvers = {
 		},
 	},
 };
-// addUser: async (parent, args) => {
-// 	const user = await User.create(args);
-// 	const token = signToken(user);
 
-// 	return { token, user };
-// },
 module.exports = resolvers;

@@ -11,13 +11,13 @@ function SignupForm() {
         passworld: ''
       }
 
-onChange = (e) => {
+const onChange = (e) => {
     this.setState({
         [e.target.name]: e.target.value
     })
 }
 
-onSubmit = async () => {
+const onSubmit = async () => {
     const response = await this.props.mutate({
         variables: this.state,
     })
@@ -32,50 +32,50 @@ onSubmit = async () => {
                     <h2 className="active"> Register </h2>
 
                     <form>
-                        <input 
-                        type="text" 
-                        className="firstname" 
-                        name="firstname" 
-                        placeholder="First Name" 
+                        <input
+                        type="text"
+                        className="firstname"
+                        name="firstname"
+                        placeholder="First Name"
                         onChange={e => this.onChange(e)}
                         />
-                        
-                        <input 
-                        type="text" 
-                        className="lastname" 
-                        name="lastname" 
-                        placeholder="Last Name" 
-                        onChange={e => this.onChange(e)}/>
-                        
 
-                        <input 
-                        type="email" 
+                        <input
+                        type="text"
+                        className="lastname"
+                        name="lastname"
+                        placeholder="Last Name"
+                        onChange={e => this.onChange(e)}/>
+
+
+                        <input
+                        type="email"
                         className="email"
-                        name="email" 
-                        placeholder="Email Address" 
+                        name="email"
+                        placeholder="Email Address"
                         onChange={e => this.onChange(e)}/>
 
-                        <input 
-                        type="password" 
+                        <input
+                        type="password"
                         className="password"
-                        name="password" 
+                        name="password"
                         placeholder="Password"
                         onChange={e => this.onChange(e)} />
 
-                        <input 
-                        onClick={() => this.onSubmit()} 
+                        <input
+                        onClick={() => this.onSubmit()}
                         type="primary"
-                        className="submit-btn" 
-                        value="submit" 
+                        className="submit-btn"
+                        value="submit"
                         />
                     </form>
-                
+
                     <div id="formFooter">
                         <p>Already have an account?</p>
-                        <Link 
-                        className="underlineHover" 
+                        <Link
+                        className="underlineHover"
                         to={"/SignUp"}>Log In</Link>
-        
+
                     </div>
                 </div>
             </div>

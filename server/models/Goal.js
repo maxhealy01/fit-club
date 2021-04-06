@@ -1,23 +1,34 @@
 const { Schema, model } = require("mongoose");
+const ProgressData = require("./ProgressData");
 
 const goalSchema = new Schema({
-	// This will be a personal goal typed by the user.
-	personalGoal: {
+	// This will be a personal goal selected by the user from a drop-down list.
+	goalType: {
 		type: String,
-		required: true,
-		trim: true,
+		required: true
+
 	},
-	// This will be a goal pre-defined by us (weight loss, runtime, etc)
-	name: {
-		type: String,
-		required: true,
-		trim: true,
+	// User will select a start date from a date picker tool
+	startDate: {
+		type: Date,
+		required: true
 	},
-	// The metric will be associated with this pre-defined goal
-	metric: {
-		type: [String],
-		trim: true,
+	// User will select an end date from a date picker tool
+	endDate: {
+		type: Date,
+		required: true
 	},
+	// User will input an end value to reflect their goal
+	endValue: {
+		type: Number,
+		required: true
+	},
+	progressData: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: "ProgressData",
+		}
+	]
 });
 
 const Goal = model("Goal", goalSchema);

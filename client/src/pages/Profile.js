@@ -34,7 +34,7 @@ function Profile() {
           {
             date: '6/10/2021',
             value: 1.5
-        }
+          }
         ]
       },
       {

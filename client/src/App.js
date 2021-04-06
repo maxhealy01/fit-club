@@ -64,7 +64,7 @@ function App() {
               <Route exact path="/Classes" component={Classes} />
               <Route exact path="/Profile" component={Profile} />
               <Route exact path="/Workout" component={Workout} />
-              <Route exact path="/Signup" component={Signup} />
+              <Route exact path="/Signup" component={SignupForm} />
               <Route exact patch="/Login" component={Login} />
 
 

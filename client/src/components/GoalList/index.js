@@ -43,7 +43,6 @@ const GoalList = ({ goals, username }) => {
               Health Goal: {goal.goalType}
             </h2>
 
-
             <div>
               <p>Start Date: {goal.startDate}</p>
               <p>Goal: {goal.endValue} {goal.measurement} on {goal.endDate}</p>

@@ -8,8 +8,9 @@ const typeDefs = gql`
 	}
 	type Goal {
 		_id: ID
-		name: String
-		metric: String
+		personalGoal: String!
+		name: String!
+		metric: [String]
 	}
 	type Meetup {
 		_id: ID

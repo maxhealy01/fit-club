@@ -11,6 +11,7 @@ import GoalForm from '../components/GoalForm'
 
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_ME } from "../utils/queries";
+import { ContactsProvider } from "../utils/ContactsProvider";
 
 function Profile() {
   // const {loading, data} = useQuery(QUERY_ME);

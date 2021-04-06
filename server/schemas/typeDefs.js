@@ -1,37 +1,6 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-	type Activity {
-		_id: ID
-		name: String
-		type: String
-	}
-	type Goal {
-		_id: ID
-		username: String!
-		goalType: String!
-		startDate: String!
-		endDate: String!
-		endValue: Int!
-		progressData: [ProgressData]
-	}
-	type ProgressData {
-		_id: ID
-		date: String!
-		value: Int!
-	}
-	type Meetup {
-		_id: ID
-		name: String
-		location: String
-		time: String!
-		duration: String
-		equipment: String
-		activity: Activity
-		participants: [User]
-		postedBy: User
-		trainer: User
-	}
 	type User {
 		_id: ID
 		username: String
@@ -45,11 +14,32 @@ const typeDefs = gql`
 		messages: [Message]
 		isTrainer: Boolean
 	}
+
+	type Activity {
+		_id: ID
+		name: String
+		type: String
+	}
+
+	type Meetup {
+		_id: ID
+		name: String
+		location: String
+		time: String!
+		duration: String
+		equipment: String
+		activity: Activity
+		participants: [User]
+		postedBy: User
+		trainer: User
+	}
+
 	type Testimonial {
 		_id: ID
 		text: String
 		postedBy: ID
 	}
+
 	type Workout {
 		_id: ID
 		name: String!
@@ -59,9 +49,26 @@ const typeDefs = gql`
 		activity: Activity
 		postedBy: User
 	}
+
 	type Message {
 		message: String
 		recipients: [User]
+	}
+
+	type Goal {
+		_id: ID
+		username: String!
+		goalType: String!
+		startDate: String!
+		endDate: String!
+		endValue: Int!
+		progressData: [ProgressData]
+	}
+
+	type ProgressData {
+		_id: ID
+		date: String!
+		value: Int!
 	}
 
 	type Auth {
@@ -78,7 +85,7 @@ const typeDefs = gql`
 		meetups(activity: ID): [Meetup]
 		testimonials(postedBy: ID): [Testimonial]
 		workouts(activity: ID): [Workout]
-		goals:[Goal]
+		goals (username: String): [Goal]
 	}
 
 	type Mutation {

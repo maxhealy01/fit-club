@@ -6,9 +6,8 @@ const {
 	Message,
 	Testimonial,
 	User,
-	Workout,
 	Goal,
-	ProgressData
+	Workout
 } = require("../models");
 
 const resolvers = {
@@ -27,7 +26,8 @@ const resolvers = {
 				.populate("friends")
 				.populate("meetups")
 				.populate("activities")
-				.populate("testimonials");
+				.populate("testimonials")
+				.populate("goals");
 		},
 		user: async (parent, { username }) => {
 			return User.findOne({ username })
@@ -58,9 +58,10 @@ const resolvers = {
 			return await User.find({ isTrainer: true });
 			// }
 		},
-		goals: async () => {
-			return Goal.find();
-		}
+		goals: async (parent, { username }) => {
+			const params = username ? { username } : {};
+			return Goal.find(params).sort({ endDate: -1 });
+		  }
 	},
 	Mutation: {
 		login: async (parent, { email, password }) => {
@@ -203,15 +204,15 @@ const resolvers = {
 		},
 		addGoal: async (parent, args, context) => {
 			if (context.user) {
-				const goal = await Goal.create(args);
+				const goal = await Goal.create( {...args});
 
-				const updatedUser = await User.findOneAndUpdate(
+				await User.findOneAndUpdate(
 					{ _id: context.user._id },
 					{ $addToSet: { goals: goal._id } },
 					{ new: true }
 				).populate("goals");
 
-				return updatedUser;
+				return goal;
 			}
 			throw new AuthenticationError("You need to be logged in!");
 		},

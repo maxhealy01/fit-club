@@ -44,16 +44,15 @@ db.once('open', async () => {
   //   const goalType = "Weight Loss";
   //   const startDate = "4/4/2021";
   //   const endDate = "7/7/2021";
-  //   const endValue = 100;
-  //   const progressData = [{date: "5/5/2021"}];
+  //   const endValue = 170;
+  //   progressData = [{date: "5/5/2021", value: 200}];
 
   //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-
   //   const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
   //   const createdGoal = await Goal.create({ username, goalType, startDate, endDate, endValue, progressData });
 
-  //   const updatedUser = await User.updateOne(
+  //   await User.updateOne(
   //     { _id: userId },
   //     { $push: { goals: createdGoal._id } }
   //   );

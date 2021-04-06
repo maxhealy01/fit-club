@@ -1,10 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const Goal = require('./Goal');
-const Activity = require('./Activity');
-const Meetup = require('./Meetup');
-const Testimonial = require('./Testimonial');
 const Message = require('./Message');
 
 const userSchema = new Schema(
@@ -13,6 +9,7 @@ const userSchema = new Schema(
 			type: String,
 			required: true,
 			unique: true,
+			trim: true
 		},
 		email: {
 			type: String,
@@ -23,6 +20,7 @@ const userSchema = new Schema(
 		password: {
 			type: String,
 			required: true,
+			minlength: 5
 		},
 		city: {
 			type: String,
@@ -67,7 +65,7 @@ const userSchema = new Schema(
 	{
 		toJSON: {
 			virtuals: true,
-			getters: true,
+			getters: true
 		},
 	}
 );

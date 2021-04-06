@@ -1,17 +1,8 @@
 const { Schema, model } = require('mongoose');
 const progressDataSchema = require('./ProgressData');
 
-const Activity = require('./Activity');
-const Meetup = require('./Meetup');
-const Testimonial = require('./Testimonial');
-const Message = require('./Message');
-
 const goalSchema = new Schema(
 	{
-		username: {
-			type: String,
-			required: true
-		},
 		goalType: {
 			type: String,
 			required: true
@@ -26,6 +17,10 @@ const goalSchema = new Schema(
 		},
 		endValue: {
 			type: Number,
+			required: true
+		},
+		username: {
+			type: String,
 			required: true
 		},
 		progressData: [progressDataSchema]

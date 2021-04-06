@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import Auth from "../utils/auth.js";
 
 import "../assets/scss/Workout.scss";
+import CreateWorkout from "../components/CreateWorkout.js";
 
-function Workout(props) {
+function Workout() {
   return (
     <div className="workout-page">
+      <CreateWorkout></CreateWorkout>
       <div className="workout-item">
         <div className="workout-description">
+          <p>View all workouts / View my workouts</p>
           <div className="workout-name">
             <h1>Squats</h1>
             <h4>30 minutes</h4>
@@ -17,9 +21,9 @@ function Workout(props) {
               height="393"
               src="https://www.youtube.com/embed/qLPrPVz4NzQ"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
             <p>Posted By: aldrinburgos18</p>
           </div>
@@ -37,9 +41,9 @@ function Workout(props) {
               height="393"
               src="https://www.youtube.com/embed/1skBf6h2ksI"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
             <p>Posted By: aldrinburgos18</p>
           </div>

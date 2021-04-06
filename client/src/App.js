@@ -36,21 +36,14 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const pages = ["home", "Classes", "Workout", "Profile"];
 
-	const pages = ['home', 'Classes', 'Workout', 'Profile'];
+  const navLinks = pages.map((page) => {
+    return <a href={"/" + page}>{page}</a>;
+  });
 
-	const navLinks = pages.map(page => {
-		return (
-		  <a href={'/' + page}>
-			{page}
-		  </a>
-		)
-	  });
-
-
-
-	return (
-		<ApolloProvider client={client}>
+  return (
+    <ApolloProvider client={client}>
       <StoreProvider>
         <Router>
           <Navbar>{navLinks}</Navbar>
@@ -61,17 +54,15 @@ function App() {
               <Route exact path="/Profile" component={Profile} />
               <Route exact path="/Workout" component={Workout} />
               <Route exact path="/Signup" component={Signup} />
-              
-
             </Switch>
           </div>
-            {/* <CoverPage /> */}
-            {/* <Signup /> */}
-            {/* <ChatBox /> */}
+          {/* <CoverPage /> */}
+          {/* <Signup /> */}
+          {/* <ChatBox /> */}
         </Router>
       </StoreProvider>
-		</ApolloProvider>
-	);
+    </ApolloProvider>
+  );
 }
 
 export default App;

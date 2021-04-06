@@ -8,9 +8,17 @@ const typeDefs = gql`
 	}
 	type Goal {
 		_id: ID
-		personalGoal: String!
-		name: String!
-		metric: [String]
+		username: String!
+		goalType: String!
+		startDate: String!
+		endDate: String!
+		endValue: Int!
+		progressData: [ProgressData]
+	}
+	type ProgressData {
+		_id: ID
+		date: String!
+		value: Int!
 	}
 	type Meetup {
 		_id: ID
@@ -55,6 +63,7 @@ const typeDefs = gql`
 		message: String
 		recipients: [User]
 	}
+
 	type Auth {
 		token: ID
 		user: User
@@ -69,6 +78,7 @@ const typeDefs = gql`
 		meetups(activity: ID): [Meetup]
 		testimonials(postedBy: ID): [Testimonial]
 		workouts(activity: ID): [Workout]
+		goals:[Goal]
 	}
 
 	type Mutation {

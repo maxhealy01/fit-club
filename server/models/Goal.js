@@ -1,7 +1,11 @@
 const { Schema, model } = require("mongoose");
-const ProgressData = require("./ProgressData");
 
-const goalSchema = new Schema({
+const goalSchema = new Schema(
+	{
+	username: {
+		type: String,
+		required: true
+	},
 	// This will be a personal goal selected by the user from a drop-down list.
 	goalType: {
 		type: String,
@@ -26,7 +30,7 @@ const goalSchema = new Schema({
 	progressData: [
 		{
 			type: Schema.Types.ObjectId,
-			ref: "ProgressData",
+			ref: "ProgressData"
 		}
 	]
 });

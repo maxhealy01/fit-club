@@ -3,11 +3,12 @@ const { signToken } = require("../utils/auth");
 const {
 	Activity,
 	Meetup,
-	Goal,
 	Message,
 	Testimonial,
 	User,
 	Workout,
+	Goal,
+	ProgressData
 } = require("../models");
 
 const resolvers = {
@@ -57,6 +58,9 @@ const resolvers = {
 			return await User.find({ isTrainer: true });
 			// }
 		},
+		goals: async () => {
+			return Goal.find();
+		}
 	},
 	Mutation: {
 		login: async (parent, { email, password }) => {

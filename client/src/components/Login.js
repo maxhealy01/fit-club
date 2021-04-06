@@ -3,6 +3,8 @@ import { useMutation } from "@apollo/react-hooks";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
+import '../assets/scss/coverpage.scss';
+
 
 function LoginForm(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -31,40 +33,49 @@ function LoginForm(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/signup">← Go to Signup</Link>
+    <div className="wrapper">
+      <div id="formContent">
+      <h2 className="active"> Sign In </h2>
 
-      <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
           <input
-            placeholder="youremail@test.com"
             name="email"
-            type="email"
             id="email"
+            type="email" 
+            className="sign-input" 
+            placeholder="login" 
             onChange={handleChange}
+            required
           />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
           <input
-            placeholder="******"
+            className="sign-input"
+            placeholder="password" 
             name="password"
             type="password"
             id="pwd"
             onChange={handleChange}
+            required
           />
-        </div>
         {error ? (
           <div>
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
+        <input 
+              type="submit" 
+              className="login-btn" 
+              value="Log In" 
+              // onSubmit={this.handleSubmit}
+            />
       </form>
+        <div id="formFooter">
+              <p>Don't have an account?</p>
+              <Link 
+                className="underlineHover" 
+                to={"/Register"}>Sign up</Link>
+      
+            </div>
+      </div>
     </div>
   );
 }

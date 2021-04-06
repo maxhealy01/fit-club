@@ -1,7 +1,7 @@
 import React from "react";
 import '../assets/scss/coverpage.scss'
 
-import LoginForm from "../components/LoginForm";
+import Login from "../components/Login";
 
 
 const CoverPage = () => {
@@ -9,7 +9,7 @@ const CoverPage = () => {
 	return (
         <div className="cover-page">
         <div className="coverpage-wrapper">
-          <LoginForm />
+          <Login />
         </div>
     </div>
 	);

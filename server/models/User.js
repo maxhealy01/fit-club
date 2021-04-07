@@ -1,7 +1,10 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const Message = require('./Message');
+const Goal = require("./Goal");
+const Meetup = require("./Meetup");
+const Testimonial = require("./Testimonial");
+const Message = require("./Message");
 
 const userSchema = new Schema(
 	{

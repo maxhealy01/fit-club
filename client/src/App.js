@@ -17,7 +17,7 @@ import Home from "./pages/Home";
 import Classes from "./pages/Classes";
 import Workout from "./pages/Workout";
 import Profile from "./pages/Profile";
-import SignupForm from "./pages/Register";
+import RegisterForm from "./pages/Register";
 
 // components
 import ChatBox from "./components/ChatBox";
@@ -66,11 +66,11 @@ function App() {
 				<Navbar>{navLinks}</Navbar>
 				<div>
 					<Switch>
-						{/* <Route exact path="/" component={Home} /> */}
+						<Route exact path="/" component={Home} />
 						<Route exact path="/Classes" component={Classes} />
 						<Route exact path="/Profile" component={Profile} />
 						<Route exact path="/Workout" component={Workout} />
-						<Route exact path="/Register" component={SignupForm} />
+						{/* <Route exact path="/Register" component={RegisterForm} /> */}
 						{/* <Route
 						exact path="/"
 						component={!loggedIn ? 'CoverPage' : 'Home'} /> */}
@@ -85,7 +85,7 @@ function App() {
 				</div>
 
 
-				<CoverPage />
+				{/* <CoverPage /> */}
 				{/* <ChatBox /> */}
 
 			</Router>

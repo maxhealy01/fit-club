@@ -9,10 +9,14 @@ const StoreProvider = ({ value = [], ...props }) => {
 		conversations: [],
 		contacts: [],
 		goals: [],
+		// yunik testing
+		classItems: []
 	});
 
 	return <Provider value={[state, dispatch]} {...props} />;
 };
+
+
 
 const useStoreContext = () => {
 	return useContext(StoreContext);

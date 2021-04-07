@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import '../assets/scss/Register.scss';
 import Auth from "../utils/auth";
 
-function SignupForm() {
+function RegisterForm() {
 
     React.state = {
         username: '',
@@ -11,18 +11,18 @@ function SignupForm() {
         passworld: ''
       }
 
-onChange = (e) => {
-    this.setState({
-        [e.target.name]: e.target.value
-    })
-}
+// onChange = (e) => {
+//     this.setState({
+//         [e.target.name]: e.target.value
+//     })
+// }
 
-onSubmit = async () => {
-    const response = await this.props.mutate({
-        variables: this.state,
-    })
-    console.log(response);
-}
+// onSubmit = async () => {
+//     const response = await this.props.mutate({
+//         variables: this.state,
+//     })
+//     console.log(response);
+// }
 
 	return (
 
@@ -83,4 +83,4 @@ onSubmit = async () => {
 	);
 }
 
-export default SignupForm;
+export default RegisterForm;

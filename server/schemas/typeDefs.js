@@ -98,9 +98,22 @@ const typeDefs = gql`
 		addFriend(friendId: ID!): User
 		addMeetup(meetupId: ID!): User
 		addActivity(activityId: ID!): User
-		addGoal(personalGoal: String!, name: String!): User
+		addGoal(goalType: String!, measurement: String!, startDate: String!, endDate: String!, endValue: Int!: progressData:[Object]): User
 		createConversation(recipients: [ID], text: String!): User
 	}
 `;
-
+//   mutation addGoal($goalType: String!, measurement: String!, startDate: String!, endDate: String!, endValue: Int!, progressData: [Object]!) {
+//     addGoal(goalType: $goalType, measurement: $measurement, startDate: $startDate, endDate: $endDate, endValue: $endValue, progressData: $progressData) {
+//       user {
+//         goals {
+//           goalType
+//           measurement
+//           startDate
+//           endDate
+//           endValue
+//         }
+//       }
+//     }
+//   }
+// `
 module.exports = typeDefs;

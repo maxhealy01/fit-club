@@ -38,6 +38,40 @@ export const ADD_CONVERSATION = gql`
 	}
 `;
 
+export const POST_MEETUP = gql`
+	mutation postMeetup(
+		$name: String!
+		$location: String!
+		$time: String!
+		$duration: String!
+		$equipment: String
+		$activity: ID
+		$trainer: ID
+	) {
+		postMeetup(
+			name: $name
+			location: $location
+			time: $time
+			duration: $duration
+			equipment: $equipment
+			activity: $activity
+			trainer: $trainer
+		) {
+			_id
+			name
+			location
+			duration
+			equipment
+			postedBy {
+				_id
+			}
+			participants {
+				_id
+			}
+		}
+	}
+`;
+
 export const CREATE_ACTIVITY = gql`
 	mutation createActivity($name: String!, $type: String!) {
 		createActivity(name: $name, type: $type) {
@@ -79,7 +113,17 @@ export const ADD_FRIEND = gql`
 	}
 `;
 
-export const ADD_MEETUP = gql``;
+export const ADD_MEETUP = gql`
+	mutation addMeetup($meetupId: ID!) {
+		addMeetup(meetupId: $meetupId) {
+			username
+			meetups {
+				_id
+				name
+			}
+		}
+	}
+`;
 
 export const ADD_ACTIVITY = gql`
 	mutation addActivity($activityId: ID!) {

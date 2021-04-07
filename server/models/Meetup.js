@@ -36,6 +36,8 @@ const meetupSchema = new Schema(
 			{
 				type: Schema.Types.ObjectId,
 				ref: "User",
+				required: false,
+				unique: false,
 			},
 		],
 		postedBy: {

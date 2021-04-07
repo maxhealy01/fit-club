@@ -109,9 +109,7 @@ const resolvers = {
 
 			return activity;
 		},
-		// not yet working
 		postMeetup: async (parent, args, context) => {
-			console.log(args);
 			if (context.user) {
 				const meetup = await Meetup.create({
 					...args,
@@ -171,7 +169,6 @@ const resolvers = {
 
 			throw new AuthenticationError("You need to be logged in!");
 		},
-		// Not yet working
 		addMeetup: async (parent, { meetupId }, context) => {
 			if (context.user) {
 				const updatedUser = await User.findOneAndUpdate(

@@ -8,9 +8,7 @@ import { StoreProvider } from "./utils/GlobalState";
 import axios from "axios";
 
 // App Styles (Do Not Delete This!!)
-import './assets/scss/app.scss';
-
-
+import "./assets/scss/app.scss";
 
 // pages
 import Home from "./pages/Home";
@@ -24,8 +22,6 @@ import ChatBox from "./components/ChatBox";
 import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
 import Footer from "./components/Footer";
-
-
 
 // import socket.io provider
 import { SocketProvider } from "./utils/SocketProvider";
@@ -44,53 +40,43 @@ const client = new ApolloClient({
   uri: "http://localhost:3001/graphql",
 });
 
-
-
 function App() {
+  const pages = ["home", "Classes", "Workout", "Profile"];
 
-	const pages = ['home', 'Classes', 'Workout', 'Profile'];
+  const navLinks = pages.map((page) => {
+    return <a href={"/" + page}>{page}</a>;
+  });
 
-	const navLinks = pages.map(page => {
-		return (
-		  <a href={'/' + page}>
-			{page}
-		  </a>
-		)
-	  });
+  return (
+    <ApolloProvider client={client}>
+      <StoreProvider>
+        <Router>
+          <Navbar>{navLinks}</Navbar>
+          <div>
+            <Switch>
+              {/* <Route exact path="/" component={Home} /> */}
+              <Route exact path="/Classes" component={Classes} />
+              <Route exact path="/Profile" component={Profile} />
+              <Route exact path="/Workout" component={Workout} />
+              <Route exact path="/Register" component={SignupForm} />
+              {/* <Route
+							exact path="/"
+							component={!loggedIn ? 'CoverPage' : 'Home'} /> */}
+              {/* <Route
+							exact path="/"
+							component={!loggedIn ? 'CoverPage' : 'ChatBox'} /> */}
+              {/* <Route
+							exact path="/"
+							component={!loggedIn ? 'CoverPage' : 'Footer'} /> */}
+            </Switch>
+          </div>
 
-
-
-	return (
-		<ApolloProvider client={client}>
-			<Router>
-				<Navbar>{navLinks}</Navbar>
-				<div>
-					<Switch>
-						{/* <Route exact path="/" component={Home} /> */}
-						<Route exact path="/Classes" component={Classes} />
-						<Route exact path="/Profile" component={Profile} />
-						<Route exact path="/Workout" component={Workout} />
-						<Route exact path="/Register" component={SignupForm} />
-						{/* <Route
-						exact path="/"
-						component={!loggedIn ? 'CoverPage' : 'Home'} /> */}
-						{/* <Route
-						exact path="/"
-						component={!loggedIn ? 'CoverPage' : 'ChatBox'} /> */}
-						{/* <Route
-						exact path="/"
-						component={!loggedIn ? 'CoverPage' : 'Footer'} /> */}
-					</Switch>
-
-				</div>
-
-
-				<CoverPage />
-				{/* <ChatBox /> */}
-
-			</Router>
-		</ApolloProvider>
-	);
+          <CoverPage />
+          {/* <ChatBox /> */}
+        </Router>
+      </StoreProvider>
+    </ApolloProvider>
+  );
 }
 
 export default App;

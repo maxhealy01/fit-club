@@ -4,20 +4,18 @@ import "../assets/scss/Profile.scss";
 import GoalList from '../components/GoalList';
 import GoalForm from '../components/GoalForm'
 
-// import ChatDashboard from "../components/ChatDashboard";
-// import { ConversationsProvider } from "../utils/ConversationsProvider";
+import ChatDashboard from "../components/ChatDashboard";
+import { ConversationsProvider } from "../utils/ConversationsProvider";
 
-// import { SocketProvider } from "../utils/SocketProvider";
+import { SocketProvider } from "../utils/SocketProvider";
 
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_ME } from "../utils/queries";
 import { ContactsProvider } from "../utils/ContactsProvider";
 
 function Profile() {
-  // const {loading, data} = useQuery(QUERY_ME);
-  // const { id } = data
-  // hardcoded _id from database
-  // const id = "60677866568ec9a131f045ed";
+  const {loading, data} = useQuery(QUERY_ME);
+  const { _id } = data?.me || {}
 
   //Use this data to test goal components with a user who has multiple goals
   const user = {
@@ -110,13 +108,13 @@ function Profile() {
       username={user.username}
     />
 
-     {/* {!loading &&  */}
-      {/* <SocketProvider id={id}>
-        <ConversationsProvider id={id}>
-          <ChatDashboard id={id} />
+     {!loading && 
+      <SocketProvider id={_id}>
+        <ConversationsProvider id={_id}>
+          <ChatDashboard id={_id} />
         </ConversationsProvider>
-      </SocketProvider> */}
-     {/* } */}
+      </SocketProvider> 
+    } 
     </>
   );
 }

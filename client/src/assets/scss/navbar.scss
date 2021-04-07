@@ -21,9 +21,9 @@ header{
             img{
                 width: 150px;
                 height: 60px;
-  
+
             }
-        } 
+        }
 
         .navbar{
             width: 70%;
@@ -31,28 +31,28 @@ header{
 
             ul{
                 display: flex;
-                justify-content: center;
+                justify-content: space-evenly;
                 align-items: center;
 
                 li{
                     list-style: none;
                     text-transform: uppercase;
-                    padding: 20px;
 
                     a{
+                        font-family: 'Hammersmith One', sans-serif;
                         font-weight: 600;
-                        font-size: 20px;
+                        font-size: 30px;
                         text-decoration: none;
-                        color: #eae2b7;
+                        color:  #be7b0f;
                         letter-spacing: 1px;
                         transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
                         &:hover{
-                            color: #be7b0f;
+                            color: #eae2b7;
                         }
                     }
                 }
             }
-            
+
         }
 
         .account{
@@ -106,7 +106,7 @@ header{
             }
         }
     }
- 
+
 
 }
 .subheader{
@@ -116,3 +116,5 @@ header{
     background-color: #fcbf49;
 
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');

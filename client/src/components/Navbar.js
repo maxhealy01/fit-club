@@ -26,23 +26,6 @@ const AppNavbar = () => {
                         <Link to={"/Profile"}>Profile</Link>
                     </li>
                 </ul>
-                <Switch>
-                    <Route path="/class">
-                        <class />
-                    </Route>
-                    {/* <Route path="/Activity">
-                        <Activity />
-                    </Route>
-                    <Route path="/Trainers">
-                        <Trainers />
-                    </Route>
-                    <Route path="/MyProfile">
-                        <MyProfile />
-                    </Route>
-                    <Route path="/Info">
-                        <Info />
-                    </Route> */}
-                </Switch>
             </div>
         </div>
         </header>

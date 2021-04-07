@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap");
 header {
   width: 100%;
   height: 9vh;
@@ -16,7 +17,9 @@ header .header-top {
 }
 
 header .header-top .fit-title {
-  margin: 0 0 0 auto;
+  width: 30%;
+  margin: auto;
+  text-align: center;
 }
 
 header .header-top .fit-title img {
@@ -26,6 +29,7 @@ header .header-top .fit-title img {
 
 header .header-top .navbar {
   width: 70%;
+  margin: auto;
 }
 
 header .header-top .navbar ul {
@@ -37,10 +41,11 @@ header .header-top .navbar ul {
 header .header-top .navbar ul li {
   list-style: none;
   text-transform: uppercase;
-  padding: 15px;
+  padding: 20px;
 }
 
 header .header-top .navbar ul li a {
+  font-family: 'Kiwi Maru', serif;
   font-weight: 600;
   font-size: 20px;
   text-decoration: none;
@@ -103,4 +108,4 @@ header .header-top .account button:focus {
   margin: 0;
   background-color: #fcbf49;
 }
-/*# sourceMappingURL=NavBar.css.map */
+/*# sourceMappingURL=navbar.css.map */

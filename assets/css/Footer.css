@@ -1,0 +1,35 @@
+footer {
+  bottom: 0;
+  width: 100vw;
+  height: auto;
+}
+
+footer .footer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 40px;
+  color: #fff;
+  background: #111;
+}
+
+footer .footer-wrapper .footer-content {
+  width: 50% h3;
+  width-font-size: 1.8rem;
+  width-font-weight: 400;
+  width-text-transform: capitalize;
+  width-line-height: 3rem;
+}
+
+footer .footer-wrapper .footer-content p {
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 14px;
+}
+
+footer .footer-wrapper .creator {
+  width: 50%;
+}
+/*# sourceMappingURL=Footer.css.map */

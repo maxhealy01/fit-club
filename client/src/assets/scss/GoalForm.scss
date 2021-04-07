@@ -1,0 +1,87 @@
+.goal-form{
+    height: 90vh;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+    .mypic{
+        width: 40%;
+        height: 60vh;
+        margin: auto;
+        background-position: 50% 60%;
+        background-image: url(../images/profile1.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 50px;
+
+    }
+
+    .form{ 
+        width: 50%;
+        margin: auto;
+
+        h2{
+            text-transform: uppercase;
+            font-size: 55px;
+            margin: 20px 0;
+            font-family: 'Hammersmith One', sans-serif;
+        }
+
+        .options{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            
+            .opt{
+                width: 100%;
+                display: flex;
+                margin: 20px 0;
+                text-transform: uppercase;
+                font-size: 22px;
+                
+                p{
+                    width: 40%;
+                    margin: auto;
+                    font-family: 'Hammersmith One', sans-serif;
+                    margin-right: 20px;
+                }
+
+                .select{
+                    width: 60%;
+                    margin: auto;
+
+                    select{
+                        font-size: 18px;
+                        padding: 5px;
+                    }
+
+                    input{
+                        font-size: 18px;
+                        padding: 5px;
+                    }
+                }
+            }
+
+            button{
+                margin-top: 20px;
+                font-size:32px;
+                padding: 10px 15px;
+                text-transform: uppercase;
+                background-color: rgb(214, 40, 40);
+                color: #fff;
+                border: none;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: rgb(247, 127, 0);
+                }
+            }
+        }
+    }
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');

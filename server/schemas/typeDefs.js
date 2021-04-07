@@ -34,10 +34,7 @@ const typeDefs = gql`
 		activities: [Activity]
 		testimonials: [Testimonial]
 		messages: [Message]
-<<<<<<< HEAD
-=======
 		isTrainer: Boolean
->>>>>>> develop
 	}
 	type Testimonial {
 		_id: ID

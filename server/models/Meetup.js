@@ -1,14 +1,14 @@
 const { Schema, model } = require("mongoose");
 const User = require("./User");
 
-const FitnessClassSchema = new Schema(
+const meetupSchema = new Schema(
   {
     name: {
       type: String,
       required: true,
       trim: true,
     },
-    // For FitnessClasses, this might be a digital location
+    // For classes, this might be a digital location
     // For meetups, probably a physical location
     location: {
       type: String,
@@ -30,9 +30,16 @@ const FitnessClassSchema = new Schema(
     activity: {
       type: Schema.Types.ObjectId,
       ref: "Activity",
+    },
+    participants: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    postedBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
       required: true,
     },
-    participants: [User.schema],
     // If NO trainer, then this is treated as a meet-up.
     // That is, it's just a bunch of users meeting up.
     trainer: {
@@ -48,10 +55,10 @@ const FitnessClassSchema = new Schema(
   }
 );
 
-FitnessClassSchema.virtual("fitnessClassCount").get(function () {
+meetupSchema.virtual("meetupCount").get(function () {
   return this.participants.length;
 });
 
-const FitnessClass = model("FitnessClass", FitnessClassSchema);
+const Meetup = model("Meetup", meetupSchema);
 
-module.exports = FitnessClass;
+module.exports = Meetup;

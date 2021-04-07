@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import '../assets/scss/Home.scss';
 import Footer from "../components/Footer";
+import Profile from "./Profile";
+import GoalList from '../components/GoalList';
+
 
 function Homepage(){
 
@@ -16,7 +19,7 @@ function Homepage(){
                         </p>
                         <div className="btn">
                             <Link 
-                            to="#"
+                            to="/Classes"
                             className="linkToCourse">
                                 Find a Course
                             </Link>
@@ -37,7 +40,6 @@ function Homepage(){
 
             <div className="Goal-Section">
                 <div className="Goal-box">
-                    Import Goal Component Here!
                 </div>
             </div>
    

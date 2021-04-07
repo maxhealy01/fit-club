@@ -115,6 +115,7 @@ const resolvers = {
 			if (context.user) {
 				const meetup = await Meetup.create({
 					...args,
+					participants: [context.user._id],
 					postedBy: context.user._id,
 				});
 				await User.findByIdAndUpdate(

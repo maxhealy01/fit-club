@@ -2,7 +2,6 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const Goal = require("./Goal");
-const Activity = require("./Activity");
 const Meetup = require("./Meetup");
 const Testimonial = require("./Testimonial");
 const Message = require("./Message");
@@ -34,19 +33,34 @@ const userSchema = new Schema(
 				ref: "User",
 			},
 		],
-		goals: [Goal.schema],
+		goals: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Goal",
+			},
+		],
 		meetups: [
 			{
 				type: Schema.Types.ObjectId,
 				ref: "Meetup",
 			},
 		],
-		activities: [Activity.schema],
-		testimonials: [Testimonial.schema],
+		activities: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Activity",
+			},
+		],
+		testimonials: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Testimonial",
+			},
+		],
 		isTrainer: {
 			type: Boolean,
 		},
-    messages: [Message.schema],
+		messages: [Message.schema],
 	},
 	// set this to use virtual below
 	{
@@ -59,21 +73,21 @@ const userSchema = new Schema(
 
 // hash user password
 userSchema.pre("save", async function (next) {
-  if (this.isNew || this.isModified("password")) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
-  }
+	if (this.isNew || this.isModified("password")) {
+		const saltRounds = 10;
+		this.password = await bcrypt.hash(this.password, saltRounds);
+	}
 
-  next();
+	next();
 });
 
 // custom method to compare and validate password for logging in
 userSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
+	return bcrypt.compare(password, this.password);
 };
 
 userSchema.virtual("friendCount").get(function () {
-  return this.friends.length;
+	return this.friends.length;
 });
 
 const User = model("User", userSchema);

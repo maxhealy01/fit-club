@@ -11,17 +11,18 @@ function SignupForm() {
         passworld: ''
       }
 
-onChange = (e) => {
+const onChange = (e) => {
     this.setState({
         [e.target.name]: e.target.value
     })
 }
 
-onSubmit = async () => {
+const onSubmit = async () => {
     const response = await this.props.mutate({
         variables: this.state,
     })
     console.log(response);
+
 }
 
 	return (

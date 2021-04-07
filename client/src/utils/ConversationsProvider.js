@@ -1,6 +1,8 @@
+import { useMutation } from "@apollo/client";
 import React, { useContext, useState, useEffect, useCallback } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { useStoreContext } from "./GlobalState";
+import { ADD_CONVERSATION } from "./mutations";
 import { useSocket } from "./SocketProvider";
 
 const ConversationsContext = React.createContext();
@@ -18,6 +20,7 @@ export function ConversationsProvider({ id, children }) {
 
   const [state, dispatch] = useStoreContext();
 
+  const [setConversationsMutation] = useMutation(ADD_CONVERSATION);
   const { contacts } = state;
 
 
@@ -27,6 +30,9 @@ export function ConversationsProvider({ id, children }) {
     setConversations((prevConversations) => {
       return [...prevConversations, { recipients, messages: [] }];
     });
+    // let initialText = "";
+    // const { data } = setConversationsMutation({ recipients: recipients });
+    
   }
 
   const addMessageToConversation = useCallback(

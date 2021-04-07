@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../assets/scss/chatbox.scss"
 
 import { fromPromise, useQuery } from "@apollo/react-hooks";
 import { QUERY_ME, QUERY_TRAINERS } from "../utils/queries";
@@ -36,13 +37,16 @@ export default function ChatContacts() {
     }
   }, [contactsData]);
   return (
-    <div style={{ border: '1px solid red' }}>
-      Talk to our certified trainers:
+    <div className={"chat-contacts"}>
+      <p className="chat-contacts-title">
+        Talk to our certified trainers:
+      </p> 
       {loading ? (
         <div>Loading...</div>
       ) : (
         contacts.map((contact) => (
           <h4
+            className={"contact"}
             key={contact._id}
             value={selectedContactIds.includes(contact._id)}
             onClick={() => handleContactClick(contact._id)}

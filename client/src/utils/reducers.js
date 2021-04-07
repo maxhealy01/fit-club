@@ -12,7 +12,7 @@ export const reducer = (state, action) => {
     case UPDATE_CONVERSATIONS:
       return {
         ...state,
-        conversations: [...action.products],
+        conversations: [...action.conversations],
       };
     case UPDATE_CONTACTS:
       return {

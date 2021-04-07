@@ -99,7 +99,7 @@ const typeDefs = gql`
 		addMeetup(meetupId: ID!): User
 		addActivity(activityId: ID!): User
 		addGoal(personalGoal: String!, name: String!): User
-		createConversation(recipients: [ID], text: String!): User
+		createConversation(recipients: [ID], text: String): User
 	}
 `;
 

@@ -48,6 +48,8 @@ const client = new ApolloClient({
 
 function App() {
 
+	
+
 	const pages = ['home', 'Classes', 'Workout', 'Profile'];
 
 	const navLinks = pages.map(page => {
@@ -70,7 +72,7 @@ function App() {
 						<Route exact path="/Classes" component={Classes} />
 						<Route exact path="/Profile" component={Profile} />
 						<Route exact path="/Workout" component={Workout} />
-						{/* <Route exact path="/Register" component={RegisterForm} /> */}
+						<Route exact path="/Register" component={RegisterForm} />
 						{/* <Route
 						exact path="/"
 						component={!loggedIn ? 'CoverPage' : 'Home'} /> */}

@@ -3,26 +3,29 @@ import { Link } from "react-router-dom";
 import '../assets/scss/Register.scss';
 import Auth from "../utils/auth";
 
-function RegisterForm() {
+function SignupForm() {
 
-    React.state = {
-        username: '',
-        email: '',
-        passworld: ''
-      }
+    const [state, setState] = useState({
+        username: "",
+        email: "",
+        password: "",
+    })
 
-// onChange = (e) => {
-//     this.setState({
-//         [e.target.name]: e.target.value
-//     })
-// }
+const onChange = (e) => {
+    e.preventDefault();
+    this.setState({
+        [e.target.name]: e.target.value
+    })
+    console.log(onChange);
+}
 
-// onSubmit = async () => {
-//     const response = await this.props.mutate({
-//         variables: this.state,
-//     })
-//     console.log(response);
-// }
+const onSubmit = async () => {
+    const response = await this.props.mutate({
+        variables: this.state,
+    })
+    console.log(onSubmit);
+
+}
 
 	return (
 
@@ -31,25 +34,15 @@ function RegisterForm() {
                 <div className="formContent">
                     <h2 className="active"> Register </h2>
 
-                    <form>
-                        <input 
-                        type="text" 
-                        className="firstname" 
-                        name="firstname" 
-                        placeholder="First Name" 
-                        onChange={e => this.onChange(e)}
-                        />
-                        
-                        <input 
-                        type="text" 
-                        className="lastname" 
-                        name="lastname" 
-                        placeholder="Last Name" 
+                    <form>                      
+                        <input  type="text" 
+                        className="username" 
+                        name="username" 
+                        placeholder="Username" 
                         onChange={e => this.onChange(e)}/>
                         
 
-                        <input 
-                        type="email" 
+                        <input  type="email" 
                         className="email"
                         name="email" 
                         placeholder="Email Address" 
@@ -83,4 +76,4 @@ function RegisterForm() {
 	);
 }
 
-export default RegisterForm;
+export default SignupForm;

@@ -1,3 +1,6 @@
+@import "./mediaQueries.scss";
+
+
 .homepage-top{
     width: 100%;
     height: 80vh;
@@ -13,12 +16,24 @@
         background-size: cover;
         background-image: url('../images/homepage-header.jpg');
 
+        
+        @include media("<=phone"){
+            height: 50vh;
+        }
+
         .header-grad{
             width: 100%;
             height: 80vh;
             background-image: 
             linear-gradient(to bottom, rgba(29, 41, 110, 0),
             rgba(0, 0, 0, 0.397)),;
+
+            @include media("<=phone"){
+                height: 50vh;
+                background-image: 
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.555),
+                rgba(0, 0, 0, 0.397)),;
+            }
 
             .welcoming-txt{
                 padding-top: 0;
@@ -30,22 +45,45 @@
                 transform: translateY(-50%);
                 width: 60%;
                 margin: auto;
+
+                @include media("<=big-tablet"){
+                    width: 90%;
+                }
+
+                @include media("<=phone"){
+                    top: 30%;
+                }
+
+
                 h1{
                     color: #fff;
                     font-size: 62px;
                     text-transform: uppercase;
                     letter-spacing: 3px;
                     font-family: 'Hammersmith One', sans-serif;
+
+                    
+                        @include media("<=phone"){
+                            font-size: 32px;
+                        }
                 }
                 p{
                     margin-top: 20px;
                     color: #fff;
                     font-size: 22px;
                     font-family: 'Gothic A1', sans-serif;
+
+                    @include media("<=phone"){
+                        font-size: 16px;
+                    }
                 }
 
                 .btn{
                     margin-top: 3.6rem;
+
+                    @include media("<=phone"){
+                        margin-top: 1.5rem;
+                    }
                     
                     .linkToCourse{
                         text-decoration: none;
@@ -59,6 +97,11 @@
                         padding: 1rem 4rem;
                         color: rgb(0, 48, 73);
                         background-color: rgb(252, 191, 73);
+
+                        @include media("<=phone"){
+                            font-size: 1rem;
+                            padding: 1rem 2rem;
+                        }
 
                         &:hover{
                             background-color: rgb(247, 127, 0);
@@ -88,13 +131,31 @@
         0 0  0 2px rgb(255,255,255),
         0.3em 0.3em 1em rgba(0,0,0,0.3);
 
+        @include media("<=big-tablet"){
+            width: 90%;
+            min-height: 150px;
+        }
+
+        @include media("<=phone"){
+            display: none;
+        }
+
         i{
             color:rgba(102, 102, 102, 0.671); 
+
+            @include media("<=phone"){
+                font-size: 10px;
+            }
         }
 
         blockquote{
             font-style: italic;
             color: rgb(56, 56, 56); 
+
+            @include media("<=phone"){
+                font-size: 14px;
+                padding: 20px;
+            }
             
         }
        }
@@ -116,6 +177,10 @@
         background-size: cover;
         background-image: url('../images/talking.jpg');
 
+        @include media("<=big-tablet"){
+            background-repeat: no-repeat;
+        }
+
         .bck-grad{
             width: 100%;
             height: 80vh;
@@ -123,7 +188,11 @@
             linear-gradient(to bottom, rgba(29, 41, 110, 0),
             rgba(0, 0, 0, 0.911)),;
 
-                .talk-box{
+            @include media("<=big-tablet"){
+                height: 60vh;
+            }
+
+                .talk-box{ 
                     padding:150px 150px 0;
                     left: 0;
                     right: 0;
@@ -131,12 +200,34 @@
                     height: 50%;
                     margin: auto;
 
+                    @include media("<=big-tablet"){
+                        padding: 100px;
+                        width: 90%;
+                    }
+
+                    @include media("<=big-tablet"){
+                        padding: 40px;
+                        height: 70%;
+                    }
+
                     h1{
                         font-family: 'Hammersmith One', sans-serif;
                         color: #fff;
                         letter-spacing: 1px;
                         text-transform: uppercase;
                         font-size: 52px;
+
+                        
+                        @include media("<=big-tablet"){
+                            font-size: 32px;
+                            letter-spacing: 2px;
+                        }
+
+                        @include media("<=big-tablet"){
+                            font-size: 22px;
+                            letter-spacing: 1px;
+                        }
+
                     }
                 }
 
@@ -147,6 +238,16 @@
                     width: 60%;
                     height: 50%;
                     margin: auto;
+
+                    @include media("<=big-tablet"){
+                        padding: 50px 100px;
+                        width: 90%;
+                    }
+
+                    @include media("<=big-tablet"){
+                        padding: 20px 40px;
+                        height: 30%;
+                    }
 
                     .talkTo{
                         margin-top: 200px;
@@ -159,8 +260,20 @@
                         background-color: rgb(214, 40, 40);
                         padding: 15px;
 
+                        
+
                         &:hover{
                             background-color: rgb(247, 127, 0);
+                        }
+
+                        @include media("<=big-tablet"){
+                            font-size: 32px;
+                            letter-spacing: 2px;
+                        }
+
+                        @include media("<=big-tablet"){
+                            font-size: 22px;
+                            letter-spacing: 1px;
                         }
                     }
                 }

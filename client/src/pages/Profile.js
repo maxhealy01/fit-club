@@ -107,7 +107,7 @@ function Profile() {
               mypage
             </h1>
             <p>
-              Your displine for healt and fitness will also have a positive impact on other areas of your life.
+              Your displine for health and fitness will also have a positive impact on other areas of your life.
               </p>
           </div>
         </div>

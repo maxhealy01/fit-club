@@ -35,17 +35,32 @@
                 width: 60%;
                 margin: auto;
                 padding: 100px 200px;
+
+                @include media("<=phone"){
+                    padding: 0;
+                    padding-top: 100px;
+                    text-align: center;
+                  }
   
                 h1{
                   color: rgb(255, 255, 255);
                   font-family: 'Hammersmith One', sans-serif;
                   font-size: 72px;
                   text-transform: uppercase;
+
+                  @include media("<=phone"){
+                    font-size: 52px;
+                  }
                 }
                 p{
                   color: rgb(201, 201, 201);
                   font-family: 'Hammersmith One', sans-serif;
                   font-size: 22px;
+
+                  @include media("<=phone"){
+                    font-size: 20px;
+                    color: rgb(255, 255, 255);
+                  }
                 }
               }
         }

@@ -35,8 +35,7 @@ function Workout() {
           </div>
           <div className="workout-detail">
             <iframe
-              width="700"
-              height="393"
+              className="responsive-iframe"
               src="https://www.youtube.com/embed/qLPrPVz4NzQ"
               title="YouTube video player"
               frameBorder="0"
@@ -57,8 +56,7 @@ function Workout() {
           </div>
           <div className="workout-detail">
             <iframe
-              width="700"
-              height="393"
+              className="responsive-iframe"
               src="https://www.youtube.com/embed/1skBf6h2ksI"
               title="YouTube video player"
               frameBorder="0"

@@ -1,28 +1,29 @@
+import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import '../assets/scss/Register.scss';
 import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
 
 function SignupForm() {
 
-    React.state = {
-        username: '',
-        email: '',
-        passworld: ''
-      }
+    const [createUser] = useMutation(ADD_USER)
+
+    const [state, setState] = useState({ username: "", email: "", password: ""})
 
 const onChange = (e) => {
-    this.setState({
+    setState({... state,
         [e.target.name]: e.target.value
     })
 }
 
 const onSubmit = async () => {
-    const response = await this.props.mutate({
-        variables: this.state,
+    const response = await createUser({
+        variables: state,
     })
     console.log(response);
 
+    document.location.assign("/")
 }
 
 	return (
@@ -33,20 +34,13 @@ const onSubmit = async () => {
                     <h2 className="active"> Register </h2>
 
                     <form>
+
                         <input 
                         type="text" 
-                        className="firstname" 
-                        name="firstname" 
-                        placeholder="First Name" 
-                        onChange={e => this.onChange(e)}
-                        />
-                        
-                        <input 
-                        type="text" 
-                        className="lastname" 
-                        name="lastname" 
-                        placeholder="Last Name" 
-                        onChange={e => this.onChange(e)}/>
+                        className="username" 
+                        name="username" 
+                        placeholder="Username" 
+                        onChange={onChange}/>
                         
 
                         <input 
@@ -54,17 +48,17 @@ const onSubmit = async () => {
                         className="email"
                         name="email" 
                         placeholder="Email Address" 
-                        onChange={e => this.onChange(e)}/>
+                        onChange={onChange}/>
 
                         <input 
                         type="password" 
                         className="password"
                         name="password" 
                         placeholder="Password"
-                        onChange={e => this.onChange(e)} />
+                        onChange={onChange} />
 
                         <input 
-                        onClick={() => this.onSubmit()} 
+                        onClick={onSubmit} 
                         type="primary"
                         className="submit-btn" 
                         value="submit" 

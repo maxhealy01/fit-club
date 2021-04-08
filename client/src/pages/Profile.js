@@ -122,7 +122,7 @@ function Profile() {
      {!loading && 
       <SocketProvider id={_id}>
         <ConversationsProvider id={_id}>
-          {/* <ChatDashboard id={_id} /> */}
+          <ChatDashboard id={_id} />
         </ConversationsProvider>
       </SocketProvider> 
     } 

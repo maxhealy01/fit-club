@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import '../assets/scss/Home.scss';
 
 import Footer from "../components/Footer";
+import Profile from "../pages/Profile";
 
 
 
@@ -53,7 +54,7 @@ function Homepage(){
                     <div className="talk-btn">
                     <Link 
                         className="talkTo"
-                        to="#">
+                        to="/Profile">
                             Talk to Trainer
                     </Link>
                     </div>

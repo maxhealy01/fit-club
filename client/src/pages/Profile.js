@@ -105,7 +105,7 @@ function Profile() {
         <div className="mypage-grad">
           <div className="mypage-header-content">
             <h1>
-              mypage
+              Profile
             </h1>
             <p>
               Your displine for health and fitness will also have a positive impact on other areas of your life.
@@ -122,7 +122,7 @@ function Profile() {
      {!loading && 
       <SocketProvider id={_id}>
         <ConversationsProvider id={_id}>
-          {/* <ChatDashboard id={_id} /> */}
+          <ChatDashboard id={_id} />
         </ConversationsProvider>
       </SocketProvider> 
     } 

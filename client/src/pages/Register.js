@@ -69,7 +69,7 @@ const onSubmit = async () => {
                         <p>Already have an account?</p>
                         <Link 
                         className="underlineHover" 
-                        to={"/SignUp"}>Log In</Link>
+                        to={"/"}>Log In</Link>
         
                     </div>
                 </div>

@@ -11,7 +11,7 @@ header{
     }
 
     @include media("<=big-tablet"){
-        height: 5vh;
+        height: 8vh;
     }
 
     .header-top {
@@ -23,7 +23,7 @@ header{
         align-items: center;
 
         @include media("<=big-tablet"){
-            width: 90%;
+            width: 80%;
         }
         @include media("<=phone"){
             width: 100%;
@@ -73,8 +73,16 @@ header{
                     list-style: none;
                     text-transform: uppercase;
 
+                    @include media("<=phone"){
+                        padding: 5px;
+                    }
+
                     @include media("<=tablet"){
                         padding: 10px;
+                    }
+
+                    @include media("<=big-tablet"){
+                        padding: 15px;
                     }
 
                     a{
@@ -89,9 +97,21 @@ header{
                             color: #eae2b7;
                         }
 
+                        
+                       
+
+                        @include media("<=big-tablet"){
+                            font-size: 22px
+                        }
+
                         @include media("<=tablet"){
                             font-size: 16px;
                         }
+
+                        @include media("<=phone"){
+                            font-size: 14px;
+                        }
+
                     }
                 }
             }

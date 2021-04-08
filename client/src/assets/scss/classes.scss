@@ -1,3 +1,6 @@
+@import "./mediaQueries.scss";
+
+
 // Variables
 @mixin flexCenter {
     display: flex;
@@ -14,11 +17,21 @@
 
     .class-item{
         width: 60%;
-        height: 30vh;
+        height: 25vh;
         margin: 5vh auto;
         // background-color: rgb(121, 121, 252);
         @include flexCenter;
         border-bottom: 1px solid rgb(148, 148, 148);
+
+        @include media("<=tablet"){
+            width: 80%;
+            height: 20vh;
+        }
+
+        @include media("<=phone"){
+            width: 90%;
+            height: 20vh;
+        }
 
         .class-photo{
             width: 25%;
@@ -46,12 +59,24 @@
                 height: 45%;
                 margin: 0 0 auto 0;
 
-                
+                h1{
+                    padding-bottom: 20px;
+                    @include media("<=tablet"){
+                        font-size: 22px;
+                    }
+
+                    @include media("<=phone"){
+                        font-size: 18px;
+                    }
+                }
                 ul{
 
                     li{
                         list-style: none;
-                    }
+                        @include media("<=phone"){
+                            font-size: 14px;
+                        }
+                    } 
                 }
             }
             .class-detail{

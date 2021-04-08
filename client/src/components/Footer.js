@@ -1,6 +1,6 @@
 import React from "react";
 import '../assets/scss/Footer.scss'
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Footer = () => {
 	// set modal display state

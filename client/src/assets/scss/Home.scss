@@ -17,8 +17,12 @@
         background-image: url('../images/homepage-header.jpg');
 
         
-        @include media("<=phone"){
-            height: 50vh;
+        @include media("<=desktop"){
+            height: 90vh;
+        }
+
+        @include media("<=iphone-landscape"){
+            height: 60vh;
         }
 
         .header-grad{
@@ -28,12 +32,22 @@
             linear-gradient(to bottom, rgba(29, 41, 110, 0),
             rgba(0, 0, 0, 0.397)),;
 
+            @include media("<=desktop"){
+                height: 90vh;
+            }
+
+            @include media("<=iphone-landscape"){
+                height: 60vh;
+            }
+
             @include media("<=phone"){
-                height: 50vh;
+                height: 40vh;
                 background-image: 
                 linear-gradient(to bottom, rgba(0, 0, 0, 0.555),
                 rgba(0, 0, 0, 0.397)),;
             }
+
+            
 
             .welcoming-txt{
                 padding-top: 0;
@@ -50,7 +64,7 @@
                     width: 90%;
                 }
 
-                @include media("<=phone"){
+                @include media("<=iphone-landscape"){
                     top: 30%;
                 }
 
@@ -62,10 +76,15 @@
                     letter-spacing: 3px;
                     font-family: 'Hammersmith One', sans-serif;
 
+                    @include media("<=iphone-landscape"){
+                        font-size: 32px;
+                    }
                     
-                        @include media("<=phone"){
-                            font-size: 32px;
-                        }
+                    @include media("<=phone"){
+                        font-size: 32px;
+                    }
+
+                        
                 }
                 p{
                     margin-top: 20px;
@@ -82,7 +101,7 @@
                     margin-top: 3.6rem;
 
                     @include media("<=phone"){
-                        margin-top: 1.5rem;
+                        margin-top: 2.5rem;
                     }
                     
                     .linkToCourse{
@@ -98,10 +117,22 @@
                         color: rgb(0, 48, 73);
                         background-color: rgb(252, 191, 73);
 
+                        @include media("<=desktop"){
+                            font-size: 1em;
+                            padding: 1em 2em;
+                        }
+
+                        @include media("<=iphone-landscape"){
+                            font-size: 1em;
+                            padding: 1em 2em;
+                        }
+
                         @include media("<=phone"){
                             font-size: 1rem;
                             padding: 1rem 2rem;
                         }
+
+                        
 
                         &:hover{
                             background-color: rgb(247, 127, 0);
@@ -131,9 +162,21 @@
         0 0  0 2px rgb(255,255,255),
         0.3em 0.3em 1em rgba(0,0,0,0.3);
 
+        @include media("<=desktop"){
+            width: 60%;
+            min-height: 120px;
+            margin: -3rem auto 0 auto;
+            padding: 5px 60px;
+        }
+
         @include media("<=big-tablet"){
             width: 90%;
             min-height: 150px;
+        }
+
+        @include media("<=iphone-landscape"){
+            width: 90%;
+            min-height: 130px;
         }
 
         @include media("<=phone"){
@@ -180,6 +223,7 @@
         @include media("<=big-tablet"){
             background-repeat: no-repeat;
         }
+        
 
         .bck-grad{
             width: 100%;
@@ -188,8 +232,14 @@
             linear-gradient(to bottom, rgba(29, 41, 110, 0),
             rgba(0, 0, 0, 0.911)),;
 
+            
+
             @include media("<=big-tablet"){
                 height: 60vh;
+            }
+
+            @include media("<=phone"){
+                height: 50vh;
             }
 
                 .talk-box{ 
@@ -200,14 +250,18 @@
                     height: 50%;
                     margin: auto;
 
-                    @include media("<=big-tablet"){
-                        padding: 100px;
-                        width: 90%;
+                    @include media("<=desktop"){
+                        padding: 100px 40px 40px 40px ;
+                        height: 50%;
                     }
 
                     @include media("<=big-tablet"){
-                        padding: 40px;
-                        height: 70%;
+                        padding: 100px 40px;
+                        width: 90%;
+                    }                   
+
+                    @include media("<=iphone-landscape"){
+                        height: 60%;
                     }
 
                     h1{
@@ -217,16 +271,29 @@
                         text-transform: uppercase;
                         font-size: 52px;
 
+                        @include media("<=LGdesktop"){
+                            font-size: 42px;
+                        }
                         
-                        @include media("<=big-tablet"){
+                        @include media("<=desktop"){
                             font-size: 32px;
                             letter-spacing: 2px;
                         }
 
                         @include media("<=big-tablet"){
-                            font-size: 22px;
+                            font-size: 30px;
                             letter-spacing: 1px;
                         }
+
+                        @include media("<=iphone-landscape"){
+                            font-size: 28px;
+                        }
+
+                        @include media("<=phone"){
+                            font-size: 20px;
+                        }
+
+                       
 
                     }
                 }
@@ -239,14 +306,21 @@
                     height: 50%;
                     margin: auto;
 
-                    @include media("<=big-tablet"){
-                        padding: 50px 100px;
-                        width: 90%;
+                    @include media("<=desktop"){
+                        padding: 1rem 2rem;
                     }
 
                     @include media("<=big-tablet"){
-                        padding: 20px 40px;
-                        height: 30%;
+                        padding: 3rem 2rem 0 2rem;
+                        width: 90%;
+                    }
+
+                    @include media("<=iphone-landscape"){
+                        height: 40%;
+                    }
+
+                    @include media("<=phone"){
+                        padding: 1rem 2rem;
                     }
 
                     .talkTo{
@@ -260,22 +334,35 @@
                         background-color: rgb(214, 40, 40);
                         padding: 15px;
 
-                        
-
-                        &:hover{
-                            background-color: rgb(247, 127, 0);
+                        @include media("<=LGdesktop"){
+                            font-size: 42px;
+                            letter-spacing: 2px;
+                            margin-top: 50px;
                         }
 
-                        @include media("<=big-tablet"){
+                        
+                        @include media("<=desktop"){
                             font-size: 32px;
                             letter-spacing: 2px;
                         }
 
                         @include media("<=big-tablet"){
                             font-size: 22px;
-                            letter-spacing: 1px;
+                        }
+
+                        @include media("<=iphone-landscape"){
+                            font-size: 22px;
+                        }
+
+                        @include media("<=phone"){
+                            font-size: 14px;
                         }
                     }
+
+                        &:hover{
+                            background-color: rgb(247, 127, 0);
+                        }
+
                 }
         }
    }

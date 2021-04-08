@@ -54,7 +54,7 @@ function App() {
               <Route exact path="/Classes" component={Classes} />
               <Route exact path="/Profile" component={Profile} />
               <Route exact path="/Workout" component={Workout} />
-              <Route exact path="/Register" component={SignupForm} />
+              <Route exact path="/Register" component={RegisterForm} />
               <Route
                 exact
                 path="/"
@@ -70,6 +70,7 @@ function App() {
                 path="/"
                 component={!Auth.loggedIn() ? CoverPage : Footer}
               />
+              
             </Switch>
           </div>
         </Router>

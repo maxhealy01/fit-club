@@ -1,4 +1,5 @@
 import { useMutation } from "@apollo/client";
+import { formatError } from "graphql";
 import React, { useContext, useState, useEffect, useCallback } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { useStoreContext } from "./GlobalState";
@@ -23,7 +24,6 @@ export function ConversationsProvider({ id, children }) {
   const [setConversationsMutation] = useMutation(ADD_CONVERSATION);
   const { contacts } = state;
 
-
   const socket = useSocket();
 
   function createConversation(recipients) {
@@ -32,7 +32,6 @@ export function ConversationsProvider({ id, children }) {
     });
     // let initialText = "";
     // const { data } = setConversationsMutation({ recipients: recipients });
-    
   }
 
   const addMessageToConversation = useCallback(
@@ -79,17 +78,18 @@ export function ConversationsProvider({ id, children }) {
   const formattedConversations = conversations.map((conversation, index) => {
     const recipients = conversation.recipients.map((recipient) => {
       const contact = contacts.find((contact) => {
-        return contact.id === recipient;
+        return contact._id === recipient;
       });
-      const name = (contact && contact.name) || recipient;
+      const name = (contact && contact.username) || recipient;
+
       return { id: recipient, name };
     });
 
     const messages = conversation.messages.map((message) => {
       const contact = contacts.find((contact) => {
-        return contact.id === message.sender;
+        return contact._id === message.sender;
       });
-      const name = (contact && contact.name) || message.sender;
+      const name = (contact && contact.username) || message.sender;
       const fromMe = id === message.sender;
       return { ...message, senderName: name, fromMe };
     });

@@ -9,6 +9,7 @@ const StoreProvider = ({ value = [], ...props }) => {
 		conversations: [],
 		contacts: [],
 		goals: [],
+		chatOpen: false,
 	});
 
 	return <Provider value={[state, dispatch]} {...props} />;

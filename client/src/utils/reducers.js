@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-import { UPDATE_CONVERSATIONS, UPDATE_CONTACTS, UPDATE_GOALS } from "./actions";
+import { UPDATE_CONVERSATIONS, UPDATE_CONTACTS, UPDATE_GOALS, TOGGLE_CHAT } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -19,6 +19,11 @@ export const reducer = (state, action) => {
         ...state,
         contacts: [...action.contacts],
       };
+    case TOGGLE_CHAT:
+      return {
+        ...state,
+        chatOpen: !state.chatOpen
+      }
     default:
       return {
         state,

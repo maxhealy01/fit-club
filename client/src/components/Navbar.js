@@ -9,7 +9,10 @@ const AppNavbar = () => {
 			<header className="header">
             <div className="header-top">
             <div className="fit-title">
-                <img src= {require ("../assets/images/logo2.png").default} />
+                <Link to="/">
+                    <img src= {require ("../assets/images/logo2.png").default} />
+                </Link>
+                
             </div>
             <div className="navbar">
                 <ul>

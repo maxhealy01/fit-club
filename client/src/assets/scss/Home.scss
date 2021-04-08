@@ -76,6 +76,10 @@
                     letter-spacing: 3px;
                     font-family: 'Hammersmith One', sans-serif;
 
+                    @include media("<=desktop"){
+                        font-size: 72px;
+                    }
+
                     @include media("<=iphone-landscape"){
                         font-size: 32px;
                     }
@@ -92,6 +96,10 @@
                     font-size: 22px;
                     font-family: 'Gothic A1', sans-serif;
 
+                    @include media("<=desktop"){
+                        font-size: 30px;
+                    }
+
                     @include media("<=phone"){
                         font-size: 16px;
                     }
@@ -99,6 +107,10 @@
 
                 .btn{
                     margin-top: 3.6rem;
+
+                    @include media("<=desktop"){
+                        font-size:  2rem;
+                    }
 
                     @include media("<=phone"){
                         margin-top: 2.5rem;
@@ -116,6 +128,11 @@
                         padding: 1rem 4rem;
                         color: rgb(0, 48, 73);
                         background-color: rgb(252, 191, 73);
+
+                        @include media("<=LGdesktop"){
+                            font-size: 1em;
+                            padding: 1em 2em;
+                        }
 
                         @include media("<=desktop"){
                             font-size: 1em;
@@ -162,10 +179,15 @@
         0 0  0 2px rgb(255,255,255),
         0.3em 0.3em 1em rgba(0,0,0,0.3);
 
+        @include media("<=LGdesktop"){
+            min-height: 120px;
+            margin: -3.2rem auto 0 auto;
+        }
+
         @include media("<=desktop"){
             width: 60%;
             min-height: 120px;
-            margin: -3rem auto 0 auto;
+            margin: -4rem auto 0 auto;
             padding: 5px 60px;
         }
 
@@ -198,6 +220,11 @@
             @include media("<=phone"){
                 font-size: 14px;
                 padding: 20px;
+            }
+
+            @include media("<=desktop"){
+                font-size: 22px;
+                padding: 10px;
             }
             
         }
@@ -250,6 +277,10 @@
                     height: 50%;
                     margin: auto;
 
+                    @include media("<=LGdesktop"){
+                        padding: 80px 40px ;
+                    }
+
                     @include media("<=desktop"){
                         padding: 100px 40px 40px 40px ;
                         height: 50%;
@@ -276,7 +307,7 @@
                         }
                         
                         @include media("<=desktop"){
-                            font-size: 32px;
+                            font-size: 42px;
                             letter-spacing: 2px;
                         }
 
@@ -306,8 +337,12 @@
                     height: 50%;
                     margin: auto;
 
+                    @include media("<=LGdesktop"){
+                        padding: 3rem 2rem;
+                    }
+
                     @include media("<=desktop"){
-                        padding: 1rem 2rem;
+                        padding: 3rem 2rem;
                     }
 
                     @include media("<=big-tablet"){
@@ -342,8 +377,9 @@
 
                         
                         @include media("<=desktop"){
-                            font-size: 32px;
+                            font-size: 42px;
                             letter-spacing: 2px;
+                            padding: 0.5em;
                         }
 
                         @include media("<=big-tablet"){

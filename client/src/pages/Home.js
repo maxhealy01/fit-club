@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../assets/scss/Home.scss';
+
 import Footer from "../components/Footer";
-import Profile from "./Profile";
-import GoalList from '../components/GoalList';
+
 
 
 function Homepage(){
@@ -59,6 +59,7 @@ function Homepage(){
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

@@ -2,12 +2,28 @@ import React from "react";
 import '../assets/scss/classes.scss'
 // import { Link, Switch } from "react-router-dom";
 import ClassItems from '../components/ClassItems'
+import Footer from "../components/Footer";
 
 function Classes () {
 
 
     return( 
         <div className="class-page">
+            <div className="classes-header">
+                <div className="classes-grad">
+                <div className="classes-header-content">
+                    <h1>
+                    classes
+                    </h1>
+                    <p>
+                    The pain you feel today, will be the strength you feel tomorrow.
+                    </p>
+                </div>
+                </div>
+            </div>
+
+
+
             <div className="classPage-content">
                 
                 <div className="class-item">
@@ -36,6 +52,7 @@ function Classes () {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
         
     )

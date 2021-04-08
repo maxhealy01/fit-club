@@ -15,13 +15,14 @@ const onChange = (e) => {
     setState({... state,
         [e.target.name]: e.target.value
     })
+    console.log(onChange);
 }
 
 const onSubmit = async () => {
     const response = await createUser({
         variables: state,
     })
-    console.log(response);
+    console.log(onSubmit);
 
     document.location.assign("/")
 }
@@ -43,8 +44,7 @@ const onSubmit = async () => {
                         onChange={onChange}/>
                         
 
-                        <input 
-                        type="email" 
+                        <input  type="email" 
                         className="email"
                         name="email" 
                         placeholder="Email Address" 

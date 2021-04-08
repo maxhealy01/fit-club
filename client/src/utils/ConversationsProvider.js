@@ -24,7 +24,6 @@ export function ConversationsProvider({ id, children }) {
   const [setConversationsMutation] = useMutation(ADD_CONVERSATION);
   const { contacts } = state;
 
-
   const socket = useSocket();
 
   function createConversation(recipients) {
@@ -33,7 +32,6 @@ export function ConversationsProvider({ id, children }) {
     });
     // let initialText = "";
     // const { data } = setConversationsMutation({ recipients: recipients });
-    
   }
 
   const addMessageToConversation = useCallback(
@@ -79,7 +77,6 @@ export function ConversationsProvider({ id, children }) {
 
   const formattedConversations = conversations.map((conversation, index) => {
     const recipients = conversation.recipients.map((recipient) => {
-      console.log(contacts)
       const contact = contacts.find((contact) => {
         return contact._id === recipient;
       });
@@ -100,8 +97,6 @@ export function ConversationsProvider({ id, children }) {
     const selected = index === selectedConversationIndex;
     return { ...conversation, messages, recipients, selected };
   });
-
-  console.log(formattedConversations);
 
   const value = {
     conversations: formattedConversations,

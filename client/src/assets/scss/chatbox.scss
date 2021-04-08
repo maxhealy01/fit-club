@@ -1,5 +1,5 @@
 @mixin center {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
     // transform: translate(-50%, -50%);
@@ -24,8 +24,7 @@
     max-height: 500px;
     z-index: 2;
     overflow: hidden;
-    box-shadow: 0 5px 30px rgba(255, 255, 255, 0.2);
-    background: rgba(194, 194, 194, 0.822);
+
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -37,7 +36,7 @@
     height: 80vh;
     max-height: 500px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-direction: column;
   }
 
@@ -54,6 +53,7 @@
   
   .chat-contacts {
     border: 2px solid rgba(1, 0, 27, 0.8);
+    background: rgba(255, 255, 255, .3);
     margin-left: 15px;
     display: flex;
     flex-direction: column;
@@ -130,6 +130,8 @@
   .messages {
     flex: 1 1 auto;
     color: rgba(255, 255, 255, .5);
+    box-shadow: 0 5px 30px rgba(255, 255, 255, 0.2);
+    background: rgba(194, 194, 194, 0.822);
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -256,7 +258,7 @@
   .message-box {
     flex: 0 1 40px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.582);
+    background: rgba(255, 255, 255, 0.829);
     padding: 10px;
     position: relative;
     

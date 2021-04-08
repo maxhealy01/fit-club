@@ -51,7 +51,6 @@ function App() {
           <Navbar>{navLinks}</Navbar>
           <div>
             <Switch>
-              <Route exact path="/" component={Home} />
               <Route exact path="/Classes" component={Classes} />
               <Route exact path="/Profile" component={Profile} />
               <Route exact path="/Workout" component={Workout} />

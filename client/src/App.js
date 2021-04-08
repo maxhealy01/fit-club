@@ -15,13 +15,12 @@ import Home from "./pages/Home";
 import Classes from "./pages/Classes";
 import Workout from "./pages/Workout";
 import Profile from "./pages/Profile";
-import SignupForm from "./pages/Register";
+import RegisterForm from "./pages/Register";
 
 // components
 import ChatBox from "./components/ChatBox";
 import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
-import Footer from "./components/Footer";
 
 console.log(Auth.loggedIn());
 
@@ -54,23 +53,21 @@ function App() {
               <Route exact path="/Classes" component={Classes} />
               <Route exact path="/Profile" component={Profile} />
               <Route exact path="/Workout" component={Workout} />
-              <Route exact path="/Register" component={SignupForm} />
+              <Route exact path="/Register" component={RegisterForm} />
               <Route
                 exact
                 path="/"
                 component={!Auth.loggedIn() ? CoverPage : Home}
               />
+              
               <Route
                 exact
                 path="/"
                 component={!Auth.loggedIn() ? CoverPage : ChatBox}
-              />
-              <Route
-                exact
-                path="/"
-                component={!Auth.loggedIn() ? CoverPage : Footer}
-              />
+              />            
+              
             </Switch>
+            
           </div>
         </Router>
       </StoreProvider>

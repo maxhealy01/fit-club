@@ -3,6 +3,7 @@ import "../assets/scss/Profile.scss";
 
 import GoalList from '../components/GoalList';
 import GoalForm from '../components/GoalForm'
+import Footer from "../components/Footer";
 
 import ChatDashboard from "../components/ChatDashboard";
 import { ConversationsProvider } from "../utils/ConversationsProvider";
@@ -100,8 +101,18 @@ function Profile() {
 
   return (
     <>
-    <div className="profile-header">
-    </div>
+      <div className="mypage-header">
+        <div className="mypage-grad">
+          <div className="mypage-header-content">
+            <h1>
+              mypage
+            </h1>
+            <p>
+              Your displine for health and fitness will also have a positive impact on other areas of your life.
+              </p>
+          </div>
+        </div>
+      </div>
     <GoalForm goals={user.goals} />
     <GoalList
       goals={user.goals}
@@ -111,10 +122,11 @@ function Profile() {
      {!loading && 
       <SocketProvider id={_id}>
         <ConversationsProvider id={_id}>
-          <ChatDashboard id={_id} />
+          {/* <ChatDashboard id={_id} /> */}
         </ConversationsProvider>
       </SocketProvider> 
     } 
+    <Footer />
     </>
   );
 }

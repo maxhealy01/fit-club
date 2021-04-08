@@ -1,137 +1,145 @@
 @import "./mediaQueries.scss";
-  
-  // Styles
-  
-  .workout-page {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
 
-    .workout-header{
+// Styles
+
+.workout-page {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+
+  .workout-form {
+    margin: 2vh auto;
+    padding-top: 2vh;
+    width: 60%;
+    font-family: "Hammersmith One", sans-serif;
+  }
+
+  .workout-header {
+    width: 100%;
+    height: 40vh;
+    margin-bottom: 50px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/workout.jpg");
+
+    .workout-grad {
       width: 100%;
       height: 40vh;
-      margin-bottom: 50px;
-      background-position: center;
-      background-size: cover;
-      background-image: url('../images/workout.jpg');
+      background-image: linear-gradient(
+        to bottom,
+        rgba(29, 41, 110, 0),
+        rgba(0, 0, 0, 0.9)
+      );
 
-      .workout-grad{
-        width: 100%;
-        height: 40vh;
-        background-image: 
-        linear-gradient(to bottom, rgba(29, 41, 110, 0),
-        rgba(0, 0, 0, 0.9)),;
-
-        .workout-header-content{
-          width: 60%;
-          margin: auto;
-          padding: 100px 200px;
-          @include media("<=desktop"){
-            width: 90%;
-            padding: 100px 150px;
-          }
-
-          @include media("<=phone"){
-            width: 90%;
-            padding: 30px;
-            padding-top: 60px;
-            text-align: center
-          }
-
-          h1{
-            color: rgb(255, 255, 255);
-            font-family: 'Hammersmith One', sans-serif;
-            font-size: 72px;
-            text-transform: uppercase;
-
-            @include media("<=phone"){
-              font-size: 52px;
-            }
-          }
-          p{
-            color: rgb(201, 201, 201);
-            font-family: 'Hammersmith One', sans-serif;
-            font-size: 22px;
-
-            @include media("<=phone"){
-              font-size: 20px;
-              color: rgb(255, 255, 255);
-            }
-          }
-        }
-      }
-    }
-
-    .viewAll-workout{
-      width: 60%;
-      margin: auto;
-
-      @include media("<=desktop"){
-        width: 90%;
-      }
-
-      .viewAll-link{
-        text-transform: uppercase;
-        text-decoration: none;
-        color: rgb(0, 48, 73);
-        font-family: 'Hammersmith One', sans-serif;
-      }
-    }
-  
-    .workout-item {
-      width: 60%;
-      height: auto;
-      margin: 5vh auto;
-      padding-bottom: 5vh;
-      border-bottom: 1px solid rgb(148, 148, 148);
-
-      @include media("<=desktop"){
-        width: 90%;
-      }    
-     
-  
-      .workout-description {
-        display: flex;
-        height: 100%;
+      .workout-header-content {
+        width: 60%;
         margin: auto;
-        
-  
-        .workout-name {
-          width: 50%;
-          margin: auto;
-          padding-right: 20px;
-          
-          h1{
-            text-transform: uppercase;
-            font-family: 'Hammersmith One', sans-serif;
-            height: 15%;
-          }
+        padding: 100px 200px;
+        @include media("<=desktop") {
+          width: 90%;
+          padding: 100px 150px;
+        }
 
-          h4{
-            text-transform: uppercase;
-            font-family: 'Hammersmith One', sans-serif;
-            height: 15%;
-          }
+        @include media("<=phone") {
+          width: 90%;
+          padding: 30px;
+          padding-top: 60px;
+          text-align: center;
+        }
 
-          p{
-            margin-top: 25%;
-            font-family: 'Hammersmith One', sans-serif;
-            height: 60%;
+        h1 {
+          color: rgb(255, 255, 255);
+          font-family: "Hammersmith One", sans-serif;
+          font-size: 72px;
+          text-transform: uppercase;
+
+          @include media("<=phone") {
+            font-size: 52px;
           }
         }
-  
-        .workout-detail {
-          overflow: hidden;
-          width: 50%;
-          margin: 0 auto;
+        p {
+          color: rgb(201, 201, 201);
+          font-family: "Hammersmith One", sans-serif;
+          font-size: 22px;
 
-          iframe{
-            width: 100%;
-            height: 100%;
+          @include media("<=phone") {
+            font-size: 20px;
+            color: rgb(255, 255, 255);
           }
         }
       }
     }
   }
 
-  @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+  .viewAll-workout {
+    width: 60%;
+    margin: auto;
+
+    @include media("<=desktop") {
+      width: 90%;
+    }
+
+    .viewAll-link {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgb(0, 48, 73);
+      font-family: "Hammersmith One", sans-serif;
+    }
+  }
+
+  .workout-item {
+    width: 60%;
+    height: auto;
+    margin: 5vh auto;
+    padding-bottom: 5vh;
+    border-bottom: 1px solid rgb(148, 148, 148);
+
+    @include media("<=desktop") {
+      width: 90%;
+    }
+
+    span {
+      font-family: "Hammersmith One", sans-serif;
+      font-size: small;
+      margin-bottom: 0;
+    }
+
+    .workout-description {
+      display: flex;
+      height: 100%;
+      margin: auto;
+
+      .workout-name {
+        width: 50%;
+        margin: auto;
+        padding-right: 20px;
+
+        h1 {
+          text-transform: uppercase;
+          font-family: "Hammersmith One", sans-serif;
+          height: 15%;
+        }
+
+        h4 {
+          text-transform: uppercase;
+          font-family: "Hammersmith One", sans-serif;
+          height: 15%;
+        }
+
+        p {
+          margin-top: 25%;
+          font-family: "Hammersmith One", sans-serif;
+          height: 60%;
+        }
+      }
+
+      .workout-detail {
+        overflow: hidden;
+        width: 50%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");

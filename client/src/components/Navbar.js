@@ -10,7 +10,11 @@ import auth from "../utils/auth";
 const AppNavbar = () => {
 
     const Logout = () => {
-        auth.logout();
+        if(!auth.loggedIn()){
+            return auth.loggedIn()
+        } else {
+            auth.logout();
+        }
     }
 	return (
 		<>

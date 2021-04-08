@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import Auth from "../utils/auth.js";
+import React from "react";
+// import Auth from "../utils/auth.js";
 import { Link } from "react-router-dom";
 
 import "../assets/scss/Workout.scss";
 import CreateWorkout from "../components/CreateWorkout.js";
+import Footer from "../components/Footer";
+
 
 function Workout() {
   return (
@@ -66,6 +68,7 @@ function Workout() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

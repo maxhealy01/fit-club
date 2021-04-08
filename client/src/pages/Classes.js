@@ -2,6 +2,7 @@ import React from "react";
 import '../assets/scss/classes.scss'
 // import { Link, Switch } from "react-router-dom";
 import ClassItems from '../components/ClassItems'
+import Footer from "../components/Footer";
 
 function Classes () {
 
@@ -51,6 +52,7 @@ function Classes () {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
         
     )

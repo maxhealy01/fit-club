@@ -3,6 +3,7 @@ import "../assets/scss/Profile.scss";
 
 import GoalList from '../components/GoalList';
 import GoalForm from '../components/GoalForm'
+import Footer from "../components/Footer";
 
 import ChatDashboard from "../components/ChatDashboard";
 import { ConversationsProvider } from "../utils/ConversationsProvider";
@@ -125,6 +126,7 @@ function Profile() {
         </ConversationsProvider>
       </SocketProvider> 
     } 
+    <Footer />
     </>
   );
 }

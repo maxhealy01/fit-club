@@ -382,6 +382,10 @@
                         background-color: rgb(214, 40, 40);
                         padding: 15px;
 
+                        &:hover{
+                            background-color: rgb(247, 127, 0);
+                        }
+
                         @include media("<=LGdesktop"){
                             font-size: 42px;
                             letter-spacing: 2px;
@@ -408,9 +412,7 @@
                         }
                     }
 
-                        &:hover{
-                            background-color: rgb(247, 127, 0);
-                        }
+                        
 
                 }
         }

@@ -21,7 +21,6 @@ import RegisterForm from "./pages/Register";
 import ChatBox from "./components/ChatBox";
 import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
-import Footer from "./components/Footer";
 
 console.log(Auth.loggedIn());
 
@@ -60,18 +59,15 @@ function App() {
                 path="/"
                 component={!Auth.loggedIn() ? CoverPage : Home}
               />
+              
               <Route
                 exact
                 path="/"
                 component={!Auth.loggedIn() ? CoverPage : ChatBox}
-              />
-              <Route
-                exact
-                path="/"
-                component={!Auth.loggedIn() ? CoverPage : Footer}
-              />
+              />            
               
             </Switch>
+            
           </div>
         </Router>
       </StoreProvider>

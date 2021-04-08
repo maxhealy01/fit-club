@@ -7,7 +7,7 @@ export default function ChatDashboard({ id }) {
   const { selectedConversation } = useConversations();
 
   return (
-    <div>
+    <div className={"chat-dashboard"}>
       <ChatContacts id={id} />
       {selectedConversation && <ChatBox />}
     </div>

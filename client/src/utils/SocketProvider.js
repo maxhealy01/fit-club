@@ -17,8 +17,6 @@ export function SocketProvider({ id, ...props }) {
     )
     setSocket(newSocket);
 
-    console.log(newSocket)
-
     return () => newSocket.close()
   }, [id])
 

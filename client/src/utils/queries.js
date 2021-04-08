@@ -38,3 +38,14 @@ export const QUERY_TRAINERS = gql`
     }
   }
 `;
+
+export const QUERY_CONVERSATIONS = gql`
+  {
+    messages {
+      message
+      recipients{
+        _id
+      }
+    }
+  }
+`

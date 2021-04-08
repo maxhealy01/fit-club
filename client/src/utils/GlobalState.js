@@ -9,8 +9,7 @@ const StoreProvider = ({ value = [], ...props }) => {
 		conversations: [],
 		contacts: [],
 		goals: [],
-		// yunik testing
-		classItems: []
+		chatOpen: false,
 	});
 
 	return <Provider value={[state, dispatch]} {...props} />;

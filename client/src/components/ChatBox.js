@@ -7,6 +7,8 @@ export default function OpenConversation() {
 
   const { sendMessage, selectedConversation } = useConversations();
 
+  console.log(selectedConversation);
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -21,7 +23,7 @@ export default function OpenConversation() {
     <div className={"chat"}>
       <div className="chat-box">
         <div className="chat-title">
-          <h1>USERNAME</h1>
+          <h1>name}</h1>
           <h2>USER ID HERE</h2>
           <figure className="avatar">
             <img src="#" />

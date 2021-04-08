@@ -1,17 +1,34 @@
-// .profile-header{
-//     width: 100vw;
-//     height: 50vh;
-//     // background-position: 50% 60%;
-//     // background-image: url(../images/profile.jpg);
-//     // background-size:cover;
+.mypage-header{
+    width: 100%;
+    height: 40vh;
+    margin-bottom: 50px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../images/myPage.jpg');
 
-//     div{
-//         width: 60%;
-//         height: 25vh;
-//         margin: auto;
-//         text-align: center;
-//         text-transform: uppercase;
-//         font-size: 150px;
-//         font-family: 'Hammersmith One', sans-serif;
-//     }
-// }
+    .mypage-grad{
+      width: 100%;
+      height: 40vh;
+      background-image: 
+          linear-gradient(to bottom, rgba(29, 41, 110, 0),
+          rgba(0, 0, 0, 0.9)),;
+
+          .mypage-header-content{
+            width: 60%;
+            margin: auto;
+            padding: 100px 200px;
+
+            h1{
+              color: rgb(255, 255, 255);
+              font-family: 'Hammersmith One', sans-serif;
+              font-size: 72px;
+              text-transform: uppercase;
+            }
+            p{
+              color: rgb(201, 201, 201);
+              font-family: 'Hammersmith One', sans-serif;
+              font-size: 22px;
+            }
+          }
+    }
+  }

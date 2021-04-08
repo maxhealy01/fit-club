@@ -1,7 +1,7 @@
 function CreateWorkout() {
     return (
       <div className="workout-form">
-        <form>Form</form>
+        <form></form>
       </div>
     );
   }

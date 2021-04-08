@@ -100,8 +100,18 @@ function Profile() {
 
   return (
     <>
-    <div className="profile-header">
-    </div>
+      <div className="mypage-header">
+        <div className="mypage-grad">
+          <div className="mypage-header-content">
+            <h1>
+              mypage
+            </h1>
+            <p>
+              Your displine for healt and fitness will also have a positive impact on other areas of your life.
+              </p>
+          </div>
+        </div>
+      </div>
     <GoalForm goals={user.goals} />
     <GoalList
       goals={user.goals}

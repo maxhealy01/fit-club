@@ -11,6 +11,53 @@
     width: 100%;
     height: 100%;
     margin: 0 auto;
+
+    .workout-header{
+      width: 100%;
+      height: 40vh;
+      margin-bottom: 50px;
+      background-position: center;
+      background-size: cover;
+      background-image: url('../images/workout.jpg');
+
+      .workout-grad{
+        width: 100%;
+        height: 40vh;
+        background-image: 
+            linear-gradient(to bottom, rgba(29, 41, 110, 0),
+            rgba(0, 0, 0, 0.9)),;
+
+            .workout-header-content{
+              width: 60%;
+              margin: auto;
+              padding: 100px 200px;
+
+              h1{
+                color: rgb(255, 255, 255);
+                font-family: 'Hammersmith One', sans-serif;
+                font-size: 72px;
+                text-transform: uppercase;
+              }
+              p{
+                color: rgb(201, 201, 201);
+                font-family: 'Hammersmith One', sans-serif;
+                font-size: 22px;
+              }
+            }
+      }
+    }
+
+    .viewAll-workout{
+      width: 60%;
+      margin: auto;
+
+      .viewAll-link{
+        text-transform: uppercase;
+        text-decoration: none;
+        color: rgb(0, 48, 73);
+        font-family: 'Hammersmith One', sans-serif;
+      }
+    }
   
     .workout-item {
       width: 60%;
@@ -18,20 +65,35 @@
       margin: 5vh auto;
       padding-bottom: 5vh;
       border-bottom: 1px solid rgb(148, 148, 148);
+
+     
   
       .workout-description {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 75%;
         height: 100%;
+        margin: auto;
+        
   
         .workout-name {
-          padding-left: 20px;
-          width: 100%;
-          height: 45%;
-          margin: 0 0 auto 0;
+          width: 100%;        
+          
+          h1{
+            text-transform: uppercase;
+            font-family: 'Hammersmith One', sans-serif;
+            height: 15%;
+          }
+
+          h4{
+            text-transform: uppercase;
+            font-family: 'Hammersmith One', sans-serif;
+            height: 15%;
+          }
+
+          p{
+            margin-top: 25%;
+            font-family: 'Hammersmith One', sans-serif;
+            height: 60%;
+          }
         }
   
         .workout-detail {
@@ -43,3 +105,5 @@
       }
     }
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');

@@ -1,17 +1,19 @@
+
 $breakpoints: (
   "phone": 360px,
   "tablet": 768px,
   "iphone-landscape": 850px,
   "big-tablet": 1024px,
   "desktop": 1366px,
-  "LGdesktop": 1920px,
+  "LGdesktop": 1920px
 ) !default;
 
 $unit-intervals: (
   "px": 1,
   "em": 0.01,
-  "rem": 0.1,
+  "rem": 0.1
 ) !default;
+ 
 
 @mixin media($conditions...) {
   @for $i from 1 through length($conditions) {

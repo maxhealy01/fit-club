@@ -1,15 +1,26 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 import '../assets/scss/navbar.scss';
+import auth from "../utils/auth";
+
+
 
 const AppNavbar = () => {
+
+    const Logout = () => {
+        auth.logout();
+    }
 	return (
 		<>
 			<header className="header">
             <div className="header-top">
             <div className="fit-title">
-                <img src= {require ("../assets/images/logo2.png").default} />
+                <Link to="/">
+                    <img  alt="logo" src= {require ("../assets/images/logo2.png").default} />
+                </Link>
+                
             </div>
             <div className="navbar">
                 <ul>
@@ -23,26 +34,12 @@ const AppNavbar = () => {
                         <Link to={"/Workout"}>Workout</Link>
                     </li>
                     <li>
-                        <Link to={"/Profile"}>Profile</Link>
+                        <Link to={"/Profile"}>Page</Link>
+                    </li>
+                    <li>
+                        <Link onClick={Logout} to={"/Profile"}>Log Out</Link>
                     </li>
                 </ul>
-                <Switch>
-                    <Route path="/class">
-                        <class />
-                    </Route>
-                    {/* <Route path="/Activity">
-                        <Activity />
-                    </Route>
-                    <Route path="/Trainers">
-                        <Trainers />
-                    </Route>
-                    <Route path="/MyProfile">
-                        <MyProfile />
-                    </Route>
-                    <Route path="/Info">
-                        <Info />
-                    </Route> */}
-                </Switch>
             </div>
         </div>
         </header>

@@ -5,24 +5,24 @@ import ApolloClient from "apollo-boost";
 
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
 import { StoreProvider } from "./utils/GlobalState";
+import Auth from "./utils/auth";
+
+// App Styles (Do Not Delete This!!)
+import "./assets/scss/app.scss";
 
 // pages
 import Home from "./pages/Home";
 import Classes from "./pages/Classes";
-import Signup from "./pages/Signup";
 import Workout from "./pages/Workout";
 import Profile from "./pages/Profile";
+import RegisterForm from "./pages/Register";
 
 // components
 import ChatBox from "./components/ChatBox";
 import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
-import Login from "./components/Login";
 
-// import socket.io provider
-import { SocketProvider } from "./utils/SocketProvider";
-// create test id for chat server, eventually snag username from storeProvider
-const id = "testificate";
+console.log(Auth.loggedIn());
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -50,17 +50,25 @@ function App() {
           <Navbar>{navLinks}</Navbar>
           <div>
             <Switch>
-              <Route exact path="/" component={Home} />
               <Route exact path="/Classes" component={Classes} />
               <Route exact path="/Profile" component={Profile} />
               <Route exact path="/Workout" component={Workout} />
-              <Route exact path="/Signup" component={Signup} />
-              <Route exact patch="/Login" component={Login} />
+              <Route exact path="/Register" component={RegisterForm} />
+              <Route
+                exact
+                path="/"
+                component={!Auth.loggedIn() ? CoverPage : Home}
+              />
+              
+              <Route
+                exact
+                path="/"
+                component={!Auth.loggedIn() ? CoverPage : ChatBox}
+              />            
+              
             </Switch>
+            
           </div>
-          {/* <CoverPage /> */}
-          {/* <Signup /> */}
-          {/* <ChatBox /> */}
         </Router>
       </StoreProvider>
     </ApolloProvider>

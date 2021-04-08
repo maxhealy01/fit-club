@@ -8,8 +8,9 @@ const typeDefs = gql`
   }
   type Goal {
     _id: ID
-    name: String
-    metric: String
+    personalGoal: String!
+    name: String!
+    metric: [String]
   }
   type Meetup {
     _id: ID
@@ -53,6 +54,10 @@ const typeDefs = gql`
     message: String
     recipients: [User]
   }
+  type Auth {
+    token: ID
+    user: User
+  }
 
   type Query {
     me: User
@@ -61,13 +66,8 @@ const typeDefs = gql`
     user(username: String): User
     activities: [Activity]
     meetups(activity: ID): [Meetup]
-    testimonials: [Testimonial]
-    workouts: [Workout]
-  }
-
-  type Auth {
-    token: ID!
-    user: User
+    testimonials(postedBy: ID): [Testimonial]
+    workouts(activity: ID): [Workout]
   }
 
   type Mutation {
@@ -94,7 +94,10 @@ const typeDefs = gql`
     ): Workout
     # The following mutations don't create new objects, but instead add existing objects to the User object
     addFriend(friendId: ID!): User
-    createConversation(recipients: [ID], text: String!): User
+    addMeetup(meetupId: ID!): User
+    addActivity(activityId: ID!): User
+    addGoal(personalGoal: String!, name: String!): User
+    createConversation(recipients: [ID], text: String): User
   }
 `;
 

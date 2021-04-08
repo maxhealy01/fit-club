@@ -1,0 +1,424 @@
+@import "./mediaQueries.scss";
+
+
+.homepage-top{
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 300px;
+
+    // first section
+    .home-header{
+        width: 100%;
+        height: 80vh;
+        background-position: center;
+        background-size: cover;
+        background-image: url('../images/homepage-header.jpg');
+
+        
+        @include media("<=desktop"){
+            height: 90vh;
+        }
+
+        @include media("<=iphone-landscape"){
+            height: 60vh;
+        }
+
+        @include media("<=phone"){
+            height: 40vh;
+        }
+
+        .header-grad{
+            width: 100%;
+            height: 80vh;
+            background-image: 
+            linear-gradient(to bottom, rgba(29, 41, 110, 0),
+            rgba(0, 0, 0, 0.397)),;
+
+            @include media("<=desktop"){
+                height: 90vh;
+            }
+
+            @include media("<=iphone-landscape"){
+                height: 60vh;
+            }
+
+            @include media("<=phone"){
+                height: 40vh;
+                background-image: 
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.555),
+                rgba(0, 0, 0, 0.397)),;
+            }
+
+            
+
+            .welcoming-txt{
+                padding-top: 0;
+                padding-bottom: 0;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translateY(-50%);
+                width: 60%;
+                margin: auto;
+
+                @include media("<=big-tablet"){
+                    width: 90%;
+                }
+
+                @include media("<=iphone-landscape"){
+                    top: 40%;
+                }
+
+                @include media("<=phone"){
+                    top: 30%;
+                }
+
+
+                h1{
+                    color: #fff;
+                    font-size: 62px;
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                    font-family: 'Hammersmith One', sans-serif;
+
+                    @include media("<=desktop"){
+                        font-size: 72px;
+                    }
+
+                    @include media("<=iphone-landscape"){
+                        font-size: 38px;
+                    }
+                    
+                    @include media("<=phone"){
+                        font-size: 28px;
+                    }
+
+                        
+                }
+                p{
+                    margin-top: 20px;
+                    color: #fff;
+                    font-size: 22px;
+                    font-family: 'Gothic A1', sans-serif;
+
+                    @include media("<=desktop"){
+                        font-size: 30px;
+                    }
+
+                    @include media("<=iphone-landscape"){
+                        font-size: 28px;
+                    }
+
+                    @include media("<=phone"){
+                        font-size: 16px;
+                    }
+                }
+
+                .btn{
+                    margin-top: 3.6rem;
+
+                    @include media("<=desktop"){
+                        font-size:  2rem;
+                    }
+
+                    @include media("<=phone"){
+                        margin-top: 2rem;
+                    }
+                    
+                    .linkToCourse{
+                        text-decoration: none;
+                        letter-spacing: -.01em;
+                        cursor: pointer;
+                        display: inline-block;
+                        font-weight: 800;
+                        text-transform: uppercase;
+                        font-size: 2rem;
+                        line-height: 1.3333333333;
+                        padding: 1rem 4rem;
+                        color: rgb(0, 48, 73);
+                        background-color: rgb(252, 191, 73);
+
+                        @include media("<=LGdesktop"){
+                            font-size: 1em;
+                            padding: 1em 2em;
+                        }
+
+                        @include media("<=desktop"){
+                            font-size: 1em;
+                            padding: 1em 2em;
+                        }
+
+                        @include media("<=iphone-landscape"){
+                            font-size: 1em;
+                            padding: 1em 2em;
+                        }
+
+                        @include media("<=phone"){
+                            font-size: 1rem;
+                            padding: 1rem 2rem;
+                        }
+
+                        
+
+                        &:hover{
+                            background-color: rgb(247, 127, 0);
+                        }
+                    }
+                }
+            }
+        }
+   }
+
+    // second section
+   .homepage-test{
+        
+
+       .testimonial{
+        width: 60%;
+        min-height: 200px;
+        margin: -6rem auto 0 auto;
+        background-color: #e2e2e2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0 60px;
+        box-shadow:
+        inset 0 -3em 3em rgba(0, 48, 73,0.1),
+        0 0  0 2px rgb(255,255,255),
+        0.3em 0.3em 1em rgba(0,0,0,0.3);
+
+        @include media("<=LGdesktop"){
+            min-height: 120px;
+            margin: -3.2rem auto 0 auto;
+        }
+
+        @include media("<=desktop"){
+            width: 60%;
+            min-height: 120px;
+            margin: -4rem auto 0 auto;
+            padding: 5px 60px;
+        }
+
+        @include media("<=big-tablet"){
+            width: 90%;
+            min-height: 150px;
+        }
+
+        @include media("<=iphone-landscape"){
+            width: 90%;
+            min-height: 130px;
+        }
+
+        @include media("<=phone"){
+            display: none;
+        }
+
+        i{
+            color:rgba(102, 102, 102, 0.671); 
+
+            @include media("<=phone"){
+                font-size: 10px;
+            }
+        }
+
+        blockquote{
+            font-style: italic;
+            color: rgb(56, 56, 56); 
+
+            @include media("<=phone"){
+                font-size: 14px;
+                padding: 20px;
+            }
+
+            @include media("<=desktop"){
+                font-size: 22px;
+                padding: 10px;
+            }
+            
+        }
+       }
+   }
+
+   .Goal-Section{
+       width: 100%;
+       height: 60vh;
+
+       .Goal-box{
+           width: 60%;
+           margin: 10vh auto 0;
+       }
+   }
+
+   .talk-to-trainer{
+        width: 100%;
+        background-position: 50% 37%; 
+        background-size: cover;
+        background-image: url('../images/talking.jpg');
+
+        @include media("<=big-tablet"){
+            background-repeat: no-repeat;
+        }
+        
+
+        .bck-grad{
+            width: 100%;
+            height: 80vh;
+            background-image: 
+            linear-gradient(to bottom, rgba(29, 41, 110, 0),
+            rgba(0, 0, 0, 0.911)),;
+
+            
+
+            @include media("<=big-tablet"){
+                height: 60vh;
+            }
+
+            @include media("<=phone"){
+                height: 40vh;
+            }
+
+                .talk-box{ 
+                    padding:150px 150px 0;
+                    left: 0;
+                    right: 0;
+                    width: 60%;
+                    height: 50%;
+                    margin: auto;
+
+                    @include media("<=LGdesktop"){
+                        padding: 80px 40px ;
+                    }
+
+                    @include media("<=desktop"){
+                        padding: 100px 40px 40px 40px ;
+                        height: 50%;
+                    }
+
+                    @include media("<=big-tablet"){
+                        padding: 100px 40px;
+                        width: 90%;
+                    }                   
+
+                    @include media("<=iphone-landscape"){
+                        height: 60%;
+                    }
+
+                    h1{
+                        font-family: 'Hammersmith One', sans-serif;
+                        color: #fff;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        font-size: 52px;
+
+                        @include media("<=LGdesktop"){
+                            font-size: 42px;
+                        }
+                        
+                        @include media("<=desktop"){
+                            font-size: 42px;
+                            letter-spacing: 2px;
+                        }
+
+                        @include media("<=big-tablet"){
+                            font-size: 40px;
+                            letter-spacing: 1px;
+                        }
+
+                        @include media("<=iphone-landscape"){
+                            font-size: 40px;
+                            line-height: 130%;
+                        }
+
+                        @include media("<=phone"){
+                            font-size: 20px;
+                        }
+
+                       
+
+                    }
+                }
+
+                .talk-btn{
+                    padding:80px 150px;
+                    left: 0;
+                    right: 0;
+                    width: 60%;
+                    height: 50%;
+                    margin: auto;
+
+                    @include media("<=LGdesktop"){
+                        padding: 3rem 2rem;
+                    }
+
+                    @include media("<=desktop"){
+                        padding: 3rem 2rem;
+                    }
+
+                    @include media("<=big-tablet"){
+                        padding: 3rem 2rem 0 2rem;
+                        width: 90%;
+                    }
+
+                    @include media("<=iphone-landscape"){
+                        height: 40%;
+                    }
+
+                    @include media("<=phone"){
+                        padding: 1rem 2rem;
+                    }
+
+                    .talkTo{
+                        margin-top: 200px;
+                        font-family: 'Hammersmith One', sans-serif;
+                        color: #fff;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        font-size: 42px;
+                        background-color: rgb(214, 40, 40);
+                        padding: 15px;
+
+                        &:hover{
+                            background-color: rgb(247, 127, 0);
+                        }
+
+                        @include media("<=LGdesktop"){
+                            font-size: 42px;
+                            letter-spacing: 2px;
+                            margin-top: 50px;
+                        }
+
+                        
+                        @include media("<=desktop"){
+                            font-size: 42px;
+                            letter-spacing: 2px;
+                            padding: 0.5em;
+                        }
+
+                        @include media("<=big-tablet"){
+                            font-size: 32px;
+                        }
+
+                        @include media("<=iphone-landscape"){
+                            font-size: 32px;
+                        }
+
+                        @include media("<=phone"){
+                            font-size: 14px;
+                        }
+                    }
+
+                        
+
+                }
+        }
+   }
+}
+
+// Font styles
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap');

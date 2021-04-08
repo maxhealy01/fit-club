@@ -52,3 +52,14 @@ export const QUERY_WORKOUTS = gql`
     }
   }
 `;
+
+export const QUERY_CONVERSATIONS = gql`
+  {
+    messages {
+      message
+      recipients{
+        _id
+      }
+    }
+  }
+`

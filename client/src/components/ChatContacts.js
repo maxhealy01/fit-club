@@ -20,8 +20,6 @@ export default function ChatContacts() {
   const { _id } = data?.me || {};
   const { contacts } = state;
 
-  console.log(_id)
-
   function handleContactClick(contactId) {
     setSelectedContactIds(contactId);
 

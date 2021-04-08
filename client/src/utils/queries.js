@@ -8,7 +8,6 @@ export const QUERY_ME = gql`
   }
 `;
 
-
 ////////////////////////////////////////////
 // query goals with mikes data structure  //
 ////////////////////////////////////////////
@@ -35,6 +34,21 @@ export const QUERY_TRAINERS = gql`
     trainers {
       _id
       username
+    }
+  }
+`;
+
+export const QUERY_WORKOUTS = gql`
+  {
+    workouts {
+      _id
+      name
+      duration
+      source
+      description
+      postedBy {
+        _id
+      }
     }
   }
 `;

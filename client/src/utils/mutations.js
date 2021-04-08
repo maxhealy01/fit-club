@@ -56,3 +56,25 @@ export const ADD_CONVERSATION = gql`
 //     }
 //   }
 // `
+
+export const POST_WORKOUT = gql`
+  mutation postWorkout(
+    $name: String!
+    $source: String!
+    $duration: String!
+    $description: String!
+  ) {
+    postWorkout(
+      name: $name
+      source: $source
+      duration: $duration
+      description: $description
+    ) {
+      _id
+      name
+      source
+      duration
+      equipment
+    }
+  }
+`;

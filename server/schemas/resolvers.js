@@ -8,7 +8,8 @@ const {
 	Testimonial,
 	User,
 	Goal,
-	Workout
+	ClassList,
+	Workout,
 } = require("../models");
 
 const resolvers = {

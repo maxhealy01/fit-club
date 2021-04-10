@@ -13,8 +13,15 @@ export const LOGIN = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser(
+    $username: String!, 
+    $email: String!, 
+    $password: String!) {
+    addUser(
+      username: $username, 
+      email: $email, 
+      password: $password) 
+      {
       token
       user {
         _id
@@ -24,15 +31,14 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_CONVERSATION = gql`
-  mutation addConversation($recipients: [ID], $text: String!) {
-    addConversation(recipients: $recipients, text: $text) {
-      token
-      user {
-        _id
-        conversations {
-          recipients
-          message
+  mutation createConversation($recipients: [ID], $text: String) {
+    createConversation(recipients: $recipients, text: $text) {
+      _id
+      messages {
+        recipients {
+          _id
         }
+        message
       }
     }
   }
@@ -56,3 +62,49 @@ export const ADD_CONVERSATION = gql`
 //     }
 //   }
 // `
+
+export const POST_WORKOUT = gql`
+  mutation postWorkout(
+    $name: String!
+    $source: String!
+    $duration: String!
+    $description: String!
+  ) {
+    postWorkout(
+      name: $name
+      source: $source
+      duration: $duration
+      description: $description
+    ) {
+      _id
+      name
+      source
+      duration
+      equipment
+    }
+  }
+`;
+
+export const POST_CLASS = gql`
+mutation classItem(
+  $name: String!
+  $location: String!
+  $date: String!
+  $duration: String!
+  $description: String!
+) {
+  classItem(
+    name: $name
+    location:$location
+    date: date
+    duration: $duration
+    description: $description
+
+  ) {
+    _id
+    name
+    date
+    location
+  }
+}
+`

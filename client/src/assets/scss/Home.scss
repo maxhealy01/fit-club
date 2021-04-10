@@ -1,3 +1,6 @@
+@import "./mediaQueries.scss";
+
+
 .homepage-top{
     width: 100%;
     height: 80vh;
@@ -13,12 +16,50 @@
         background-size: cover;
         background-image: url('../images/homepage-header.jpg');
 
+        
+        @include media("<=desktop"){
+            height: 90vh;
+        }
+
+        @include media("<=iphone-landscape"){
+            height: 60vh;
+        }
+
+        @include media("<=tablet"){
+            height: 50vh;
+        }
+
+        @include media("<=phone"){
+            height: 40vh;
+        }
+
         .header-grad{
             width: 100%;
             height: 80vh;
             background-image: 
             linear-gradient(to bottom, rgba(29, 41, 110, 0),
             rgba(0, 0, 0, 0.397)),;
+
+            @include media("<=desktop"){
+                height: 90vh;
+            }
+
+            @include media("<=iphone-landscape"){
+                height: 60vh;
+            }
+
+            @include media("<=tablet"){
+                height: 50vh;
+            }
+
+            @include media("<=phone"){
+                height: 40vh;
+                background-image: 
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.555),
+                rgba(0, 0, 0, 0.397)),;
+            }
+
+            
 
             .welcoming-txt{
                 padding-top: 0;
@@ -30,22 +71,86 @@
                 transform: translateY(-50%);
                 width: 60%;
                 margin: auto;
+
+                @include media("<=big-tablet"){
+                    width: 90%;
+                }
+
+                @include media("<=iphone-landscape"){
+                    top: 40%;
+                }
+                
+                @include media("<=tablet"){
+                    top: 30%;
+                }
+
+                @include media("<=phone"){
+                    top: 30%;
+                }
+
+
                 h1{
                     color: #fff;
                     font-size: 62px;
                     text-transform: uppercase;
                     letter-spacing: 3px;
                     font-family: 'Hammersmith One', sans-serif;
+
+                    @include media("<=desktop"){
+                        font-size: 72px;
+                    }
+
+                    @include media("<=iphone-landscape"){
+                        font-size: 38px;
+                    }
+
+                    @include media("<=tablet"){
+                        font-size: 28px;
+                    }
+                    
+                    @include media("<=phone"){
+                        font-size: 28px;
+                    }
+
+                        
                 }
                 p{
                     margin-top: 20px;
                     color: #fff;
                     font-size: 22px;
                     font-family: 'Gothic A1', sans-serif;
+
+                    @include media("<=desktop"){
+                        font-size: 30px;
+                    }
+
+                    @include media("<=iphone-landscape"){
+                        font-size: 28px;
+                    }
+
+                    @include media("<=tablet"){
+                        font-size: 16px;
+                    }
+
+                    @include media("<=phone"){
+                        font-size: 16px;
+                    }
                 }
 
                 .btn{
                     margin-top: 3.6rem;
+
+                    @include media("<=desktop"){
+                        font-size:  2rem;
+                    }
+
+                    @include media("<=tablet"){
+                        font-size: 2rem;
+                    }
+
+                    @include media("<=phone"){
+                        margin-top: 2rem;
+                    }
                     
                     .linkToCourse{
                         text-decoration: none;
@@ -60,6 +165,33 @@
                         color: rgb(0, 48, 73);
                         background-color: rgb(252, 191, 73);
 
+                        @include media("<=LGdesktop"){
+                            font-size: 1em;
+                            padding: 1em 2em;
+                        }
+
+                        @include media("<=desktop"){
+                            font-size: 1em;
+                            padding: 1em 2em;
+                        }
+
+                        @include media("<=iphone-landscape"){
+                            font-size: 1em;
+                            padding: 1em 2em;
+                        }
+
+                        @include media("<=tablet"){
+                            font-size: 1rem;
+                            padding: 1rem 2rem;
+                        }
+
+                        @include media("<=phone"){
+                            font-size: 1rem;
+                            padding: 1rem 2rem;
+                        }
+
+                        
+
                         &:hover{
                             background-color: rgb(247, 127, 0);
                         }
@@ -69,45 +201,101 @@
         }
    }
 
-    // second section
-   .homepage-test{
-        
 
-       .testimonial{
+   .second-Section{
         width: 60%;
-        min-height: 200px;
-        margin: -6rem auto 0 auto;
-        background-color: #e2e2e2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        padding: 0 60px;
-        box-shadow:
-        inset 0 -3em 3em rgba(0, 48, 73,0.1),
-        0 0  0 2px rgb(255,255,255),
-        0.3em 0.3em 1em rgba(0,0,0,0.3);
+        height: 80vh;
+        margin: 100px auto;
+        margin-bottom: 200px;
 
-        i{
-            color:rgba(102, 102, 102, 0.671); 
+        @include media("<=tablet"){
+            width: 100%;
+            margin: 50px auto;
+            margin-bottom: 80px;
         }
 
-        blockquote{
-            font-style: italic;
-            color: rgb(56, 56, 56); 
+        .second-title{
+            padding: 20px;
+
+            @include media("<=tablet"){
+                padding: 10px;
+            }
+
+            h1{
+                font-size: 62px;
+                text-transform: uppercase;
+                font-family: 'Hammersmith One', sans-serif;
+
+                @include media("<=tablet"){
+                    font-size: 32px;
+                }
+            }
+
+
+        }
+
+        .success-story{
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-start;
+            justify-content: space-evenly;
+
+           
             
+            .story{
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+
+                .storyPic{
+                    width: 100%;
+                    height: 400px;
+                    background-size: cover;
+                    background-position: center;
+
+                    @include media("<=tablet"){
+                        width: 100%;
+                        height: 100px;
+                    }
+                }
+
+                .story-pic1{
+                    background-image: url("../images/trainer-1.jpg");
+                }
+
+                .story-pic2{
+                    background-image: url("../images/trainer-2.jpg");
+                }
+
+                .story-pic3{
+                    background-image: url("../images/trainer-3.jpg");
+                    
+                }
+
+                .story-txt{
+                    text-align: center;
+                    
+                    h1{
+                        padding-top: 10px;
+                        font-size: 32px;
+                        font-family: 'Hammersmith One', sans-serif;
+
+                        
+                        @include media("<=tablet"){
+                            font-size: 22px;
+                        }
+                    }
+
+                    p{
+                        @include media("<=tablet"){
+                            font-size: 12px;
+                        }
+                    }
+
+                }
+            }
         }
-       }
-   }
 
-   .Goal-Section{
-       width: 100%;
-       height: 60vh;
-
-       .Goal-box{
-           width: 60%;
-           margin: 10vh auto 0;
-       }
    }
 
    .talk-to-trainer{
@@ -116,6 +304,11 @@
         background-size: cover;
         background-image: url('../images/talking.jpg');
 
+        @include media("<=big-tablet"){
+            background-repeat: no-repeat;
+        }
+        
+
         .bck-grad{
             width: 100%;
             height: 80vh;
@@ -123,7 +316,17 @@
             linear-gradient(to bottom, rgba(29, 41, 110, 0),
             rgba(0, 0, 0, 0.911)),;
 
-                .talk-box{
+            
+
+            @include media("<=big-tablet"){
+                height: 60vh;
+            }
+
+            @include media("<=phone"){
+                height: 40vh;
+            }
+
+                .talk-box{ 
                     padding:150px 150px 0;
                     left: 0;
                     right: 0;
@@ -131,12 +334,68 @@
                     height: 50%;
                     margin: auto;
 
+                    @include media("<=LGdesktop"){
+                        padding: 80px 40px ;
+                    }
+
+                    @include media("<=desktop"){
+                        padding: 100px 40px 40px 40px ;
+                        height: 50%;
+                    }
+
+                    @include media("<=big-tablet"){
+                        padding: 100px 40px;
+                        width: 90%;
+                    }        
+
+                    @include media("<=iphone-landscape"){
+                        width: 100%;
+                        padding: 100px 40px;
+                    }
+                    
+                    @include media("<=tablet"){
+                        padding: 100px 40px;
+                        width: 90%;
+                    }
+
+                    
+
                     h1{
                         font-family: 'Hammersmith One', sans-serif;
                         color: #fff;
                         letter-spacing: 1px;
                         text-transform: uppercase;
                         font-size: 52px;
+
+                        @include media("<=LGdesktop"){
+                            font-size: 42px;
+                        }
+                        
+                        @include media("<=desktop"){
+                            font-size: 42px;
+                            letter-spacing: 2px;
+                        }
+
+                        @include media("<=big-tablet"){
+                            font-size: 40px;
+                            letter-spacing: 1px;
+                        }
+
+                        @include media("<=iphone-landscape"){
+                            font-size: 40px;
+                            line-height: 130%;
+                        }
+
+                        @include media("<=tablet"){
+                            font-size: 20px;
+                        }
+
+                        @include media("<=phone"){
+                            font-size: 20px;
+                        }
+
+                       
+
                     }
                 }
 
@@ -147,6 +406,31 @@
                     width: 60%;
                     height: 50%;
                     margin: auto;
+
+                    @include media("<=LGdesktop"){
+                        padding: 3rem 2rem;
+                    }
+
+                    @include media("<=desktop"){
+                        padding: 3rem 2rem;
+                    }
+
+                    @include media("<=big-tablet"){
+                        padding: 3rem 2rem 0 2rem;
+                        width: 90%;
+                    }
+
+                    @include media("<=iphone-landscape"){
+                        height: 40%;
+                    }
+
+                    @include media("<=tablet"){
+                        font-size: 20px;
+                    }
+
+                    @include media("<=phone"){
+                        padding: 1rem 2rem;
+                    }
 
                     .talkTo{
                         margin-top: 200px;
@@ -162,7 +446,39 @@
                         &:hover{
                             background-color: rgb(247, 127, 0);
                         }
+
+                        @include media("<=LGdesktop"){
+                            font-size: 42px;
+                            letter-spacing: 2px;
+                            margin-top: 50px;
+                        }
+
+                        
+                        @include media("<=desktop"){
+                            font-size: 42px;
+                            letter-spacing: 2px;
+                            padding: 0.5em;
+                        }
+
+                        @include media("<=big-tablet"){
+                            font-size: 32px;
+                        }
+
+                        @include media("<=iphone-landscape"){
+                            font-size: 32px;
+                        }
+
+                        @include media("<=tablet"){
+                            font-size: 18px;
+                        }
+
+                        @include media("<=phone"){
+                            font-size: 14px;
+                        }
                     }
+
+                        
+
                 }
         }
    }

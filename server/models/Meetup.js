@@ -24,6 +24,7 @@ const meetupSchema = new Schema(
 			trim: true,
 			required: true,
 		},
+<<<<<<< HEAD
 		equipment: {
 			type: String,
 		},
@@ -38,6 +39,22 @@ const meetupSchema = new Schema(
 				ref: 'User',
 			},
 		],
+=======
+		// equipment: {
+		// 	type: String,
+		// },
+		// activity: {
+		// 	type: Schema.Types.ObjectId,
+		// 	ref: "Activity",
+		// 	required: true,
+		// },
+		// participants: [
+		// 	{
+		// 		type: Schema.Types.ObjectId,
+		// 		ref: "User",
+		// 	},
+		// ],
+>>>>>>> 145cf7e6a5e0f7e515aa5fc8fd6d744ece281384
 		postedBy: {
 			type: Schema.Types.ObjectId,
 			ref: 'User',
@@ -45,10 +62,17 @@ const meetupSchema = new Schema(
 		},
 		// If NO trainer, then this is treated as a meet-up.
 		// That is, it's just a bunch of users meeting up.
+<<<<<<< HEAD
 		trainer: {
 			type: Schema.Types.ObjectId,
 			ref: 'Trainer',
 		},
+=======
+		// trainer: {
+		// 	type: Schema.Types.ObjectId,
+		// 	ref: "Trainer",
+		// },
+>>>>>>> 145cf7e6a5e0f7e515aa5fc8fd6d744ece281384
 	},
 	{
 		toJSON: {

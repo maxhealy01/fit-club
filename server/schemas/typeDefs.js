@@ -12,7 +12,6 @@ const typeDefs = gql`
 		testimonials: [Testimonial]
 		messages: [Message]
 		isTrainer: Boolean
-
 		goals:[Goal]
 	}
 
@@ -123,8 +122,6 @@ const typeDefs = gql`
 		addMeetup(meetupId: ID!): User
 		addActivity(activityId: ID!): User
 		createConversation(recipients: [ID], text: String!): User
-
-
 	}
 `;
 

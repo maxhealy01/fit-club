@@ -10,7 +10,7 @@ const messageSchema = new Schema({
 	recipients: {
 		type: Schema.Types.ObjectId,
 		ref: "User",
-		required: true,
+		required: false,
 	}
 });
 

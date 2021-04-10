@@ -1,3 +1,6 @@
+@import "./mediaQueries.scss";
+
+
 // Variables
 @mixin flexCenter {
     display: flex;
@@ -12,13 +15,96 @@
     height: 100%;
     margin: 0 auto;
 
+    .under-construction{
+        width: 60%;
+        margin:auto;
+        height: 110vh;
+
+        h1{
+            padding-top: 300px;
+            text-align: center;
+            font-size: 80px;
+            font-family: 'Hammersmith One', sans-serif;
+            color: rgb(214, 40, 40);
+
+            &:hover{
+                color: rgb(247, 127, 0);
+            }
+        }
+
+        p{
+            text-align: center;
+            font-size: 50px;
+            font-family: 'Hammersmith One', sans-serif;
+        }
+    }
+    
+    .classes-header{
+        width: 100%;
+        height: 40vh;
+        margin-bottom: 50px;
+        background-position: center;
+        background-size: cover;
+        background-image: url('../images/classes.JPG');
+  
+        .classes-grad{
+          width: 100%;
+          height: 40vh;
+          background-image: 
+              linear-gradient(to bottom, rgba(29, 41, 110, 0),
+              rgba(0, 0, 0, 0.9)),;
+  
+              .classes-header-content{
+                width: 60%;
+                margin: auto;
+                padding: 100px 200px;
+
+                @include media("<=phone"){
+                    padding: 0;
+                    padding-top: 100px;
+                    text-align: center;
+                  }
+  
+                h1{
+                  color: rgb(255, 255, 255);
+                  font-family: 'Hammersmith One', sans-serif;
+                  font-size: 72px;
+                  text-transform: uppercase;
+
+                  @include media("<=phone"){
+                    font-size: 52px;
+                  }
+                }
+                p{
+                  color: rgb(201, 201, 201);
+                  font-family: 'Hammersmith One', sans-serif;
+                  font-size: 22px;
+
+                  @include media("<=phone"){
+                    font-size: 20px;
+                    color: rgb(255, 255, 255);
+                  }
+                }
+              }
+        }
+      }
     .class-item{
         width: 60%;
-        height: 30vh;
+        height: 25vh;
         margin: 5vh auto;
         // background-color: rgb(121, 121, 252);
         @include flexCenter;
         border-bottom: 1px solid rgb(148, 148, 148);
+
+        @include media("<=tablet"){
+            width: 80%;
+            height: 20vh;
+        }
+
+        @include media("<=phone"){
+            width: 90%;
+            height: 10vh;
+        }
 
         .class-photo{
             width: 25%;
@@ -46,12 +132,24 @@
                 height: 45%;
                 margin: 0 0 auto 0;
 
-                
+                h1{
+                    padding-bottom: 20px;
+                    @include media("<=tablet"){
+                        font-size: 22px;
+                    }
+
+                    @include media("<=phone"){
+                        font-size: 18px;
+                    }
+                }
                 ul{
 
                     li{
                         list-style: none;
-                    }
+                        @include media("<=phone"){
+                            font-size: 14px;
+                        }
+                    } 
                 }
             }
             .class-detail{

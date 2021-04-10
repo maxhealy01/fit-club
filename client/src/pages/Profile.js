@@ -3,11 +3,12 @@ import "../assets/scss/Profile.scss";
 
 import GoalList from '../components/GoalList';
 import GoalForm from '../components/GoalForm'
+import Footer from "../components/Footer";
 
-// import ChatDashboard from "../components/ChatDashboard";
-// import { ConversationsProvider } from "../utils/ConversationsProvider";
+import ChatDashboard from "../components/ChatDashboard";
+import { ConversationsProvider } from "../utils/ConversationsProvider";
 
-// import { SocketProvider } from "../utils/SocketProvider";
+import { SocketProvider } from "../utils/SocketProvider";
 
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_ME } from "../utils/queries";
@@ -15,10 +16,8 @@ import { QUERY_GOALS } from '../utils/queries';
 import { ContactsProvider } from "../utils/ContactsProvider";
 
 function Profile() {
-  // const {loading, data} = useQuery(QUERY_ME);
-  // const { id } = data
-  // hardcoded _id from database
-  // const id = "60677866568ec9a131f045ed";
+  const {loading, data} = useQuery(QUERY_ME);
+  const { _id } = data?.me || {}
 
   const { loading, data } = useQuery(QUERY_GOALS);
   const goals = data?.goals || [];
@@ -107,8 +106,18 @@ function Profile() {
 
   return (
     <>
-    <div className="profile-header">
-    </div>
+      <div className="mypage-header">
+        <div className="mypage-grad">
+          <div className="mypage-header-content">
+            <h1>
+              mypage
+            </h1>
+            <p>
+              Your displine for health and fitness will also have a positive impact on other areas of your life.
+              </p>
+          </div>
+        </div>
+      </div>
     <GoalForm goals={user.goals} />
 
     {loading ? (
@@ -123,14 +132,14 @@ function Profile() {
       username={user.username}
     />
 
-
-     {/* {!loading &&  */}
-      {/* <SocketProvider id={id}>
-        <ConversationsProvider id={id}>
-          <ChatDashboard id={id} />
+     {!loading &&
+      <SocketProvider id={_id}>
+        <ConversationsProvider id={_id}>
+          <ChatDashboard id={_id} />
         </ConversationsProvider>
-      </SocketProvider> */}
-     {/* } */}
+      </SocketProvider>
+    }
+    <Footer />
     </>
   );
 }

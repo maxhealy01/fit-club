@@ -7,12 +7,13 @@ const typeDefs = gql`
 		email: String
 		city: String
 		friends: [User]
-		goals: [Goal]
 		meetups: [Meetup]
 		activities: [Activity]
 		testimonials: [Testimonial]
 		messages: [Message]
 		isTrainer: Boolean
+
+		goals:[Goal]
 	}
 
 	type Activity {
@@ -57,22 +58,24 @@ const typeDefs = gql`
 
 	type Goal {
 		_id: ID
-		username: String!
-		goalType: String!
-		startDate: String!
-		endDate: String!
-		endValue: Int!
+		goalType: String
+		startDate: String
+		endDate: String
+		endValue: Int
+		createdAt: String
+		username: String
 		progressData: [ProgressData]
 	}
 
 	type ProgressData {
 		_id: ID
-		date: String!
-		value: Int!
-	}
+		date: String
+		value: Int
+		createdAt: String
+	  }
 
 	type Auth {
-		token: ID
+		token: ID!
 		user: User
 	}
 
@@ -94,6 +97,10 @@ const typeDefs = gql`
 		addTrainer(username: String!, email: String!, password: String!): Auth
 		updateUser(username: String, email: String, password: String): User
 		createActivity(name: String!, type: String!): Activity
+
+		addGoal(goalType: String!, startDate: String, endDate: String!, endValue: Int!): Goal
+		addProgressData(goalId: ID!, date: String, value: Int!): Goal
+
 		postMeetup(
 			name: String!
 			location: String!
@@ -111,12 +118,13 @@ const typeDefs = gql`
 			equipment: String
 			activity: ID
 		): Workout
-		# The following mutations don't create new objects, but instead add existing objects to the User object
+		#The following mutations don't create new objects, but instead add existing objects to the User object
 		addFriend(friendId: ID!): User
 		addMeetup(meetupId: ID!): User
 		addActivity(activityId: ID!): User
-		addGoal(goalType: String!, startDate: String!, endDate: String!, endValue: String!, name: String!, userID: ID!): User
 		createConversation(recipients: [ID], text: String!): User
+
+
 	}
 `;
 

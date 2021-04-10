@@ -1,10 +1,11 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const Goal = require("./Goal");
 const Meetup = require("./Meetup");
 const Testimonial = require("./Testimonial");
 const Message = require("./Message");
+
+const Thought = require("./Goal");
 
 const userSchema = new Schema(
 	{
@@ -13,6 +14,7 @@ const userSchema = new Schema(
 			required: true,
 			unique: true,
 			trim: true
+
 		},
 		email: {
 			type: String,
@@ -34,12 +36,6 @@ const userSchema = new Schema(
 				type: Schema.Types.ObjectId,
 				ref: 'User'
 			},
-		],
-		goals: [
-			{
-				type: Schema.Types.ObjectId,
-				ref: 'Goal'
-			}
 		],
 		meetups: [
 			{
@@ -63,6 +59,12 @@ const userSchema = new Schema(
 			type: Boolean,
 		},
 		messages: [Message.schema],
+		goals: [
+			{
+			  type: Schema.Types.ObjectId,
+			  ref: 'Goal'
+			}
+		]
 	},
 	// set this to use virtual below
 	{

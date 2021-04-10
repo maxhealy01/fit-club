@@ -50,7 +50,7 @@ db.once('open', async () => {
   //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
   //   const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-  //   const createdGoal = await Goal.create({ username, goalType, startDate, endDate, endValue, progressData });
+  //   const createdGoal = await Thought.create({ username, goalType, startDate, endDate, endValue, progressData });
 
   //   await User.updateOne(
   //     { _id: userId },

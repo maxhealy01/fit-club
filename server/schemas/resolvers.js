@@ -14,7 +14,9 @@ const resolvers = {
 	Query: {
 		me: async (parent, args, context) => {
 			if (context.user) {
-				const userData = await User.findOne({}).select("-__v -password");
+				const userData = await User.findOne({ _id: context.user._id })
+				.select("-__v -password")
+				.populate('goals');
 
 				return userData;
 			}
@@ -57,13 +59,16 @@ const resolvers = {
 			// if (context.user) {
 			return await User.find({ isTrainer: true });
 			// }
-		},
-		goals: async (parent, { username }) => {
-			const params = username ? { username } : {};
-			return Goal.find(params).sort({ endDate: -1 });
-		  }
+		}
+
 	},
 	Mutation: {
+		addUser: async (parent, args) => {
+			const user = await User.create(args);
+
+			const token = signToken(user);
+			return { token, user };
+		},
 		login: async (parent, { email, password }) => {
 			const user = await User.findOne({ email });
 			const token = signToken(user);
@@ -77,12 +82,6 @@ const resolvers = {
 				throw new AuthenticationError("Incorrect credentials");
 			}
 
-			return { token, user };
-		},
-		addUser: async (parent, args) => {
-			const user = await User.create(args);
-
-			const token = signToken(user);
 			return { token, user };
 		},
 		addTrainer: async (parent, args) => {
@@ -202,20 +201,35 @@ const resolvers = {
 
 			throw new AuthenticationError("You need to be logged in!");
 		},
+
 		addGoal: async (parent, args, context) => {
 			if (context.user) {
-				const goal = await Goal.create( {...args});
+			  const goal = await Goal.create({ ...args, username: context.user.username });
 
-				await User.findOneAndUpdate(
-					{ _id: context.user._id },
-					{ $addToSet: { goals: goal._id } },
-					{ new: true }
-				).populate("goals");
+			  await User.findByIdAndUpdate(
+				{ _id: context.user._id },
+				{ $push: { goals: goal._id } },
+				{ new: true }
+			  );
 
-				return goal;
+			  return goal;
 			}
-			throw new AuthenticationError("You need to be logged in!");
+
+			throw new AuthenticationError('You need to be logged in!');
 		},
+		addProgressData: async (parent, { goalId, date, value }, context) => {
+			if (context.user) {
+				const updatedGoal = await Goal.findOneAndUpdate(
+				{ _id: goalId },
+				{ $push: { progressData: { date, value } } },
+				{ new: true, runValidators: true }
+				);
+
+				return updatedGoal;
+			}
+
+			throw new AuthenticationError('You need to be logged in!');
+		}
 	},
 };
 

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import '../assets/scss/ClassItems.scss';
-
+import '../classes.scss'
 
 class FitnessClasses extends Component{
     

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import '../assets/scss/Home.scss';
+import './Home.scss';
 
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer";
+import Workout from "../Workout/Workout";
 
 
 
@@ -27,34 +28,35 @@ function Homepage(){
                    </div>
                 </div>
             </div>
-
+{/* 
             <div className="homepage-test Second-Section">
                 <div className="testimonial" id="testimonial-box">
                     <i class="fas fa-quote-left"></i>
                     <blockquote id="testimonialContent">
-                    is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                    Your body can stand almost anything. It’s your mind that you have to convince 
                     </blockquote>
                     <i class="fas fa-quote-right"></i>
                 </div>
-            </div>
+            </div> */}
 
-            <div className="Goal-Section">
-                <div className="Goal-box">
+            <div className="workout-Section">
+                <div className="workout-box">
+                    <Workout />
                 </div>
             </div>
    
             <div className="talk-to-trainer">
                 <div className="bck-grad">
                     <div className="talk-box">
-                        <h1>is simply dummy text</h1>
-                        <h1>is simply dummy text</h1>
-                        <h1>The right trainer for you is waiting for you.</h1>
+                        <h1>Set your target</h1>
+                        <h1>achieve it</h1>
+                        <h1>Repeat.</h1>
                     </div>
                     <div className="talk-btn">
                     <Link 
                         className="talkTo"
-                        to="#">
-                            Talk to Trainer
+                        to="/Profile">
+                            target Progress
                     </Link>
                     </div>
                 </div>

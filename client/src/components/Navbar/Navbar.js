@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import '../assets/scss/navbar.scss';
-import auth from "../utils/auth";
-
+import './navbar.scss';
+import auth from "../../utils/auth";
 
 
 const AppNavbar = () => {
@@ -17,7 +16,7 @@ const AppNavbar = () => {
             <div className="header-top">
             <div className="fit-title">
                 <Link to="/">
-                    <img  alt="logo" src= {require ("../assets/images/logo2.png").default} />
+                    <img  alt="logo" src= {require ("../../assets/images/logo2.png").default} />
                 </Link>
                 
             </div>
@@ -33,7 +32,7 @@ const AppNavbar = () => {
                         <Link to={"/Workout"}>Workout</Link>
                     </li>
                     <li>
-                        <Link to={"/Profile"}>Page</Link>
+                        <Link to={"/Profile"}>profile</Link>
                     </li>
                     <li>
                         <Link onClick={Logout} to={"/Profile"}>Log Out</Link>

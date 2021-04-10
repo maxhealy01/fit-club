@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
 import { LineChart, YAxis, XAxis, CartesianGrid, Line, ReferenceLine, Tooltip, ResponsiveContainer } from 'recharts';
-import '../../assets/scss/GoalList.scss';
+import './GoalList.scss';
 
 
 const GoalList = ({ goals, username }) => {

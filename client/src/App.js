@@ -11,15 +11,15 @@ import Auth from "./utils/auth";
 import "./assets/scss/app.scss";
 
 // pages
-import Home from "./pages/Home";
-import Classes from "./pages/Classes";
-import Workout from "./pages/Workout";
-import Profile from "./pages/Profile";
+import Home from "./pages/Home/Home";
+import Classes from "./pages/Classes/Classes";
+import Workout from "./pages/Workout/Workout";
+import Profile from "./pages/Profile/Profile";
 import RegisterForm from "./pages/Register";
 
 // components
 import ChatBox from "./components/ChatBox";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import CoverPage from "./pages/CoverPage";
 
 console.log(Auth.loggedIn());

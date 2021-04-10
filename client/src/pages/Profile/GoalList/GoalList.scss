@@ -1,4 +1,4 @@
-@import "./mediaQueries.scss";
+@import "../../../assets/scss/mediaQueries.scss";
 
 .list-container{
     width: 100%;
@@ -6,7 +6,7 @@
     .goal-title{
         height: 70vh;
         background-position: 50% 50%;
-        background-image: url(../images/goal1.jpg);
+        background-image: url("../../../assets/images/goal1.jpg");
         background-size:cover;
         margin-bottom: 150px;
 

@@ -1,8 +1,8 @@
 import React from "react";
-import '../assets/scss/classes.scss'
+import './classes.scss'
 // import { Link, Switch } from "react-router-dom";
-import ClassItems from '../components/ClassItems'
-import Footer from "../components/Footer";
+import ClassItems from './Component/ClassItems'
+import Footer from "../../components/Footer";
 
 function Classes () {
 

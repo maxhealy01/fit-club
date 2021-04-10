@@ -1,4 +1,4 @@
-@import "./mediaQueries.scss";
+@import "../../assets/scss/mediaQueries.scss";
 
 header{
     width: 100%;
@@ -63,7 +63,7 @@ header{
 
         .navbar{
             width: 70%;
-            margin: auto;
+            margin: 0 auto;
 
             @include media("<=tablet"){
                 width: 100%; 
@@ -74,7 +74,7 @@ header{
                 justify-content: space-evenly;
                 align-items: center;
                 width: 100%;
-                
+                margin-bottom: 0 !important;
 
                 li{
                     list-style: none;

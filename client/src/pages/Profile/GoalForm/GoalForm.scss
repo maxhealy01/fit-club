@@ -1,4 +1,4 @@
-@import "./mediaQueries.scss";
+@import "../../../assets/scss/mediaQueries.scss";
 
 .goal-form{
     height: 90vh;
@@ -22,7 +22,7 @@
         height: 60vh;
         margin: auto;
         background-position: 50% 60%;
-        background-image: url(../images/profile1.jpg);
+        background-image: url("../../../assets/images/profile1.jpg");
         background-size: contain;
         background-repeat: no-repeat;
         margin-right: 50px;

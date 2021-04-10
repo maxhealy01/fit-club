@@ -1,4 +1,4 @@
-@import "./mediaQueries.scss";
+@import "../../assets/scss/mediaQueries.scss";
 
 // Styles
 
@@ -20,7 +20,7 @@
     margin-bottom: 50px;
     background-position: center;
     background-size: cover;
-    background-image: url("../images/workout.jpg");
+    background-image: url("../../assets/images/workout.jpg");
 
     .workout-grad {
       width: 100%;

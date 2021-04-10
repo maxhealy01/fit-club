@@ -1,18 +1,20 @@
 import React from "react";
-import "../assets/scss/Profile.scss";
+import "./Profile.scss";
 
-import GoalList from '../components/GoalList';
-import GoalForm from '../components/GoalForm'
-import Footer from "../components/Footer";
+import GoalList from './GoalList';
+import GoalForm from './GoalForm'
+import Footer from "../../components/Footer";
+import ProfileHeader from "./Component/ProfileHeader";
 
-import ChatDashboard from "../components/ChatDashboard";
-import { ConversationsProvider } from "../utils/ConversationsProvider";
 
-import { SocketProvider } from "../utils/SocketProvider";
+import ChatDashboard from "../../components/ChatDashboard";
+import { ConversationsProvider } from "../../utils/ConversationsProvider";
+
+import { SocketProvider } from "../../utils/SocketProvider";
 
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_ME } from "../utils/queries";
-import { ContactsProvider } from "../utils/ContactsProvider";
+import { QUERY_ME } from "../../utils/queries";
+import { ContactsProvider } from "../../utils/ContactsProvider";
 
 function Profile() {
   const {loading, data} = useQuery(QUERY_ME);
@@ -101,18 +103,7 @@ function Profile() {
 
   return (
     <>
-      <div className="mypage-header">
-        <div className="mypage-grad">
-          <div className="mypage-header-content">
-            <h1>
-              mypage
-            </h1>
-            <p>
-              Your displine for health and fitness will also have a positive impact on other areas of your life.
-              </p>
-          </div>
-        </div>
-      </div>
+    <ProfileHeader />
     <GoalForm goals={user.goals} />
     <GoalList
       goals={user.goals}

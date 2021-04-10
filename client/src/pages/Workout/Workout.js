@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import ReactPlayer from "react-player";
 
-import "../assets/scss/Workout.scss";
+import "./Workout.scss";
 
-import { QUERY_WORKOUTS } from "../utils/queries";
-import Auth from "../utils/auth.js";
-import CreateWorkout from "../components/CreateWorkout.js";
+import { QUERY_WORKOUTS } from "../../utils/queries";
+import Auth from "../../utils/auth.js";
+import CreateWorkout from "../../components/CreateWorkout.js";
 
 function Workout() {
   const { loading, data } = useQuery(QUERY_WORKOUTS);

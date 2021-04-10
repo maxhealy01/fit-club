@@ -39,7 +39,8 @@ const resolvers = {
 				.populate("friends")
 				.populate("meetups")
 				.populate("activities")
-				.populate("testimonials");
+				.populate("testimonials")
+				.populate("goals");
 		},
 		activities: async () => {
 			return Activity.find();

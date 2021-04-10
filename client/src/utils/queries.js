@@ -4,6 +4,18 @@ export const QUERY_ME = gql`
   {
     me {
       _id
+      goals {
+        _id
+        goalType
+        startDate
+        endDate
+        endValue
+        progressData {
+          _id
+          date
+          value
+        }
+      }
     }
   }
 `;

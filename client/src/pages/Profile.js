@@ -19,9 +19,9 @@ function Profile() {
   const {loading, data} = useQuery(QUERY_ME);
   const { _id } = data?.me || {}
 
-  const { loading, data } = useQuery(QUERY_GOALS);
-  const goals = data?.goals || [];
-  console.log(goals);
+  // const { loading, data } = useQuery(QUERY_GOALS);
+  // const goals = data?.goals || [];
+  // console.log(goals);
 
   //Use this data to test goal components with a user who has multiple goals
   const user = {

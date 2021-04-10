@@ -1,5 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
+
 const {
 	Activity,
 	Meetup,
@@ -59,7 +60,11 @@ const resolvers = {
 			// if (context.user) {
 			return await User.find({ isTrainer: true });
 			// }
-		}
+		},
+		goals: async (parent, { username }) => {
+			const params = username ? { username } : {};
+			return Goal.find(params).sort({ endDate: -1 });
+		  },
 
 	},
 	Mutation: {

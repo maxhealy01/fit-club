@@ -5,7 +5,7 @@ import { LineChart, YAxis, XAxis, CartesianGrid, Line, ReferenceLine, Tooltip, R
 import '../../assets/scss/GoalList.scss';
 
 
-const GoalList = ({ goals, username }) => {
+const GoalList = ({ goals }) => {
     const [progressDate, setProgressDate] = useState(new Date());
 
     if (!goals.length) {

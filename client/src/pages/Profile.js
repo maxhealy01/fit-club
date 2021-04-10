@@ -11,6 +11,7 @@ import GoalForm from '../components/GoalForm'
 
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_ME } from "../utils/queries";
+import { QUERY_GOALS } from '../utils/queries';
 import { ContactsProvider } from "../utils/ContactsProvider";
 
 function Profile() {
@@ -18,6 +19,10 @@ function Profile() {
   // const { id } = data
   // hardcoded _id from database
   // const id = "60677866568ec9a131f045ed";
+
+  const { loading, data } = useQuery(QUERY_GOALS);
+  const goals = data?.goals || [];
+  console.log(goals);
 
   //Use this data to test goal components with a user who has multiple goals
   const user = {
@@ -105,10 +110,19 @@ function Profile() {
     <div className="profile-header">
     </div>
     <GoalForm goals={user.goals} />
+
+    {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <GoalList goals={goals} />
+      )}
+
+
     <GoalList
       goals={user.goals}
       username={user.username}
     />
+
 
      {/* {!loading &&  */}
       {/* <SocketProvider id={id}>

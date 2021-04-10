@@ -1,9 +1,25 @@
+@import "./mediaQueries.scss";
+
 header{
     width: 100%;
     height: 9vh;
     background-color: #003049;
     box-shadow: 0px 10px 6px rgba(0, 0, 0, 0.5);
-    z-index: 2;
+    z-index: 999;
+    
+
+
+    @include media("<=big-tablet"){
+        height: 8vh;
+    }
+
+    @include media("<=tablet"){
+        height: 5vh;
+    }
+
+    @include media("<=phone"){
+        height: 5vh;
+    }
 
     .header-top {
         width: 60%;
@@ -13,103 +29,104 @@ header{
         justify-content: center;
         align-items: center;
 
-        .fit-title{
-            width: 15%;
-            margin: 0 0 0 auto;
+        @include media("<=big-tablet"){
+            width: 80%;
+        }
+        @include media("<=phone"){
+            width: 100%;
+        }
 
-            h1{
-                font-size: 22px;
-                letter-spacing: 1.5px;
-                font-family: 'Libre Baskerville', serif;
-                a{
-                    text-decoration: none;
-                    color: #d62828;
-                }
+        .fit-title{
+            width: 30%;
+            margin: auto;
+            text-align: center;
+
+            @include media("<=tablet"){
+                width: 0;
             }
-        } 
+
+            img{
+                width: 150px;
+                height: 60px;
+
+                @include media("<=tablet"){
+                    display: none;
+                }
+
+                @include media("<=big-tablet"){
+                    width: 120px;
+                    height: 40px;
+                }
+
+            }
+        }
 
         .navbar{
             width: 70%;
-            // margin: 0 auto 0 0;
+            margin: auto;
+
+            @include media("<=tablet"){
+                width: 100%; 
+            }
 
             ul{
                 display: flex;
-                justify-content: center;
+                justify-content: space-evenly;
                 align-items: center;
+                width: 100%;
+                
 
                 li{
                     list-style: none;
                     text-transform: uppercase;
-                    padding: 15px;
+
+                    @include media("<=phone"){
+                        padding: 5px;
+                    }
+
+                    @include media("<=tablet"){
+                        padding: 10px;
+                    }
+
+                    @include media("<=big-tablet"){
+                        padding: 15px;
+                    }
 
                     a{
+                        font-family: 'Hammersmith One', sans-serif;
                         font-weight: 600;
-                        font-size: 20px;
+                        font-size: 24px;
                         text-decoration: none;
-                        color: #eae2b7;
+                        color:  #be7b0f;
                         letter-spacing: 1px;
                         transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
                         &:hover{
-                            color: #be7b0f;
+                            color: #eae2b7;
                         }
-                    }
-                }
-            }
-            
-        }
 
-        .account{
-            width: 25%;
-            height: 100%;
-            margin: 0 auto 0 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+                        
+                       
 
-            .userInfo-btn{
+                        @include media("<=big-tablet"){
+                            font-size: 22px
+                        }
 
-                a{
-                    font-size: 20px;
-                    text-decoration: none;
-                    color: #e4c200;
-                    transition: 0.35s;
+                        @include media("<=tablet"){
+                            font-size: 12px;
+                        }
 
-                    // &:hover{
-                    //     color: #bea200;
-                    // }
+                        @include media("<=phone"){
+                            font-size: 16px;
+                        }
 
-                    i{
-                        margin-right: 10px;
                     }
                 }
             }
 
-            p{
-                margin: 10px;
-                font-size: 12px;
-            }
-
-            button {
-                width: 80px;
-                height: 30px;
-                font-weight: 600;
-                background-color: #fca311;
-                color: #14213d;
-                border: 0;
-                transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-                cursor: pointer;
-
-                &:hover{
-                    background-color: #f18b46;
-                }
-
-                &:focus{
-                    outline: none;
-                }
-            }
         }
+
     }
- 
+
 
 }
 .subheader{
@@ -119,3 +136,5 @@ header{
     background-color: #fcbf49;
 
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');

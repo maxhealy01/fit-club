@@ -2,21 +2,16 @@
 const { Schema, model } = require("mongoose");
 
 const messageSchema = new Schema({
-	message: {
+	text: {
 		type: String,
 		required: true,
 		trim: true,
 	},
-	sentBy: {
+	recipients: {
 		type: Schema.Types.ObjectId,
 		ref: "User",
-		required: true,
-	},
-	receievdBy: {
-		type: Schema.Types.ObjectId,
-		ref: "User",
-		required: true,
-	},
+		required: false,
+	}
 });
 
 const Message = model("Message", messageSchema);

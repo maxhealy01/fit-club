@@ -8,7 +8,7 @@ const meetupSchema = new Schema(
 			required: true,
 			trim: true,
 		},
-		// For Meetupes, this might be a digital location
+		// For classes, this might be a digital location
 		// For meetups, probably a physical location
 		location: {
 			type: String,
@@ -24,21 +24,31 @@ const meetupSchema = new Schema(
 			trim: true,
 			required: true,
 		},
-		equipment: {
-			type: String,
-		},
-		activity: {
+		// equipment: {
+		// 	type: String,
+		// },
+		// activity: {
+		// 	type: Schema.Types.ObjectId,
+		// 	ref: "Activity",
+		// 	required: true,
+		// },
+		// participants: [
+		// 	{
+		// 		type: Schema.Types.ObjectId,
+		// 		ref: "User",
+		// 	},
+		// ],
+		postedBy: {
 			type: Schema.Types.ObjectId,
-			ref: "Activity",
+			ref: "User",
 			required: true,
 		},
-		participants: [User.schema],
 		// If NO trainer, then this is treated as a meet-up.
 		// That is, it's just a bunch of users meeting up.
-		trainer: {
-			type: Schema.Types.ObjectId,
-			ref: "Trainer",
-		},
+		// trainer: {
+		// 	type: Schema.Types.ObjectId,
+		// 	ref: "Trainer",
+		// },
 	},
 	{
 		toJSON: {

@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "../../front-end/sass/frontpage.scss"
+        "../../client/src/assets/scss/Trainers.scss"
     ],
     "names": [],
-    "file": "frontpage.css"
+    "file": "Trainers.css"
 }

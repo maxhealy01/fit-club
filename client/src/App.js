@@ -2,38 +2,77 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
+
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
-// import { StoreProvider } from "./utils/GlobalState";
+import { StoreProvider } from "./utils/GlobalState";
+import Auth from "./utils/auth";
+
+// App Styles (Do Not Delete This!!)
+import "./assets/scss/app.scss";
+
+// pages
+import Home from "./pages/Home";
+import Classes from "./pages/Classes";
+import Workout from "./pages/Workout";
+import Profile from "./pages/Profile";
+import RegisterForm from "./pages/Register";
+
+// components
+import ChatBox from "./components/ChatBox";
 import Navbar from "./components/Navbar";
 import CoverPage from "./pages/CoverPage";
-// import Login from "./pages/Login";
+
+console.log(Auth.loggedIn());
 
 const client = new ApolloClient({
-	request: (operation) => {
-		const token = localStorage.getItem("id_token");
-		operation.setContext({
-			headers: {
-				authorization: token ? `Bearer ${token}` : "",
-			},
-		});
-	},
-	uri: "/graphql",
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      },
+    });
+  },
+  uri: "/graphql",
 });
 
 function App() {
-	return (
-		<ApolloProvider client={client}>
-			<Router>
-				<>
-					{/* <StoreProvider> */}
-					<Navbar />
-					<CoverPage />
+  const pages = ["home", "Classes", "Workout", "Profile"];
 
-					{/* </StoreProvider> */}
-				</>
-			</Router>
-		</ApolloProvider>
-	);
+  const navLinks = pages.map((page) => {
+    return <a href={"/" + page}>{page}</a>;
+  });
+
+  return (
+    <ApolloProvider client={client}>
+      <StoreProvider>
+        <Router>
+          <Navbar>{navLinks}</Navbar>
+          <div>
+            <Switch>
+              <Route exact path="/Classes" component={Classes} />
+              <Route exact path="/Profile" component={Profile} />
+              <Route exact path="/Workout" component={Workout} />
+              <Route exact path="/Register" component={RegisterForm} />
+              <Route
+                exact
+                path="/"
+                component={!Auth.loggedIn() ? CoverPage : Home}
+              />
+              
+              <Route
+                exact
+                path="/"
+                component={!Auth.loggedIn() ? CoverPage : ChatBox}
+              />            
+              
+            </Switch>
+            {/* <Home /> */}
+          </div>
+        </Router>
+      </StoreProvider>
+    </ApolloProvider>
+  );
 }
 
 export default App;

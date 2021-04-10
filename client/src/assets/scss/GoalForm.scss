@@ -1,0 +1,149 @@
+@import "./mediaQueries.scss";
+
+.goal-form{
+    height: 90vh;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+    @include media("<=desktop"){
+        width: 90%;
+        margin: auto;
+    } 
+
+    @include media("<=phone"){
+        height: 60vh;
+    } 
+
+
+    .mypic{
+        width: 40%;
+        height: 60vh;
+        margin: auto;
+        background-position: 50% 60%;
+        background-image: url(../images/profile1.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 50px;
+
+        @include media("<=phone"){
+            width: 0;
+        } 
+        
+
+    }
+
+    .form{ 
+        width: 50%;
+        margin: auto;
+
+        @include media("<=phone"){
+            width: 100%;
+            margin: 20px auto;
+        } 
+
+
+
+        h2{
+            text-transform: uppercase;
+            font-size: 55px;
+            margin: 20px 0;
+            font-family: 'Hammersmith One', sans-serif;
+
+            @include media("<=desktop"){
+                font-size: 35px;
+            }   
+
+            @include media("<=phone"){
+                font-size: 22px;
+            }
+        }
+
+        .options{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            @include media("<=phone"){
+                font-size: 20px;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            
+            .opt{
+                width: 100%;
+                display: flex;
+                margin: 20px 0;
+                text-transform: uppercase;
+                font-size: 22px;
+
+                @include media("<=phone"){
+                    font-size: 20px;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                }
+                
+                p{
+                    width: 40%;
+                    margin: auto;
+                    font-family: 'Hammersmith One', sans-serif;
+                    margin-right: 20px;
+
+                    @include media("<=phone"){
+                        width: 100%;
+                        margin: 0;
+                        margin-right: 0;
+                    }
+                }
+
+                .select{
+                    width: 60%;
+                    margin: auto;
+
+                    @include media("<=phone"){
+                        width: 100%;
+                    }
+
+                    select{
+                        font-size: 18px;
+                        padding: 5px;
+                    }
+
+                    input{
+                        font-size: 18px;
+                        padding: 5px;
+                    }
+                }
+            }
+
+            button{
+                margin-top: 20px;
+                font-size:32px;
+                padding: 10px 15px;
+                text-transform: uppercase;
+                background-color: rgb(214, 40, 40);
+                color: #fff;
+                border: none;
+                cursor: pointer;
+
+                @include media("<=desktop"){
+                    font-size: 30px;
+                } 
+
+                @include media("<=phone"){
+                    font-size: 22px;
+                }
+
+                &:hover{
+                    background-color: rgb(247, 127, 0);
+                }
+            }
+        }
+    }
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');

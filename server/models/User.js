@@ -2,8 +2,9 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const Goal = require("./Goal");
-const Activity = require("./Activity");
 const Meetup = require("./Meetup");
+const Testimonial = require("./Testimonial");
+const Message = require("./Message");
 
 const userSchema = new Schema(
 	{
@@ -32,17 +33,34 @@ const userSchema = new Schema(
 				ref: "User",
 			},
 		],
-		goals: [Goal.schema],
+		goals: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Goal",
+			},
+		],
 		meetups: [
 			{
 				type: Schema.Types.ObjectId,
 				ref: "Meetup",
 			},
 		],
-		activities: [Activity.schema],
+		activities: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Activity",
+			},
+		],
+		testimonials: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Testimonial",
+			},
+		],
 		isTrainer: {
 			type: Boolean,
 		},
+		messages: [Message.schema],
 	},
 	// set this to use virtual below
 	{

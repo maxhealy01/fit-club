@@ -25,7 +25,7 @@ export const QUERY_ME = gql`
 ////////////////////////////////////////////
 export const QUERY_GOALS = gql`
   query goals($username: String) {
-    goals(username: $username) {
+    goals(username: "$username") {
       _id
       goalType
       startDate

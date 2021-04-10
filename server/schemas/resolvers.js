@@ -65,7 +65,7 @@ const resolvers = {
 		},
 		goals: async (parent, { username }) => {
 			const params = username ? { username } : {};
-			return Goal.find(params).sort({ endDate: -1 });
+			return Goal.find(params);
 		  },
 
 	},

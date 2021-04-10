@@ -33,7 +33,7 @@ const AppNavbar = () => {
                         <Link to={"/Workout"}>Workout</Link>
                     </li>
                     <li>
-                        <Link to={"/Profile"}>Page</Link>
+                        <Link to={"/Profile"}>Profile</Link>
                     </li>
                     <li>
                         <Link onClick={Logout} to={"/Profile"}>Log Out</Link>

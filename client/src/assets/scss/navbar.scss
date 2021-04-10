@@ -112,7 +112,7 @@ header{
                         }
 
                         @include media("<=tablet"){
-                            font-size: 22px;
+                            font-size: 12px;
                         }
 
                         @include media("<=phone"){

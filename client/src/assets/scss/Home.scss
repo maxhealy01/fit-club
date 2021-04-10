@@ -25,6 +25,10 @@
             height: 60vh;
         }
 
+        @include media("<=tablet"){
+            height: 50vh;
+        }
+
         @include media("<=phone"){
             height: 40vh;
         }
@@ -42,6 +46,10 @@
 
             @include media("<=iphone-landscape"){
                 height: 60vh;
+            }
+
+            @include media("<=tablet"){
+                height: 50vh;
             }
 
             @include media("<=phone"){
@@ -71,6 +79,10 @@
                 @include media("<=iphone-landscape"){
                     top: 40%;
                 }
+                
+                @include media("<=tablet"){
+                    top: 30%;
+                }
 
                 @include media("<=phone"){
                     top: 30%;
@@ -90,6 +102,10 @@
 
                     @include media("<=iphone-landscape"){
                         font-size: 38px;
+                    }
+
+                    @include media("<=tablet"){
+                        font-size: 28px;
                     }
                     
                     @include media("<=phone"){
@@ -112,6 +128,10 @@
                         font-size: 28px;
                     }
 
+                    @include media("<=tablet"){
+                        font-size: 16px;
+                    }
+
                     @include media("<=phone"){
                         font-size: 16px;
                     }
@@ -122,6 +142,10 @@
 
                     @include media("<=desktop"){
                         font-size:  2rem;
+                    }
+
+                    @include media("<=tablet"){
+                        font-size: 2rem;
                     }
 
                     @include media("<=phone"){
@@ -156,6 +180,11 @@
                             padding: 1em 2em;
                         }
 
+                        @include media("<=tablet"){
+                            font-size: 1rem;
+                            padding: 1rem 2rem;
+                        }
+
                         @include media("<=phone"){
                             font-size: 1rem;
                             padding: 1rem 2rem;
@@ -172,85 +201,101 @@
         }
    }
 
-    // second section
-   .homepage-test{
-        
 
-       .testimonial{
+   .second-Section{
         width: 60%;
-        min-height: 200px;
-        margin: -6rem auto 0 auto;
-        background-color: #e2e2e2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        padding: 0 60px;
-        box-shadow:
-        inset 0 -3em 3em rgba(0, 48, 73,0.1),
-        0 0  0 2px rgb(255,255,255),
-        0.3em 0.3em 1em rgba(0,0,0,0.3);
+        height: 80vh;
+        margin: 100px auto;
+        margin-bottom: 200px;
 
-        @include media("<=LGdesktop"){
-            min-height: 120px;
-            margin: -3.2rem auto 0 auto;
+        @include media("<=tablet"){
+            width: 100%;
+            margin: 50px auto;
+            margin-bottom: 80px;
         }
 
-        @include media("<=desktop"){
-            width: 60%;
-            min-height: 120px;
-            margin: -4rem auto 0 auto;
-            padding: 5px 60px;
-        }
+        .second-title{
+            padding: 20px;
 
-        @include media("<=big-tablet"){
-            width: 90%;
-            min-height: 150px;
-        }
-
-        @include media("<=iphone-landscape"){
-            width: 90%;
-            min-height: 130px;
-        }
-
-        @include media("<=phone"){
-            display: none;
-        }
-
-        i{
-            color:rgba(102, 102, 102, 0.671); 
-
-            @include media("<=phone"){
-                font-size: 10px;
-            }
-        }
-
-        blockquote{
-            font-style: italic;
-            color: rgb(56, 56, 56); 
-
-            @include media("<=phone"){
-                font-size: 14px;
-                padding: 20px;
-            }
-
-            @include media("<=desktop"){
-                font-size: 22px;
+            @include media("<=tablet"){
                 padding: 10px;
             }
-            
+
+            h1{
+                font-size: 62px;
+                text-transform: uppercase;
+                font-family: 'Hammersmith One', sans-serif;
+
+                @include media("<=tablet"){
+                    font-size: 32px;
+                }
+            }
+
+
         }
-       }
-   }
 
-   .Goal-Section{
-       width: 100%;
-       height: 60vh;
+        .success-story{
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-start;
+            justify-content: space-evenly;
 
-       .Goal-box{
-           width: 60%;
-           margin: 10vh auto 0;
-       }
+           
+            
+            .story{
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+
+                .storyPic{
+                    width: 100%;
+                    height: 400px;
+                    background-size: cover;
+                    background-position: center;
+
+                    @include media("<=tablet"){
+                        width: 100%;
+                        height: 100px;
+                    }
+                }
+
+                .story-pic1{
+                    background-image: url("../images/trainer-1.jpg");
+                }
+
+                .story-pic2{
+                    background-image: url("../images/trainer-2.jpg");
+                }
+
+                .story-pic3{
+                    background-image: url("../images/trainer-3.jpg");
+                    
+                }
+
+                .story-txt{
+                    text-align: center;
+                    
+                    h1{
+                        padding-top: 10px;
+                        font-size: 32px;
+                        font-family: 'Hammersmith One', sans-serif;
+
+                        
+                        @include media("<=tablet"){
+                            font-size: 22px;
+                        }
+                    }
+
+                    p{
+                        @include media("<=tablet"){
+                            font-size: 12px;
+                        }
+                    }
+
+                }
+            }
+        }
+
    }
 
    .talk-to-trainer{
@@ -301,11 +346,19 @@
                     @include media("<=big-tablet"){
                         padding: 100px 40px;
                         width: 90%;
-                    }                   
+                    }        
 
                     @include media("<=iphone-landscape"){
-                        height: 60%;
+                        width: 100%;
+                        padding: 100px 40px;
                     }
+                    
+                    @include media("<=tablet"){
+                        padding: 100px 40px;
+                        width: 90%;
+                    }
+
+                    
 
                     h1{
                         font-family: 'Hammersmith One', sans-serif;
@@ -331,6 +384,10 @@
                         @include media("<=iphone-landscape"){
                             font-size: 40px;
                             line-height: 130%;
+                        }
+
+                        @include media("<=tablet"){
+                            font-size: 20px;
                         }
 
                         @include media("<=phone"){
@@ -365,6 +422,10 @@
 
                     @include media("<=iphone-landscape"){
                         height: 40%;
+                    }
+
+                    @include media("<=tablet"){
+                        font-size: 20px;
                     }
 
                     @include media("<=phone"){
@@ -405,6 +466,10 @@
 
                         @include media("<=iphone-landscape"){
                             font-size: 32px;
+                        }
+
+                        @include media("<=tablet"){
+                            font-size: 18px;
                         }
 
                         @include media("<=phone"){

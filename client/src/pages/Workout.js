@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/react-hooks";
 import ReactPlayer from "react-player";
 
 import "../assets/scss/Workout.scss";
+import WorkHeader from "../components/WorkoutHeader"
 
 import { QUERY_WORKOUTS } from "../utils/queries";
 import Auth from "../utils/auth.js";
@@ -14,20 +15,7 @@ function Workout() {
 
   return (
     <div className="workout-page">
-      <div className="workout-header">
-        <div className="workout-grad">
-          <div className="workout-header-content">
-            <h1>Workout</h1>
-            <p>
-              Regular physical activity can improve your muscle strength and
-              boost your endurance. Exercise delivers oxygen and nutrients to
-              your tissues and helps your cardiovascular system work more
-              efficiently. And when your heart and lung health improve, you have
-              more energy to tackle daily chores.
-            </p>
-          </div>
-        </div>
-      </div>
+      
       {Auth.loggedIn() ? (
         <>
           <CreateWorkout title="Create a new workout..." />
@@ -56,6 +44,7 @@ function Workout() {
             <span>Posted By: usernamehere</span>
           </div>
         ))} */}
+        <WorkHeader />
       <div className="workout-item">
         <div className="workout-description">
           <div className="workout-name">

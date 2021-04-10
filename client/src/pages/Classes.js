@@ -9,7 +9,13 @@ function Classes () {
 
     return( 
         <div className="class-page">
-            <div className="classes-header">
+            <div className="under-construction">
+                <h1>Coming soon</h1>
+                <p>
+                This page is under construction.
+                </p>
+            </div>
+            {/* <div className="classes-header">
                 <div className="classes-grad">
                 <div className="classes-header-content">
                     <h1>
@@ -51,7 +57,7 @@ function Classes () {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <Footer />
         </div>
         

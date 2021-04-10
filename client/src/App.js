@@ -54,20 +54,20 @@ function App() {
               <Route exact path="/Profile" component={Profile} />
               <Route exact path="/Workout" component={Workout} />
               <Route exact path="/Register" component={RegisterForm} />
-              {/* <Route
+              <Route
                 exact
                 path="/"
                 component={!Auth.loggedIn() ? CoverPage : Home}
-              /> */}
-{/*               
+              />
+              
               <Route
                 exact
                 path="/"
                 component={!Auth.loggedIn() ? CoverPage : ChatBox}
-              />             */}
+              />            
               
             </Switch>
-            <Home />
+            {/* <Home /> */}
           </div>
         </Router>
       </StoreProvider>

@@ -1,6 +1,5 @@
 import React from "react";
 import '../assets/scss/Footer.scss'
-// import { Link } from "react-router-dom";
 
 const Footer = () => {
 
@@ -12,24 +11,36 @@ const Footer = () => {
                     contributors
                 </h1>
                 <div className="contributors">
-                   <p>
+                   <a href="https://github.com/CaseyDeriso" 
+                   target="_blank"
+                   >
                     Deriso, Casey
-                    </p>
-                    <p>
-                    Healy, Maxwell
-                    </p>
-                    <p>
-                    Sung, Yunik
-                    </p>
-                    <p>
-                    Shelby, Michael
-                    </p>
-                    <p>
-                    Fadare, Jennifer
-                    </p>
-                    <p>
-                    Burgo, Aldrin
-                    </p>
+                   </a>
+                   <a href="https://github.com/maxhealy01" 
+                   target="_blank"
+                   >
+                   Healy, Maxwell
+                   </a>
+                   <a href="https://github.com/yuniksung" 
+                   target="_blank"
+                   >
+                   Sung, Yunik
+                   </a>
+                   <a href="https://github.com/MikeGShelby" 
+                   target="_blank"
+                   >
+                   Shelby, Michael
+                   </a>
+                   <a href="https://github.com/aldrinburgos18" 
+                   target="_blank"
+                   >
+                   Burgo, Aldrin
+                   </a>
+                   <a href="https://github.com/JenniferFadare" 
+                   target="_blank"
+                   >
+                   Fadare, Jennifer
+                   </a>
                 </div>
                
             </div>

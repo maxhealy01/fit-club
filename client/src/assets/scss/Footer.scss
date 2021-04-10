@@ -2,7 +2,7 @@
 
 .footer{
   width: 100%;
-  height: 15vh;
+  height: 20vh;
   background: rgb(0, 22, 34);
   @include media("<=phone"){
     height: 20vh;
@@ -46,11 +46,16 @@
                 padding: 10px;
             }
         }
-        p{
+        a{
+            text-decoration: none;
             color: #ffaa00;
             @include media("<=phone"){
                 
                 padding: 5px;
+            }
+
+            &:hover{
+                color: #ffca60;
             }
         }
     }

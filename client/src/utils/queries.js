@@ -53,6 +53,19 @@ export const QUERY_WORKOUTS = gql`
   }
 `;
 
+export const CLASS_LIST = gql`
+  {
+    classItem {
+      _id
+      name
+      date
+      location {
+        _id
+      }
+    }
+  }
+`;
+
 export const QUERY_CONVERSATIONS = gql`
   {
     messages {

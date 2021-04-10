@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Auth from "../utils/auth";
 
 import '../assets/scss/navbar.scss';
 import auth from "../utils/auth";

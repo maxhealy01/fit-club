@@ -29,8 +29,8 @@ const onSubmit = async () => {
 
 	return (
 
-		<div className="wrapper ">
-            <div className="container">
+		<div className="register-wrapper ">
+            <div className="register-container">
                 <div className="formContent">
                     <h2 className="active"> Register </h2>
 

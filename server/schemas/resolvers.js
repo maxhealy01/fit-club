@@ -7,6 +7,7 @@ const {
 	Message,
 	Testimonial,
 	User,
+	ClassList,
 	Workout,
 } = require("../models");
 

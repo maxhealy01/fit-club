@@ -6,14 +6,6 @@ Due to COVID-19, the fitness community had to adapt to new ways to work out at h
 Now with the growing virtual options, trainers need a means to find people who need help with their fitness goals 
 and allow users to find people in their area that are hosting activities or classes to stay active.
 
-# Table of Contents
-
-* [Techniques](#Techniques)
-* [Links](#Links)
-* [Git Repository](#Git Repository)
-* [License](#License)
-* [Contributors](#Contributors)
-
 #Techniques
   - React.JS
   - SASS

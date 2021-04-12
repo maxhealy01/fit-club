@@ -9,7 +9,7 @@ and allow users to find people in their area that are hosting activities or clas
 # Table of Contents
 
 * [Techniques](#Techniques)
-* [Links](## Links)
+* [Links](#Links)
 * [Git Repository](#Git Repository)
 * [License](#License)
 * [Contributors](#Contributors)

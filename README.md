@@ -6,7 +6,7 @@ Due to COVID-19, the fitness community had to adapt to new ways to work out at h
 Now with the growing virtual options, trainers need a means to find people who need help with their fitness goals 
 and allow users to find people in their area that are hosting activities or classes to stay active.
 
-#Techniques
+# Techniques
   - React.JS
   - SASS
   - Socket.io
@@ -15,16 +15,16 @@ and allow users to find people in their area that are hosting activities or clas
   - React DatePicker
   - Mongoose
  
-#Links
+# Links
   - https://fit-clob.herokuapp.com/
 
-#Git Repository
+# Git Repository
   - https://github.com/maxhealy01/fit-club
   
-#License
+# License
   This project is licensed under the MIT license.
 
-#Contributors
+# Contributors
   ### Deriso, Casey 
   - https://github.com/CaseyDeriso
   

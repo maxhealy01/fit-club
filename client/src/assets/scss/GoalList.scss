@@ -115,6 +115,8 @@
 
                     .dv-txt{
                         display: inline-flex;
+                        height: 35px;
+
                         @include media("<=phone"){
                             width: 80%;
                             margin: 3px 0;

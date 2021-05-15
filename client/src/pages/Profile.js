@@ -5,7 +5,7 @@ import GoalList from '../components/GoalList';
 import GoalForm from '../components/GoalForm'
 import Footer from "../components/Footer";
 
-import ChatDashboard from "../components/ChatDashboard";
+// import ChatDashboard from "../components/ChatDashboard";
 import { ConversationsProvider } from "../utils/ConversationsProvider";
 
 import { SocketProvider } from "../utils/SocketProvider";
@@ -119,13 +119,13 @@ function Profile() {
       username={user.username}
     />
 
-     {!loading && 
+     {/* {!loading && 
       <SocketProvider id={_id}>
         <ConversationsProvider id={_id}>
           <ChatDashboard id={_id} />
         </ConversationsProvider>
       </SocketProvider> 
-    } 
+    }  */}
     <Footer />
     </>
   );
